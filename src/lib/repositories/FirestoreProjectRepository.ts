@@ -3,19 +3,18 @@ import {inject, injectable} from "inversify";
 import Project from "@/lib/models/Project";
 import {FirebaseCollections} from "@/lib/database/collections";
 import TYPES from "@/lib/di/types";
+import {firestore} from "firebase-admin";
+import Firestore = firestore.Firestore;
 
 @injectable()
 export default class FirestoreProjectRepository implements ProjectRepository {
-    private firestore: FirebaseFirestore.Firestore;
-
     constructor(
-        @inject(TYPES.Firestore) firestore: FirebaseFirestore.Firestore
+        @inject(TYPES.Firestore) private db: Firestore
     ) {
-        this.firestore = firestore;
     }
 
     async getAllProjects(): Promise<Project[]> {
-        const projectsSnapshot = await this.firestore
+        const projectsSnapshot = await this.db
             .collection(FirebaseCollections.Projects)
             .orderBy('order', 'asc')
             .get();
@@ -30,7 +29,7 @@ export default class FirestoreProjectRepository implements ProjectRepository {
     }
 
     async getHomepageProjects(): Promise<Project[]> {
-        const projectsSnapshot = await this.firestore
+        const projectsSnapshot = await this.db
             .collection(FirebaseCollections.Projects)
             .where('shouldShowOnHomepage', '==', true)
             .orderBy('order', 'asc')
@@ -46,7 +45,7 @@ export default class FirestoreProjectRepository implements ProjectRepository {
     }
 
     async getProjectById(id: string): Promise<Project | null> {
-        const projectDoc = await this.firestore
+        const projectDoc = await this.db
             .collection(FirebaseCollections.Projects)
             .doc(id)
             .get();
@@ -63,7 +62,7 @@ export default class FirestoreProjectRepository implements ProjectRepository {
     }
 
     async getProjectBySlug(slug: string): Promise<Project | null> {
-        const projectsSnapshot = await this.firestore
+        const projectsSnapshot = await this.db
             .collection(FirebaseCollections.Projects)
             .where('slug', '==', slug)
             .limit(1)

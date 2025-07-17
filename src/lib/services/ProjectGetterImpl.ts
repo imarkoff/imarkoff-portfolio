@@ -6,12 +6,9 @@ import TYPES from "@/lib/di/types";
 
 @injectable()
 export default class ProjectGetterImpl implements ProjectGetter {
-    private projectRepository: ProjectRepository;
-
     constructor(
-        @inject(TYPES.ProjectRepository) projectRepository: ProjectRepository
+        @inject(TYPES.ProjectRepository) private projectRepository: ProjectRepository
     ) {
-        this.projectRepository = projectRepository;
     }
 
     async getAllProjects(): Promise<Project[]> {
