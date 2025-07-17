@@ -25,4 +25,8 @@ export default class ProjectGetterImpl implements ProjectGetter {
     async getProjectById(id: string): Promise<Project | null> {
         return this.projectRepository.getProjectById(id);
     }
+
+    async getProjectBySlug(slug: string): Promise<Project | null> {
+        return this.projectRepository.getProjectBySlug(slug);
+    }
 }
