@@ -1,4 +1,4 @@
-import TechnologyCategory from "@/lib/models/types/TechnologyCategory";
+import {TechnologiesByCategories} from "@/lib/models/types/TechnologyCategory";
 
 export default interface AboutMe {
     name: string;
@@ -8,7 +8,7 @@ export default interface AboutMe {
     contactEmail: string;
     fullDescription: string;
     byTheNumbers: ByTheNumbers[];
-    technologiesCategories: Record<TechnologyCategory, string>;
+    technologiesCategories: TechnologiesByCategories;
 }
 
 export interface SocialLink {

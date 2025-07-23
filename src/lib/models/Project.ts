@@ -1,4 +1,4 @@
-import TechnologyCategory from "@/lib/models/types/TechnologyCategory";
+import {TechnologiesByCategories} from "@/lib/models/types/TechnologyCategory";
 
 export default interface Project {
     id: string;
@@ -11,7 +11,7 @@ export default interface Project {
     shouldShowOnHomepage: boolean;
     fullDescription: string;
     keyFeatures: string[];
-    fullTechStack: Record<TechnologyCategory, string>;
+    fullTechStack: TechnologiesByCategories;
     challenges: ProjectChallenge[];
     screenshots: string[];
     liveDemoUrl: string | null;

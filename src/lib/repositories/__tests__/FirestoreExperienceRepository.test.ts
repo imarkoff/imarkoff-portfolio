@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import FirestoreExperienceRepository from "@/lib/repositories/FirestoreExperienceRepository";
-import {mockCollection, mockFirestore, resetFirestoreMocks} from "@/lib/test-utils/firebase-mock";
+import {mockCollection, mockFirestore, resetFirestoreMocks} from "@/lib/test-utils/mocks/firebase.mocks";
 import {FirebaseCollections} from "@/lib/database/collections";
 
 beforeEach(() => {

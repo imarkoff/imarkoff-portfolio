@@ -6,10 +6,9 @@ import Project from "@/lib/models/Project";
 export default interface ProjectGetter {
     /**
      * Fetches all projects, optionally filtered by type.
-     * @param type - Optional filter for project type.
      * @returns A promise that resolves to an array of projects.
      */
-    getAllProjects(type?: string): Promise<Project[]>;
+    getAllProjects(): Promise<Project[]>;
 
     /**
      * Fetches projects that should be displayed on the homepage.

@@ -22,5 +22,6 @@ export async function GET() {
         if (error instanceof NotFoundError) {
             return new NextResponse("About Me not found", { status: 404 });
         }
+        throw error;
     }
 }

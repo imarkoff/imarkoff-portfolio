@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import FirestoreAboutMeRepository from "../FirestoreAboutMeRepository";
 import { NotFoundError } from "@/lib/errors/errors";
-import {mockCollection, mockDoc, mockFirestore, resetFirestoreMocks} from "@/lib/test-utils/firebase-mock";
+import {mockCollection, mockDoc, mockFirestore, resetFirestoreMocks} from "@/lib/test-utils/mocks/firebase.mocks";
 import {FirebaseCollections} from "@/lib/database/collections";
 
 const aboutMeData = { name: "John Doe", fullDescription: "Developer" };
