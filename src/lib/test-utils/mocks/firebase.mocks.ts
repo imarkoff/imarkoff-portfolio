@@ -51,5 +51,4 @@ export const resetFirestoreMocks = () => {
     mockDoc.exists = false;
     mockDoc.id = 'mockDocId';
     mockDoc.data = vi.fn(() => null);
-    mockDoc.get.mockResolvedValue({ exists: false, data: () => null });
 };

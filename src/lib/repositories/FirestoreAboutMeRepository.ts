@@ -21,7 +21,7 @@ export default class FirestoreAboutMeRepository implements AboutMeRepository {
             .get();
 
         if (!aboutMeDoc.exists) {
-            return Promise.reject(new NotFoundError("About Me document does not exist"));
+            throw new NotFoundError("About Me document does not exist");
         }
 
         return aboutMeDoc.data() as AboutMe;

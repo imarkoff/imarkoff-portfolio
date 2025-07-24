@@ -30,7 +30,7 @@ export default class ContainerBinder {
             if (serviceIdentifier === type) {
                 return mockService;
             }
-            throw new Error(`Unexpected service requested: ${String(type)}`);
+            throw new Error(`Unexpected service requested: ${String(serviceIdentifier)}`);
         });
 
         await container.unbind(type);
