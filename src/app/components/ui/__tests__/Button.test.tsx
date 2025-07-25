@@ -31,7 +31,7 @@ describe('Button Component', () => {
     });
 
     it('renders in loading state, is disabled, and shows loading text', () => {
-        render(<Button isLoading>Submit</Button>);
+        render(<Button loading>Submit</Button>);
         const button = screen.getByRole('button', { name: /submit/i });
         const spinner = screen.getByTestId('loading-spinner');
 
@@ -146,7 +146,7 @@ describe('Button Component', () => {
 
         expect(button).toHaveClass('bg-green-filled');
         expect(button).toHaveClass('hover:bg-green-filled-hover');
-        expect(button).toHaveClass('text-active-filled-text');
+        expect(button).toHaveClass('text-green-filled-text');
     });
 
     it('renders secondary variant with error color', () => {

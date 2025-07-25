@@ -4,36 +4,58 @@ import "@testing-library/jest-dom";
 import Section from '../Section';
 
 describe('Section', () => {
-    it('renders correctly with default props', () => {
-        render(<Section>Content</Section>);
-        expect(screen.getByText('Content')).toBeInTheDocument();
-    });
-
-    it('renders children correctly', () => {
+    it('applies custom className correctly', () => {
         render(
-            <Section>
-                <div data-testid="child">Child Content</div>
+            <Section
+                slotProps={{
+                    section: { className: 'custom-class' }
+                }}
+            >
+                Content
             </Section>
         );
-        expect(screen.getByTestId('child')).toBeInTheDocument();
-        expect(screen.getByTestId('child')).toHaveTextContent('Child Content');
-    });
-
-    it('applies custom className correctly', () => {
-        render(<Section className="custom-class">Content</Section>);
-        const sectionElement = screen.getByText('Content');
+        const sectionElement = screen.getByRole('region');
         expect(sectionElement).toHaveClass('custom-class');
         expect(sectionElement).toHaveClass('max-w-[1400px]');
     });
 
     it('forwards additional props correctly', () => {
-        render(<Section data-testid="section-element">Content</Section>);
+        render(
+            <Section
+                slotProps={{
+                    // @ts-expect-error 2353 data-testid is not defined in HTMLAttributes
+                    section: { 'data-testid': 'section-element' }
+                }}
+            >
+                Content
+            </Section>
+        );
         expect(screen.getByTestId('section-element')).toBeInTheDocument();
     });
 
-    it('renders without children', () => {
-        render(<Section />);
-        const sectionElement = screen.getByRole('region');
-        expect(sectionElement).toBeEmptyDOMElement();
+    it('passes props to root element correctly', () => {
+        render(
+            <Section
+                slotProps={{
+                    // @ts-expect-error 2353 data-testid is not defined in HTMLAttributes
+                    root: { 'data-testid': 'root-element' }
+                }}
+            >
+                Content
+            </Section>
+        );
+        expect(screen.getByTestId('root-element')).toBeInTheDocument();
+    });
+
+    it('handles undefined slotProps gracefully', () => {
+        render(<Section>Content</Section>);
+        expect(screen.getByText('Content')).toBeInTheDocument();
+        expect(screen.getByRole('region')).toBeInTheDocument();
+    });
+
+    it('should make children optional', () => {
+        // @ts-expect-error 2353 data-testid is not defined in HTMLAttributes
+        render(<Section slotProps={{ section: { 'data-testid': 'empty-section' } }} />);
+        expect(screen.getByTestId('empty-section')).toBeEmptyDOMElement();
     });
 });

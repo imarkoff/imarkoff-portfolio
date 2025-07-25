@@ -2,40 +2,40 @@
 
 @theme {
   /* Text Colors */
-  --color-primary: hsla(212, 68%, 95%, 1);
-  --color-secondary: hsla(212, 68%, 95%, 0.67);
-  --color-tertiary: hsla(212, 68%, 95%, 0.35);
+  --color-primary: hsla(280, 68%, 95%, 1);
+  --color-secondary: hsla(280, 68%, 95%, 0.67);
+  --color-tertiary: hsla(280, 68%, 95%, 0.35);
 
   /* Background Colors */
-  --color-background: hsla(210, 9%, 9%, 1);
-  --color-on-background: hsla(210, 5%, 15%, 0.5);
+  --color-background: hsla(280, 9%, 9%, 1);
+  --color-on-background: hsla(280, 5%, 15%, 0.5);
 
   /* Surface Colors */
-  --color-surface: hsla(210, 5%, 25%, 0.2);
-  --color-on-surface: hsla(210, 95%, 85%, 0.08);
-  --color-on-surface-hover: hsla(209, 40%, 85%, 0.13);
-  --color-on-surface-disabled: hsla(210, 95%, 85%, 0.04);
-  --color-on-surface-focus-border: hsla(212, 20%, 75%, 1);
+  --color-surface: hsla(280, 5%, 25%, 0.2);
+  --color-on-surface: hsla(280, 95%, 85%, 0.08);
+  --color-on-surface-hover: hsla(280, 40%, 85%, 0.13);
+  --color-on-surface-disabled: hsla(280, 95%, 85%, 0.04);
+  --color-on-surface-focus-border: hsla(280, 20%, 75%, 1);
 
   /* Border Colors */
   --color-border-default: hsla(0, 0%, 100%, 0.03);
   --color-border-menu: hsla(0, 0%, 100%, 0.1);
 
   /* State Colors */
-  --color-active-filled: hsla(211, 79%, 68%, 1);
-  --color-active-tinted: hsla(211, 75%, 30%, 0.1);
-  --color-active-filled-text: hsla(212, 31%, 20%, 1);
-  --color-active-filled-hover: hsla(211, 82%, 75%, 1);
-  --color-active-filled-disabled: hsla(211, 79%, 68%, 0.5);
-  --color-active-filled-text-disabled: hsla(212, 74%, 10%, 0.67);
+  --color-active-filled: hsla(280, 79%, 68%, 1);
+  --color-active-tinted: hsla(280, 75%, 30%, 0.1);
+  --color-active-filled-text: hsla(280, 31%, 20%, 1);
+  --color-active-filled-hover: hsla(280, 82%, 75%, 1);
+  --color-active-filled-disabled: hsla(280, 79%, 68%, 0.5);
+  --color-active-filled-text-disabled: hsla(280, 74%, 10%, 0.67);
 
   /* Button Colors */
-  --color-ghost-button-fg: hsla(213, 100%, 92%, 0.87);
-  --color-ghost-button-hover-fg: hsla(213, 100%, 83%, 1);
-  --color-ghost-button-disabled-fg: hsla(213, 100%, 92%, 0.3);
-  --color-ghost-button-hover-bg: hsla(212, 29%, 23%, 0.5);
-  --color-ghost-button-active-bg: hsla(211, 79%, 68%, 0.12);
-  --color-ghost-button-active-hover-bg: hsla(211, 79%, 68%, 0.2);
+  --color-ghost-button-fg: hsla(280, 100%, 92%, 0.87);
+  --color-ghost-button-hover-fg: hsla(280, 27%, 23%, 0.5);
+  --color-ghost-button-disabled-fg: hsla(280, 100%, 92%, 0.3);
+  --color-ghost-button-hover-bg: hsla(280, 29%, 23%, 0.5);
+  --color-ghost-button-active-bg: hsla(280, 79%, 68%, 0.12);
+  --color-ghost-button-active-hover-bg: hsla(280, 79%, 68%, 0.2);
 
   /* Functional Colors */
   --color-green-filled: hsla(133, 79%, 60%, 1);
@@ -53,16 +53,18 @@
   --color-red-filled-text: hsla(0, 31%, 20%, 1);
   --color-red-tinted: hsla(0, 75%, 30%, 0.12);
 
-  --color-hero-gradient: linear-gradient(90deg, rgb(163, 173, 195), rgb(220, 205, 255), rgb(112, 90, 136));
-  --color-text-gradient: linear-gradient(90deg, rgb(49, 152, 255), rgb(235, 111, 212), rgb(249, 90, 93), rgb(181, 111, 235));
-  --color-button-gradient: linear-gradient(90deg, rgb(235, 111, 212) 29.327%, rgb(181, 111, 235) 100%);
-  --color-logo-gradient: linear-gradient(90deg, rgb(167, 111, 235), rgb(235, 111, 208), rgb(225, 111, 235));
+  --gradient-hero: linear-gradient(90deg, rgb(163, 173, 195), rgb(220, 205, 255), rgb(112, 90, 136));
+  --gradient-text: linear-gradient(90deg, rgb(49, 152, 255), rgb(235, 111, 212), rgb(249, 90, 93), rgb(181, 111, 235));
+  --gradient-button: linear-gradient(90deg, rgb(235, 111, 212) 29.327%, rgb(181, 111, 235) 100%);
+  --gradient-logo: linear-gradient(90deg, rgb(167, 111, 235), rgb(235, 111, 208), rgb(225, 111, 235));
 
   /* Font Family */
   --font-sans: "Inter", sans-serif;
   --font-handwriting: "Just Another Hand", cursive;
 
   /* Font Sizes */
+  --text-logo: 1.375rem;
+
   --text-hero-lg: 5rem;
   --text-hero-md: 3.75rem;
   --text-hero-sm: 2rem;
@@ -124,6 +126,10 @@
 
   --spacing-card: 1.25rem;
   --spacing-card-sm: 1rem;
+
+  --spacing-label-x: 0.625rem;
+  --spacing-label-y: 0.15rem;
+
   --spacing-input: 0.625rem;
 
   /* Border Radius */
@@ -133,5 +139,14 @@
   --radius-label: 0.5rem;
   --radius-card: 1.25rem;
 
-  --drop-shadow-card: 0 4px 26px rgba(0, 0, 0, 0.15);
+@keyframes animated-button-shadow {
+  from {
+    box-shadow: 0 0 10px rgba(250, 99, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(250, 99, 255, 0.75);
+  }
+  to {
+    box-shadow: 0 0 10px rgba(250, 99, 255, 0.5);
+  }
 }

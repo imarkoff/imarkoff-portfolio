@@ -30,8 +30,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
      * Indicates if the button is in a loading state.
      * Disables the button and applies a loading style.
      */
-    isLoading?: boolean;
-    onClick?: () => void;
+    loading?: boolean;
+    /** Is the button currently active */
+    active?: boolean;
     /** Icon to display on the left side of the button. */
     LeftIcon?: ComponentType<IconType>;
     /** Icon to display on the right side of the button. */
@@ -70,7 +71,8 @@ export default function Button(
         size = "medium",
         variant = "secondary",
         color = "accent",
-        isLoading,
+        loading,
+        active,
         type = "button",
         ...props
     }: ButtonProps
@@ -108,16 +110,17 @@ export default function Button(
 
         // Tertiary Variant
         "text-ghost-button-fg": variant === "tertiary",
-        "hover:bg-ghost-button-hover-bg hover:bg-ghost-button-hover-fg": variant === "tertiary",
+        "hover:bg-ghost-button-hover-bg hover:bg-ghost-button-hover-fg focus-visible:bg-ghost-button-hover-bg focus-visible:bg-ghost-button-hover-fg": variant === "tertiary",
         "active:bg-ghost-button-active-bg hover:active:bg-ghost-button-active-hover-bg": variant === "tertiary",
+        "bg-ghost-button-active-bg text-ghost-button-active-fg": variant === "tertiary" && active,
     });
 
     const borderClasses = clsx(
         "border",
-        variant === "tertiary" ? "border-transparent" : "border-border-default",
-        {"focus-visible:border-active-filled": variant === "primary"},
-        {"focus-visible:border-on-surface-focus-border": variant === "secondary"},
-        {"focus-visible:border-on-surface-focus-border": variant === "tertiary"}
+        {"border-border-default": variant === "secondary" || variant === "primary"},
+        {"border-transparent": variant === "tertiary" && !active},
+        {"border border-border-default": variant === "tertiary" && active},
+        {"focus-visible:border-active-filled focus-visible:border-background": variant === "primary"},
     );
 
     const borderRadiusClasses = clsx({
@@ -125,22 +128,29 @@ export default function Button(
         "rounded-button-sm": size === "small",
     });
 
+    const dropShadowClasses = clsx({
+        "focus-visible:scale-105 hover:scale-105 active:scale-95": variant === "primary",
+        "hover:animate-accent-button-shadow focus-visible:animate-accent-button-shadow": variant === "primary" && color === "accent",
+    });
+
     return (
         <button
             className={clsx(
                 "relative",
-                "font-semibold box-border leading-0 disabled:opacity-50",
+                "font-semibold box-border leading-1 disabled:opacity-50",
                 "cursor-pointer disabled:cursor-not-allowed",
                 "outline-2 outline-transparent focus-visible:outline-on-surface-focus-border",
-                "transition-colors duration-200",
+                "transition-all duration-200",
+                "active:scale-95",
                 colorClasses,
                 borderClasses,
                 borderRadiusClasses,
                 paddingClasses,
+                dropShadowClasses,
                 className
             )}
             type={type}
-            disabled={isLoading || props.disabled}
+            disabled={loading || props.disabled}
             {...props}
         >
             <span className={clsx(
@@ -148,7 +158,7 @@ export default function Button(
                 {"gap-button-gap-md": size === "medium"},
                 {"gap-button-gap-sm": size === "small"},
                 "transition-all duration-200",
-                isLoading && "blur-sm"
+                loading && "blur-sm"
             )}>
                 {LeftIcon && (
                     <LeftIcon className={"size-icon-md"} data-testid={"left-icon"} />
@@ -158,7 +168,7 @@ export default function Button(
                     <RightIcon className={"size-icon-md"} data-testid={"right-icon"} />
                 )}
             </span>
-            {isLoading && (
+            {loading && (
                 <span className={clsx(
                     "absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2",
                     "size-icon-md"
