@@ -1,0 +1,35 @@
+import {HTMLAttributes, ReactNode} from "react";
+import clsx from "clsx";
+
+interface SectionProps {
+    children: ReactNode;
+    slotProps?: {
+        root?: HTMLAttributes<HTMLDivElement>;
+        section?: HTMLAttributes<HTMLDivElement>;
+    }
+}
+
+export default function Section({children, slotProps}: SectionProps) {
+    const { className, ...props } = slotProps?.section || {};
+
+    return (
+        <div
+            {...slotProps?.root}
+            className={clsx("border-b-2 border-border-menu", slotProps?.root?.className)}
+        >
+            <section
+                className={clsx(
+                    "max-w-[1400px] mx-auto h-full",
+                    "px-section-sm-x py-section-sm-y",
+                    "md:px-section-md-x md:py-section-md-y",
+                    "lg:px-section-lg-x lg:py-section-lg-y",
+                    className
+                )}
+                role="region"
+                {...props}
+            >
+                {children}
+            </section>
+        </div>
+    );
+}
