@@ -11,15 +11,18 @@
     "test": "vitest run --coverage"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "@tailwindcss/postcss": "^4.1.11",
     "clsx": "^2.1.1",
     "firebase-admin": "^13.4.0",
+    "gsap": "^3.13.0",
     "inversify": "^7.0.0-alpha.5",
     "next": "15.4.1",
     "next-auth": "^4.24.11",
     "postcss": "^8.5.6",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "react-markdown": "^10.1.0",
     "reflect-metadata": "^0.2.2",
     "tailwindcss": "^4.1.11"
   },

@@ -1,12 +1,12 @@
-import {HTMLAttributes} from "react";
+import {ComponentProps} from "react";
 import clsx from "clsx";
 
-interface TypographyProps extends HTMLAttributes<HTMLParagraphElement> {
+interface TypographyProps extends ComponentProps<'p'> {
     /**
      * The HTML element to render as the component.
      * Defaults to "p" for paragraph.
      * */
-    component?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p";
+    component?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "div";
     /**
      * The variant of typography to apply.
      * This determines the text style and size.

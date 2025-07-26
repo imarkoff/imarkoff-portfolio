@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Just_Another_Hand } from "next/font/google";
 import "./globals.css";
 import {ReactNode} from "react";
+import clsx from "clsx";
+import dottedBackground from "@/utils/dottedBackground";
 
 const InterFont = Inter({
     subsets: ["latin"],
@@ -22,10 +24,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children}: Readonly<{ children: ReactNode; }>) {
     return (
-        <html lang="en">
-        <body className={`bg-background text-body ${InterFont.variable} ${JustAnotherHandFont.variable} `}>
-        {children}
-        </body>
+        <html lang="en" className={"scroll-smooth min-h-0 h-full"}>
+            <body
+                className={clsx(
+                    "bg-background text-primary h-full",
+                    InterFont.variable, JustAnotherHandFont.variable
+                )}
+                style={dottedBackground("rgba(255, 255, 255, 0.02)", "2px", "25px")}
+            >
+                {children}
+            </body>
         </html>
     );
 }

@@ -130,6 +130,7 @@
   --spacing-label-x: 0.625rem;
   --spacing-label-y: 0.15rem;
 
+  --spacing-navbar: 0.375rem;
   --spacing-input: 0.625rem;
 
   /* Border Radius */
@@ -138,6 +139,12 @@
   --radius-input: 0.5rem;
   --radius-label: 0.5rem;
   --radius-card: 1.25rem;
+  --radius-navbar: calc(var(--radius-button-sm) + var(--spacing-navbar));
+
+  --shadow-card: 0 4px 26px rgba(0, 0, 0, 0.15);
+
+  --animate-accent-button-shadow: animated-button-shadow 3s infinite;
+}
 
 @keyframes animated-button-shadow {
   from {
