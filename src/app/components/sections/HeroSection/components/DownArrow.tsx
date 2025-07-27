@@ -49,7 +49,7 @@ export default function DownArrow() {
 
     return (
         <div
-            className={`px-3 py-5 border-2 rounded-full text-ghost-button-fg/50 bg-tertiary/5`}
+            className={`px-3 py-5 border-[3px] rounded-full text-ghost-button-fg/50 bg-background/40 md:bg-tertiary/5 backdrop-blur-sm`}
             ref={containerRef}
         >
             <svg width="24" height="47" viewBox="0 0 24 47" fill="currentColor" xmlns="http://www.w3.org/2000/svg" ref={arrowRef}>

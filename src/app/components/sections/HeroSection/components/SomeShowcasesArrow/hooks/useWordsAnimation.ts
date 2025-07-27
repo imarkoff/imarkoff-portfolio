@@ -3,7 +3,7 @@ import {SplitText} from "gsap/SplitText";
 import {useGSAP} from "@gsap/react";
 import {useRef} from "react";
 
-export default function useCharsAnimation() {
+export default function useWordsAnimation() {
     const textRef = useRef<HTMLParagraphElement>(null);
 
     gsap.registerPlugin(SplitText);
@@ -11,17 +11,13 @@ export default function useCharsAnimation() {
     useGSAP(() => {
         if (!textRef.current) return;
 
-        const splitText = new SplitText(textRef.current, { type: "lines, words, chars" });
+        const splitText = new SplitText(textRef.current, { type: "words" });
 
-        gsap.from(splitText.chars, {
+        gsap.from(splitText.words, {
             opacity: 0,
-            y: 20,
-            stagger: {
-                amount: 0.5,
-                from: "start",
-                ease: "power2.inOut"
-            },
-            duration: 0.5,
+            y: 10,
+            stagger: 0.1,
+            ease: "power2.out",
             delay: 3
         })
     }, []);

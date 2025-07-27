@@ -18,44 +18,29 @@ export default function GreetingAnimator({greetingHiId, greetingOtherId}: { gree
         tl.fromTo(greetingHiElement, {
             opacity: 0,
             filter: "blur(4px)",
-            position: "absolute",
-            paddingLeft: "40px",
-            yPercent: 100,
             y: 20
         }, {
             opacity: 1,
             filter: "blur(0px)",
-            position: "relative",
-            yPercent: 100,
-            paddingLeft: "40px",
             y: 0,
             stagger: 0.1,
             duration: 0.5
         });
         tl.fromTo(greetingHiElement, {
             transform: "scale(3)",
-            paddingLeft: "40px",
             yPercent: 100,
         }, {
             transform: "scale(1)",
-            xPercent: 0,
             yPercent: 0,
-            paddingLeft: 0,
             duration: 0.5,
-            delay: 1,
+            delay: 0.5,
         })
         tl.fromTo(greetingOtherElement, {
             opacity: 0,
-            paddingLeft: "20px",
-            paddingRight: "20px",
-            y: 20
+            y: 40,
         }, {
             opacity: 1,
-            filter: "blur(0px)",
-            paddingLeft: 0,
-            paddingRight: 0,
             y: 0,
-            stagger: 0.1,
             duration: 0.5,
         }, "<");
 

@@ -1,6 +1,6 @@
 import Section from "@/app/components/ui/Section";
 import Typography from "@/app/components/ui/Typography";
-import Navbar from "@/app/components/layout/Navbar";
+import Navbar from "@/app/components/layout/Navbar/Navbar";
 import container from "@/lib/di/container";
 import TYPES from "@/lib/di/types";
 import AboutMeGetter from "@/lib/services/interfaces/AboutMeGetter";
@@ -15,7 +15,7 @@ export default async function Home() {
         <main className={"min-h-full flex flex-col"}>
             <Navbar />
             <HeroSection aboutMe={aboutMe} />
-            <Section slotProps={{ root: { className: "border-t-2" } }}>
+            <Section slotProps={{ root: { className: "border-t-2 overflow-hidden" } }}>
                 <Typography variant={"hero"} component={"h1"}>
                     Hero
                 </Typography>

@@ -58,8 +58,8 @@ export default function Typography(
         h1: "text-h1-sm md:text-h1-md lg:text-h1-lg font-extrabold",
         h2: "text-h2-sm md:text-h2-md lg:text-h2-lg font-bold",
         h3: "text-h3-sm md:text-h3-md lg:text-h3-lg font-semibold",
-        body: "text-body-sm font-normal",
-        caption: "text-caption-sm font-normal text-secondary",
+        body: "text-body font-normal",
+        caption: "text-caption font-normal text-secondary",
     };
 
     const Component = component;
@@ -69,7 +69,6 @@ export default function Typography(
             className={clsx(
                 "leading-normal",
                 "tracking-normal",
-                "text-left",
                 className,
                 variant ? correspondingStyle[variant] : correspondingStyle.body,
                 family === "handwritten" && "font-handwriting",

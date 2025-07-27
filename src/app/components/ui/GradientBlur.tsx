@@ -71,7 +71,7 @@ export default function GradientBlur(
     const isTopToBottom = direction === "top-to-bottom";
 
     return (
-        <div className={clsx("absolute inset-0", className)} style={{ background }}>
+        <div className={clsx("absolute inset-0 pointer-events-none", className)} style={{ background }}>
             {layers.map(({blurAmount, maskStart, maskEnd}, index) => {
                 const maskGradient = isTopToBottom
                     ? `linear-gradient(rgba(0, 0, 0, 1) ${maskStart}%, rgba(0, 0, 0, 0) ${maskEnd}%)`

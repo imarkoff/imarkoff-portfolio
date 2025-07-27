@@ -1,12 +1,12 @@
-import {ButtonHTMLAttributes, ComponentType, ReactNode} from "react";
+import {ComponentProps, ComponentType, ReactNode} from "react";
 import clsx from "clsx";
 import ProgressActivityIcon from "@/app/components/icons/ProgressActivityIcon";
 import IconType from "@/app/components/icons/IconType";
 
 type ButtonSize = "small" | "medium";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-    children: ReactNode;
+interface ButtonProps extends ComponentProps<'button'> {
+    children?: ReactNode;
     /**
      * Variant of the button - determines the background and text color.
      * "primary" for vibrant background,
@@ -81,16 +81,16 @@ export default function Button(
         // Small size paddings
         "py-button-sm-y": size === "small",
         "px-button-sm-x": size === "small" && !isIconButton && !LeftIcon && !RightIcon,
-        "pl-button-icon-sm-x pr-button-sm-x": size === "small"&& !!LeftIcon && !RightIcon,
-        "pl-button-sm-x pr-button-icon-sm-x": size === "small" && !LeftIcon && !!RightIcon,
+        "pl-button-icon-sm-x pr-button-sm-x": size === "small" && !!LeftIcon && !RightIcon && !isIconButton,
+        "pl-button-sm-x pr-button-icon-sm-x": size === "small" && !LeftIcon && !!RightIcon && !isIconButton,
         "px-button-icon-sm-x": size === "small" && !!LeftIcon && !!RightIcon,
         "px-button-sm-y": size === "small" && isIconButton,
 
         // Medium size paddings
         "py-button-md-y": size === "medium",
         "px-button-md-x": size === "medium" && !isIconButton && !LeftIcon && !RightIcon,
-        "pl-button-icon-md-x pr-button-md-x": size === "medium" && !!LeftIcon && !RightIcon,
-        "pl-button-md-x pr-button-icon-md-x": size === "medium" && !LeftIcon && !!RightIcon,
+        "pl-button-icon-md-x pr-button-md-x": size === "medium" && !!LeftIcon && !RightIcon && !isIconButton,
+        "pl-button-md-x pr-button-icon-md-x": size === "medium" && !LeftIcon && !!RightIcon && !isIconButton,
         "px-button-icon-md-x": size === "medium" && !!LeftIcon && !!RightIcon,
         "px-button-md-y": size === "medium" && isIconButton,
     });

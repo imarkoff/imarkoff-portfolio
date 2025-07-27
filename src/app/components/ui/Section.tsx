@@ -19,7 +19,7 @@ export default function Section({children, slotProps}: SectionProps) {
         >
             <section
                 className={clsx(
-                    "max-w-[1400px] mx-auto h-full",
+                    "max-w-[1400px] mx-auto size-full",
                     "px-section-sm-x py-section-sm-y",
                     "md:px-section-md-x md:py-section-md-y",
                     "lg:px-section-lg-x lg:py-section-lg-y",

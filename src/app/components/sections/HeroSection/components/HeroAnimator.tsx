@@ -33,7 +33,7 @@ export default function HeroAnimator({nameId, taglineId, labelId, buttonWrapperC
             y: 0,
             stagger: 0.02,
             duration: 0.5,
-            delay: 1.5
+            delay: 1
         });
 
         tl.fromTo(taglineElement, {
@@ -45,18 +45,7 @@ export default function HeroAnimator({nameId, taglineId, labelId, buttonWrapperC
             filter: "blur(0px)",
             y: 0,
             duration: 0.5,
-            delay: 0.5
-        }, "<");
-
-        tl.fromTo(labelElement, {
-            opacity: 0,
-            filter: "blur(12px)",
-        }, {
-            opacity: 1,
-            filter: "blur(0px)",
-            y: 0,
-            duration: 0.4,
-        });
+        }, "-=0.4");
 
         tl.fromTo(allButtons, {
             opacity: 0,
@@ -68,7 +57,14 @@ export default function HeroAnimator({nameId, taglineId, labelId, buttonWrapperC
             y: 0,
             duration: 0.4,
             stagger: 0.1,
-        }, "<");
+        }, "-=0.5");
+
+        tl.fromTo(labelElement, {
+            opacity: 0,
+        }, {
+            opacity: 1,
+            duration: 1,
+        }, "-=0.3");
 
         return () => {
             tl.kill();
