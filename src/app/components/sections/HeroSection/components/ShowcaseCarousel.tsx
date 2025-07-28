@@ -1,6 +1,6 @@
 "use client";
 
-import VerticalTicker from "@/app/components/ui/VerticalTicker";
+import VerticalTicker from "@/app/components/ui/VerticalTicker/VerticalTicker";
 import {useRef} from "react";
 import {useGSAP} from "@gsap/react";
 import Image from "next/image";
