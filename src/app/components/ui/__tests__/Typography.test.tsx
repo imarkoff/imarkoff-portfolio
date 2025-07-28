@@ -35,14 +35,14 @@ describe('Typography', () => {
         render(<Typography variant="caption">Caption Text</Typography>);
         const captionElement = screen.getByText('Caption Text');
 
-        expect(captionElement).toHaveClass('text-caption-sm', 'text-secondary');
+        expect(captionElement).toHaveClass('text-caption', 'text-secondary');
     });
 
     it('applies default body variant when no variant specified', () => {
         render(<Typography>Default Body</Typography>);
         const bodyElement = screen.getByText('Default Body');
 
-        expect(bodyElement).toHaveClass('text-body-sm');
+        expect(bodyElement).toHaveClass('text-body');
     });
 
     it('applies custom className correctly', () => {
