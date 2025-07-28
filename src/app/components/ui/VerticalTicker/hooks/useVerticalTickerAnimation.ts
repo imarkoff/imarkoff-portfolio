@@ -1,6 +1,6 @@
 import {RefObject} from "react";
-import {useGSAP} from "@gsap/react";
 import gsap from "gsap";
+import {useGSAP} from "@gsap/react";
 import {TickerDirection} from "@/app/components/ui/VerticalTicker/types";
 import TickerStopper from "@/app/components/ui/VerticalTicker/utils/TickerStopper";
 import {calculateTickerAnimation} from "@/app/components/ui/VerticalTicker/utils/tickerCalculations";
@@ -12,7 +12,7 @@ type AnimationRefs = {
     contentRef: RefObject<HTMLDivElement | null>,
 };
 
-type AnimationParams = {
+export type AnimationParams = {
     spacing: number,
     direction: TickerDirection,
     speed: number,
