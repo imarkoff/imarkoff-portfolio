@@ -4,6 +4,8 @@ import "./globals.css";
 import {ReactNode} from "react";
 import clsx from "clsx";
 import dottedBackground from "@/utils/dottedBackground";
+import RemoveAnimateAppear from "@/app/components/layout/RemoveAnimateAppear";
+import "@/utils/registerGSAPPlugins";
 
 const InterFont = Inter({
     subsets: ["latin"],
@@ -32,6 +34,16 @@ export default function RootLayout({children}: Readonly<{ children: ReactNode; }
                 )}
                 style={dottedBackground("rgba(255, 255, 255, 0.02)", "2px", "25px")}
             >
+                <RemoveAnimateAppear />
+                <noscript>
+                    <style>
+                        {`
+                            [data-animate-appear] {
+                                opacity: 1 !important;
+                            }
+                        `}
+                    </style>
+                </noscript>
                 {children}
             </body>
         </html>

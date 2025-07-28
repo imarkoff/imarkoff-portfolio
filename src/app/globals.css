@@ -157,3 +157,7 @@
     box-shadow: 0 0 10px rgba(250, 99, 255, 0.5);
   }
 }
+
+[data-animate-appear] {
+  opacity: 0;
+}

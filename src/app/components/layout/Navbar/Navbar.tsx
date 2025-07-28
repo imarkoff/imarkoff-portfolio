@@ -22,7 +22,7 @@ export default function Navbar() {
     const [activeLink, setActiveLink] = useState<string>("#home");
 
     return (
-        <div className={"fixed top-0 inset-x-0 z-50 p-4 md:p-5 lg:px-0"}>
+        <div className={"fixed top-0 inset-x-0 z-50 p-4 md:p-5 lg:px-0"} data-animate-appear>
             <GradientBlur
                 direction={"top-to-bottom"}
                 background={"linear-gradient(180deg, rgba(21, 23, 25, 75%) 0%, rgba(21, 23, 25, 25%) 33%, rgba(21, 23, 25, 0%) 100%)"}

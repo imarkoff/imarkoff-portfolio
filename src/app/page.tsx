@@ -6,15 +6,18 @@ import TYPES from "@/lib/di/types";
 import AboutMeGetter from "@/lib/services/interfaces/AboutMeGetter";
 import HeroSection from "@/app/components/sections/HeroSection/HeroSection";
 import Label from "@/app/components/ui/Label";
+import ShowcaseGetter from "@/lib/services/interfaces/ShowcaseGetter";
 
 export default async function Home() {
     const aboutMeGetter = container.get<AboutMeGetter>(TYPES.AboutMeGetter);
+    const showcaseGetter = container.get<ShowcaseGetter>(TYPES.ShowcaseGetter);
     const aboutMe = await aboutMeGetter.getAboutMe();
+    const showcases = await showcaseGetter.getShowcases();
 
     return (
         <main className={"min-h-full flex flex-col"}>
             <Navbar />
-            <HeroSection aboutMe={aboutMe} />
+            <HeroSection aboutMe={aboutMe} showcases={showcases} />
             <Section slotProps={{ root: { className: "border-t-2 overflow-hidden" } }}>
                 <Typography variant={"hero"} component={"h1"}>
                     Hero

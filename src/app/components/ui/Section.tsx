@@ -1,11 +1,11 @@
-import {HTMLAttributes, ReactNode} from "react";
+import {ComponentProps, ReactNode} from "react";
 import clsx from "clsx";
 
 interface SectionProps {
     children: ReactNode;
     slotProps?: {
-        root?: HTMLAttributes<HTMLDivElement>;
-        section?: HTMLAttributes<HTMLDivElement>;
+        root?: ComponentProps<'div'> & { "data-animate-appear"?: boolean };
+        section?: ComponentProps<'div'> & { "data-animate-appear"?: boolean };
     }
 }
 
