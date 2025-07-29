@@ -1,19 +1,19 @@
 "use client";
 
 import Typography from "@/app/components/ui/Typography";
-import useWordsAnimation
-    from "@/app/components/sections/HeroSection/components/SomeShowcasesArrow/hooks/useWordsAnimation";
-import useArrowAnimation
-    from "@/app/components/sections/HeroSection/components/SomeShowcasesArrow/hooks/useArrowAnimation";
+import useShowcaseAppear
+    from "@/app/components/sections/HeroSection/components/SomeShowcasesArrow/hooks/useShowcaseAppear";
 import ArrowSVG from "@/app/components/sections/HeroSection/components/SomeShowcasesArrow/components/ArrowSVG";
 
 export default function SomeShowcasesArrow() {
-    const { pathRef, arrowRef } = useArrowAnimation();
-    const { textRef } = useWordsAnimation();
+    const { pathRef, arrowRef, textRef } = useShowcaseAppear()
 
     return (
         <div className={"absolute text-secondary -left-[50px] lg:-left-[150px] top-1/3 -translate-x-1/2 -translate-y-1/2"}>
-            <div className={"absolute lg:translate-x-1/3 -translate-y-1/3 -top-[10px] scale-75 lg:scale-100"}>
+            <div
+                className={"absolute lg:translate-x-1/3 -translate-y-1/3 -top-[10px] scale-75 lg:scale-100"}
+                data-testid={"arrow-svg-container"}
+            >
                 <ArrowSVG pathRef={pathRef} arrowRef={arrowRef} />
             </div>
             <Typography
