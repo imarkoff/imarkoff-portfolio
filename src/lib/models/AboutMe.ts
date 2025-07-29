@@ -2,6 +2,7 @@ import {TechnologiesByCategories} from "@/lib/models/types/TechnologyCategory";
 
 export default interface AboutMe {
     name: string;
+    surname: string | null;
     tagline: string;
     socialLinks: SocialLink[];
     resumeUrl: string;
