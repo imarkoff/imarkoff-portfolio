@@ -4,7 +4,7 @@ import "./globals.css";
 import {ReactNode} from "react";
 import clsx from "clsx";
 import dottedBackground from "@/utils/dottedBackground";
-import RemoveAnimateAppear from "@/app/components/layout/RemoveAnimateAppear";
+import RemoveAnimateAppear from "@/components/layout/RemoveAnimateAppear";
 import "@/utils/registerGSAPPlugins";
 
 const InterFont = Inter({

@@ -1,11 +1,11 @@
-import Section from "@/app/components/ui/Section";
-import Typography from "@/app/components/ui/Typography";
-import Navbar from "@/app/components/layout/Navbar/Navbar";
+import Section from "@/components/ui/Section";
+import Typography from "@/components/ui/Typography";
+import Navbar from "@/components/layout/Navbar/Navbar";
 import container from "@/lib/di/container";
 import TYPES from "@/lib/di/types";
 import AboutMeGetter from "@/lib/services/interfaces/AboutMeGetter";
-import HeroSection from "@/app/components/sections/HeroSection/HeroSection";
-import Label from "@/app/components/ui/Label";
+import HeroSection from "@/components/sections/HeroSection/HeroSection";
+import Label from "@/components/ui/Label";
 import ShowcaseGetter from "@/lib/services/interfaces/ShowcaseGetter";
 
 export default async function Home() {
