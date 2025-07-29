@@ -19,7 +19,7 @@ export default function AnimateHero(
         const allButtons = document.getElementsByClassName(buttonWrapperClassName);
 
         if (Object.values(elements).some (el => el === null) || allButtons.length === 0) {
-            console.warn("HeroAnimator: One or more elements not found. Animation will not run.");
+            console.warn("AnimateHero: One or more elements not found. Animation will not run.");
             return () => {};
         }
 

@@ -1,5 +1,7 @@
 import { TickerDirection } from "../types";
 
+export const PIXELS_PER_SECOND = 50;
+
 export function calculateTickerAnimation(
     contentHeight: number,
     spacing: number,
@@ -24,6 +26,5 @@ export function calculateYPosition(animationDistance: number, direction: TickerD
 }
 
 export function calculateDuration(animationDistance: number, speed: number): number {
-    // 50 is a multiplier to convert speed to pixels per second
-    return animationDistance / (speed * 50);
+    return animationDistance / (speed * PIXELS_PER_SECOND);
 }

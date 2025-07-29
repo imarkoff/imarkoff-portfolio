@@ -86,7 +86,7 @@ describe('AnimateHero', () => {
         render(<AnimateHero {...defaultProps} />);
         contextFunc?.();
 
-        expect(consoleWarnSpy).toHaveBeenCalledWith("HeroAnimator: One or more elements not found. Animation will not run.");
+        expect(consoleWarnSpy).toHaveBeenCalledWith("AnimateHero: One or more elements not found. Animation will not run.");
         expect(mockGsapTimeline).not.toHaveBeenCalled();
         consoleWarnSpy.mockRestore();
     });
@@ -109,7 +109,7 @@ describe('AnimateHero', () => {
         render(<AnimateHero {...defaultProps} />);
         contextFunc?.();
 
-        expect(consoleWarnSpy).toHaveBeenCalledWith("HeroAnimator: One or more elements not found. Animation will not run.");
+        expect(consoleWarnSpy).toHaveBeenCalledWith("AnimateHero: One or more elements not found. Animation will not run.");
         expect(mockGsapTimeline).not.toHaveBeenCalled();
         consoleWarnSpy.mockRestore();
     });

@@ -21,7 +21,7 @@ jobs:
           node-version: "20"
 
       - name: Install dependencies
-        run: cd frontend && npm install
+        run: npm install
 
       - name: Run Vitest tests
-        run: cd frontend && npm test
+        run: npm test
