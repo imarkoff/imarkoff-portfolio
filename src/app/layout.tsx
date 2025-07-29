@@ -5,7 +5,6 @@ import {ReactNode} from "react";
 import clsx from "clsx";
 import dottedBackground from "@/utils/dottedBackground";
 import RemoveAnimateAppear from "@/components/layout/RemoveAnimateAppear";
-import "@/utils/registerGSAPPlugins";
 
 const InterFont = Inter({
     subsets: ["latin"],

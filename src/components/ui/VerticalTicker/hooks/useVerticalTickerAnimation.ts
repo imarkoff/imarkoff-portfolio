@@ -5,8 +5,6 @@ import {TickerDirection} from "@/components/ui/VerticalTicker/types";
 import TickerStopper from "@/components/ui/VerticalTicker/utils/TickerStopper";
 import {calculateTickerAnimation} from "@/components/ui/VerticalTicker/utils/tickerCalculations";
 
-gsap.registerPlugin(useGSAP);
-
 type AnimationRefs = {
     tickerStripRef: RefObject<HTMLDivElement | null>,
     contentRef: RefObject<HTMLDivElement | null>,
