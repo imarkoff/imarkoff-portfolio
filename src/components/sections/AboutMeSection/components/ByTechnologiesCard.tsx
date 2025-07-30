@@ -8,16 +8,28 @@ import Label from "@/components/ui/Label";
 import Image from "next/image";
 import {Fragment} from "react";
 import clsx from "clsx";
+import ByTechnologiesScroll from "@/components/sections/AboutMeSection/components/ByTechnologiesScroll";
+
+
 
 export default function ByTechnologiesCard(
     { technologies }: { technologies: TechnologiesByCategory[] }
 ) {
+    const references = {
+        containerId: "technologies.container",
+        titleId: "technologies.title",
+    };
+
     return (
-        <div>
-            <Typography variant={"h3"} component={"h3"} className={"mb-2.5"}>
+        <div id={references.containerId}>
+            <ByTechnologiesScroll references={ references } />
+            <Typography variant={"h3"} component={"h3"} className={"mb-2.5"} id={references.titleId}>
                 By technologies:
             </Typography>
-            <Card className={"grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-5"}>
+            <Card
+                className={"grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-5"}
+                role={"list"}
+            >
                 {technologies.map((category, index) => (
                     <Fragment key={category.categoryName}>
                         <TechnologiesGroup category={category} />
@@ -41,7 +53,7 @@ const TechnologiesGroup = ({category} : { category: TechnologiesByCategory }) =>
     const Icon = IconMap[categoryMetadata.icon];
 
     return (
-        <div className={"mb-4"}>
+        <div className={`mb-4`}>
             <div className={"mb-2 flex items-center gap-2"}>
                 <TypographyIcon Icon={Icon} variant={"h3"} />
                 <Typography variant={"h3"} component={"h4"}>
@@ -52,7 +64,7 @@ const TechnologiesGroup = ({category} : { category: TechnologiesByCategory }) =>
             <ul className={"flex flex-wrap gap-2.5"}>
                 {category.techs.map((tech) => (
                     <li key={tech.slug}>
-                        <Label icon={
+                        <Label className={"technologies.label"} icon={
                             tech.iconUrl ? <Image
                                 src={tech.iconUrl}
                                 alt={tech.name}

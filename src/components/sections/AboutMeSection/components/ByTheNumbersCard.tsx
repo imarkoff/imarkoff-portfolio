@@ -3,13 +3,21 @@ import Typography from "@/components/ui/Typography";
 import Card from "@/components/ui/Card";
 import clsx from "clsx";
 import ReactMarkdown from "react-markdown";
-import iconMap from "@/components/icons/IconMap";
 import TypographyIcon from "@/components/ui/TypographyIcon";
+import IconMap, {IconName} from "@/components/icons/IconMap";
+import NumberIncrement from "@/components/ui/NumberIncrement";
 
-export default function ByTheNumbersCard({byTheNumbers}: { byTheNumbers: ByTheNumbers[] }) {
+interface ByTheNumbersCardProps {
+    byTheNumbers: ByTheNumbers[];
+    id?: string;
+    headingId?: string;
+}
+
+export default function ByTheNumbersCard(
+    {byTheNumbers, id, headingId}: ByTheNumbersCardProps) {
     return (
-        <div>
-            <Typography variant={"h3"} component={"h3"} className={"mb-2.5"}>
+        <div id={id}>
+            <Typography variant={"h3"} component={"h3"} className={"mb-2.5"} id={headingId}>
                 By the numbers:
             </Typography>
             <Card className={"p-card-sm lg:p-card flex flex-col gap-4"}>
@@ -22,8 +30,7 @@ export default function ByTheNumbersCard({byTheNumbers}: { byTheNumbers: ByTheNu
 }
 
 const ByTheNumbersItem = ({item}: { item: ByTheNumbers }) => {
-    console.log(item);
-    const Icon = iconMap[item.iconName];
+    const Icon = IconMap[item.iconName as IconName];
 
     return (
         <div className={"flex gap-2.5 items-center"}>
@@ -39,7 +46,7 @@ const ByTheNumbersItem = ({item}: { item: ByTheNumbers }) => {
             )}>
                 <Typography component={"span"} className={"text-h2-sm md:text-h2-md lg:text-h1-lg !font-extrabold"}>
                     <strong>
-                        {item.value}
+                        <NumberIncrement initialValue={0} finalValue={item.value} duration={1.5} />
                     </strong>
                     <strong>
                         {item.valueSuffix}
