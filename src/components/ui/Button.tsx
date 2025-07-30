@@ -137,7 +137,7 @@ export default function Button(
         <button
             className={clsx(
                 "relative",
-                "font-semibold box-border leading-1 disabled:opacity-50",
+                "font-semibold box-border leading-0 disabled:opacity-50",
                 "cursor-pointer disabled:cursor-not-allowed",
                 "outline-2 outline-transparent focus-visible:outline-on-surface-focus-border",
                 "transition-all duration-200",
@@ -154,7 +154,7 @@ export default function Button(
             {...props}
         >
             <span className={clsx(
-                "inline-flex items-center justify-center",
+                "leading-tight inline-flex items-center justify-center",
                 {"gap-button-gap-md": size === "medium"},
                 {"gap-button-gap-sm": size === "small"},
                 "transition-all duration-200",

@@ -7,18 +7,30 @@ import AboutMeGetter from "@/lib/services/interfaces/AboutMeGetter";
 import HeroSection from "@/components/sections/HeroSection/HeroSection";
 import Label from "@/components/ui/Label";
 import ShowcaseGetter from "@/lib/services/interfaces/ShowcaseGetter";
+import AboutMeSection from "@/components/sections/AboutMeSection/AboutMeSection";
+import TechnologyGetter from "@/lib/services/interfaces/TechnologyGetter";
 
 export default async function Home() {
     const aboutMeGetter = container.get<AboutMeGetter>(TYPES.AboutMeGetter);
     const showcaseGetter = container.get<ShowcaseGetter>(TYPES.ShowcaseGetter);
+    const technologyGetter = container.get<TechnologyGetter>(TYPES.TechnologyGetter);
     const aboutMe = await aboutMeGetter.getAboutMe();
     const showcases = await showcaseGetter.getShowcases();
+    const aboutMeTechnologies = await technologyGetter
+        .getTechnologiesBySlugGroupedByCategory(aboutMe.technologiesCategories);
 
     return (
         <main className={"min-h-full flex flex-col"}>
-            <Navbar />
-            <HeroSection aboutMe={aboutMe} showcases={showcases} />
-            <Section slotProps={{ root: { className: "border-t-2 overflow-hidden" } }}>
+            <Navbar/>
+            <HeroSection
+                aboutMe={aboutMe}
+                showcases={showcases}
+            />
+            <AboutMeSection
+                aboutMe={aboutMe}
+                technologies={aboutMeTechnologies}
+            />
+            <Section>
                 <Typography variant={"hero"} component={"h1"}>
                     Hero
                 </Typography>
@@ -43,11 +55,11 @@ export default async function Home() {
                 <Typography family={"handwritten"} variant={"hero"} className={"tracking-wider text-secondary"}>
                     Handwritten text
                 </Typography>
-                <div className={"flex items-center gap-2"}>
+                <div className={"flex flex-wrap items-center gap-2"}>
                     <Label>
                         React
                     </Label>
-                    <Label icon={<img src={"favicon.ico"} width={"19px"} alt={"Next.js"} />}>
+                    <Label icon={<img src={"favicon.ico"} width={"19px"} alt={"Next.js"}/>}>
                         Next.js
                     </Label>
                     <Label color={"green"}>

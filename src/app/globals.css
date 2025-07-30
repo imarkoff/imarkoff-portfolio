@@ -100,6 +100,26 @@
   --line-height-hero: 1.2;
   --line-height-tagline: 1.1;
 
+  /* Icon Sizes */
+  --spacing-icon-hero-lg: 5rem;
+  --spacing-icon-hero-md: 3.75rem;
+  --spacing-icon-hero-sm: 2.75rem;
+
+  --spacing-icon-h1-lg: 2.5rem;
+  --spacing-icon-h1-md: 1.75rem;
+  --spacing-icon-h1-sm: 1.5rem;
+
+  --spacing-icon-h2-lg: 1.375rem;
+  --spacing-icon-h2-md: 1.25rem;
+  --spacing-icon-h2-sm: 1.25rem;
+
+  --spacing-icon-h3-lg: 1.5rem;
+  --spacing-icon-h3-md: 1.375rem;
+  --spacing-icon-h3-sm: 1.25rem;
+
+  --spacing-icon-body: 1rem;
+  --spacing-icon-caption: 0.75rem;
+
   /* Spacing */
   --spacing-section-lg-x: 6.25rem;
   --spacing-section-lg-y: 4.75rem;
