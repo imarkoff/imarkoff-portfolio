@@ -12,25 +12,35 @@ interface References {
 }
 
 export default function ByTechnologiesScroll(
-    { references }: { references: References }
+    {references}: { references: References }
 ) {
+    if (!references) {
+        throw new Error("References must be provided");
+    }
+
     useGSAP(() => {
-       const container = document.getElementById(references.containerId);
-       const title = document.getElementById(references.titleId);
+        const container = document.getElementById(references.containerId);
+        const title = document.getElementById(references.titleId);
 
-       if (!container || !title) return;
+        if (!container || !title) {
+            console.warn("One or more elements not found:", {
+                container,
+                title
+            });
+            return;
+        }
 
-       const tl = gsap.timeline({ });
+        const tl = gsap.timeline({});
 
-       ScrollTrigger.create({
-           trigger: container,
-           id: "technologies.scroll-trigger",
-           start: "top 75%",
-           end: "500px bottom",
-           // markers: true,
-           scrub: 1,
-           animation: tl
-       });
+        ScrollTrigger.create({
+            trigger: container,
+            id: "technologies.scroll-trigger",
+            start: "top 75%",
+            end: "500px bottom",
+            // markers: true,
+            scrub: 1,
+            animation: tl
+        });
 
         tl.fromTo(container, {
             scale: 1.2,

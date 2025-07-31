@@ -18,6 +18,9 @@
  * getDecimalPlaces(0.001); // returns 3
  * ```
  *
+ * @example
+ * ```js
+ * getDecimalPlaces(0.3400); // returns 2
  */
 export default function getDecimalPlaces(num: number): number {
     const strNum = num.toString();

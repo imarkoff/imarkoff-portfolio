@@ -10,10 +10,12 @@ import {Fragment} from "react";
 import clsx from "clsx";
 import ByTechnologiesScroll from "@/components/sections/AboutMeSection/components/ByTechnologiesScroll";
 
-
+export interface ByTechnologiesCardProps {
+    technologies: TechnologiesByCategory[];
+}
 
 export default function ByTechnologiesCard(
-    { technologies }: { technologies: TechnologiesByCategory[] }
+    { technologies }: ByTechnologiesCardProps
 ) {
     const references = {
         containerId: "technologies.container",
@@ -26,10 +28,7 @@ export default function ByTechnologiesCard(
             <Typography variant={"h3"} component={"h3"} className={"mb-2.5"} id={references.titleId}>
                 By technologies:
             </Typography>
-            <Card
-                className={"grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-5"}
-                role={"list"}
-            >
+            <Card className={"grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-5"}>
                 {technologies.map((category, index) => (
                     <Fragment key={category.categoryName}>
                         <TechnologiesGroup category={category} />
@@ -61,7 +60,7 @@ const TechnologiesGroup = ({category} : { category: TechnologiesByCategory }) =>
                     {categoryMetadata.name}
                 </Typography>
             </div>
-            <ul className={"flex flex-wrap gap-2.5"}>
+            <ul className={"flex flex-wrap gap-2.5"} role={"list"}>
                 {category.techs.map((tech) => (
                     <li key={tech.slug}>
                         <Label className={"technologies.label"} icon={

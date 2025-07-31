@@ -25,6 +25,20 @@ interface NumberIncrementProps {
      * @default 1
      */
     duration?: number;
+
+    /** Optional start position for the ScrollTrigger
+     * First value is the position of the trigger,
+     * second value is the position of the viewport.
+     * @default "top 80%"
+     */
+    start?: `${string} ${string}`;
+
+    /** Optional end position for the ScrollTrigger
+     * First value is the position of the trigger,
+     * second value is the position of the viewport.
+     * @default "bottom 85%"
+     */
+    end?: `${string} ${string}`;
 }
 
 /**
@@ -55,7 +69,14 @@ interface NumberIncrementProps {
  * />
  */
 export default function NumberIncrement(
-    { initialValue, finalValue, precision = 'auto', duration = 1 }: NumberIncrementProps
+    {
+        initialValue,
+        finalValue,
+        precision = 'auto',
+        duration = 1,
+        start = "top 80%",
+        end = "bottom 85%"
+    }: NumberIncrementProps
 ) {
     const spanRef = useRef<HTMLSpanElement>(null);
     // Initialize with finalValue instead of initialValue for progressive enhancement -
@@ -79,11 +100,12 @@ export default function NumberIncrement(
 
         const object = { value: initialValue };
 
+
         ScrollTrigger.create({
             trigger: spanRef.current,
             id: "number-increment.scroll-trigger",
-            start: "top 80%",
-            end: "bottom 85%",
+            start: start,
+            end: end,
             // markers: true,
             scrub: 1.5,
             animation: gsap.to(object, {
@@ -93,7 +115,7 @@ export default function NumberIncrement(
                 onUpdate: () => { setDisplayValue(object.value); },
             }),
         });
-    }, [finalValue, initialValue, actualPrecision, duration]);
+    }, [finalValue, initialValue, duration]);
 
     return (
         <span ref={spanRef} aria-label={`Number increment from ${initialValue} to ${finalValue}`}>

@@ -27,6 +27,7 @@ describe('HeroCenterContent', () => {
     const mockAboutMeNoSurname: AboutMe = {
         ...aboutMeFixture,
         name: 'Jane',
+        surname: null,
         tagline: 'Another **great** developer.',
         socialLinks: [
             { platform: 'github', url: 'https://github.com/janedoe' },

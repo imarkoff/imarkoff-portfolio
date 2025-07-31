@@ -3,7 +3,7 @@ import clsx from "clsx";
 
 export type TypographyVariant = "hero" | "tagline" | "h1" | "h2" | "h3" | "body" | "caption"
 
-interface TypographyProps extends ComponentProps<'p'> {
+export interface TypographyProps extends ComponentProps<'p'> {
     /**
      * The HTML element to render as the component.
      * Defaults to "p" for paragraph.

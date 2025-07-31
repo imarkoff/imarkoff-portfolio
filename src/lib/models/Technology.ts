@@ -5,6 +5,6 @@ export default interface Technology {
     name: string;
     slug: string;
     iconUrl: string | null;
-    category: TechnologyCategory;
+    category: TechnologyCategory | null;
     description: string | null;
 }

@@ -1,14 +1,10 @@
 import Section from "@/components/ui/Section";
 import AboutMe from "@/lib/models/AboutMe";
-import Typography from "@/components/ui/Typography";
-import AccountCircleIcon from "@/components/icons/AccountCircleIcon";
-import TypographyIcon from "@/components/ui/TypographyIcon";
-import ReactMarkdown from "react-markdown";
 import ByTheNumbersCard from "@/components/sections/AboutMeSection/components/ByTheNumbersCard";
-import ContactButtons from "@/components/sections/AboutMeSection/components/ContactButtons";
 import {TechnologiesByCategory} from "@/lib/models/types/TechnologyCategory";
 import ByTechnologiesCard from "@/components/sections/AboutMeSection/components/ByTechnologiesCard";
 import AboutMeScroll from "@/components/sections/AboutMeSection/components/AboutMeScroll";
+import AboutMeContent from "@/components/sections/AboutMeSection/components/AboutMeContent";
 
 export default function AboutMeSection(
     {aboutMe, technologies}: { aboutMe: AboutMe, technologies: TechnologiesByCategory[] }
@@ -30,26 +26,10 @@ export default function AboutMeSection(
             <AboutMeScroll references={references} />
             <div className={"flex flex-col gap-6"}>
                 <div className={"grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-12 items-center"} id={references.aboutMeGridLayoutId}>
-                    <div className={"flex flex-col gap-6"} id={references.aboutMeContentColumnId}>
-                        <div className={"flex gap-2.5 items-center"}>
-                            <TypographyIcon Icon={AccountCircleIcon} variant={"h1"} />
-                            <Typography variant={"h1"} component={"h2"}>
-                                About Me
-                            </Typography>
-                        </div>
-                        <div className={"flex flex-col gap-4"}>
-                            <ReactMarkdown
-                                components={{
-                                    p: ({node, ...props}) => (
-                                        <Typography variant={"body"} {...props} />
-                                    )
-                                }}
-                            >
-                                {aboutMe.fullDescription}
-                            </ReactMarkdown>
-                        </div>
-                        <ContactButtons aboutMe={aboutMe} />
-                    </div>
+                    <AboutMeContent
+                        aboutMe={aboutMe}
+                        id={references.aboutMeContentColumnId}
+                    />
                     <ByTheNumbersCard
                         byTheNumbers={aboutMe.byTheNumbers}
                         id={references.byTheNumbersContainerId}

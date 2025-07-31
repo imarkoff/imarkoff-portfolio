@@ -3,11 +3,26 @@ import { TypographyVariant } from "./Typography";
 import IconType from "@/components/icons/IconType";
 import clsx from "clsx";
 
-interface TypographyIconProps extends ComponentProps<'svg'> {
+export interface TypographyIconProps extends ComponentProps<'svg'> {
     Icon: ComponentType<IconType>;
     variant?: TypographyVariant;
 }
 
+/**
+ * TypographyIcon component renders an icon with a size based on the typography variant.
+ * @param Icon - The icon component to render.
+ * @param variant - The typography variant that determines the icon size.
+ * @param className - Additional class names to apply to the icon.
+ * @param props - Additional properties to pass to the icon component.
+ *
+ * @example
+ * ```jsx
+ * import { TypographyIcon } from './TypographyIcon';
+ * import { SomeIcon } from './icons/SomeIcon';
+ *
+ * <TypographyIcon Icon={SomeIcon} variant="h1" className="text-secondary" />
+ * ```
+ */
 export default function TypographyIcon({ Icon, variant = "body", className, ...props }: TypographyIconProps) {
     const correspondingStyle: Record<TypographyVariant, string> = {
         hero: "size-icon-hero-sm md:size-icon-hero-md lg:size-icon-hero-lg",

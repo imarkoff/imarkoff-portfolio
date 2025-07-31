@@ -7,7 +7,7 @@ import TypographyIcon from "@/components/ui/TypographyIcon";
 import IconMap, {IconName} from "@/components/icons/IconMap";
 import NumberIncrement from "@/components/ui/NumberIncrement";
 
-interface ByTheNumbersCardProps {
+export interface ByTheNumbersCardProps {
     byTheNumbers: ByTheNumbers[];
     id?: string;
     headingId?: string;

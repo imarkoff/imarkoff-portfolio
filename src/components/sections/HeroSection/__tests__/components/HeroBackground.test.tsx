@@ -64,7 +64,7 @@ describe('HeroBackground', () => {
 
         expect(gradientDivs[0]).toHaveAttribute(
             'style',
-            expect.stringContaining('radial-gradient(40% 70% at 55% 72%, #4903FF12 0%, #073AFF00 100%)')
+            expect.stringContaining('radial-gradient(40% 70% at 55% 72%, #4903FF15 0%, #073AFF00 100%)')
         );
         expect(gradientDivs[0]).toHaveAttribute(
             'style',
@@ -78,12 +78,12 @@ describe('HeroBackground', () => {
 
         expect(gradientDivs[2]).toHaveAttribute(
             'style',
-            expect.stringContaining('radial-gradient(50% 91% at -3% 48%, #CF00FF1A 1%, #FF000000 99%)')
+            expect.stringContaining('radial-gradient(50% 91% at -3% 48%, #CF00FF2A 1%, #FF000000 99%)')
         );
 
         expect(gradientDivs[3]).toHaveAttribute(
             'style',
-            expect.stringContaining('radial-gradient(75% 75% at 126% 0%, #FF000033 1%, #FF000000 99%)')
+            expect.stringContaining('radial-gradient(75% 75% at 126% 0%, #FF000040 1%, #FF000000 99%)')
         );
     });
 });

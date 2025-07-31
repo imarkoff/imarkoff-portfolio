@@ -5,7 +5,7 @@ export default interface AboutMe {
     surname: string | null;
     tagline: string;
     socialLinks: SocialLink[];
-    resumeUrl: string;
+    resumeUrl: string | null;
     contactEmail: string;
     fullDescription: string;
     byTheNumbers: ByTheNumbers[];

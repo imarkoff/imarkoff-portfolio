@@ -6,7 +6,7 @@ import {useGSAP} from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface AboutMeReferences {
+export interface AboutMeReferences {
     aboutMeGridLayoutId: string,
     aboutMeContentColumnId: string,
     byTheNumbersContainerId: string;
@@ -16,13 +16,25 @@ interface AboutMeReferences {
 export default function AboutMeScroll(
     { references }: { references: AboutMeReferences }
 ) {
+    if (!references) {
+        throw new Error("References must be provided");
+    }
+
     useGSAP(() => {
         const aboutMeGridLayout = document.getElementById(references.aboutMeGridLayoutId);
         const aboutMeContentColumn = document.getElementById(references.aboutMeContentColumnId);
         const byTheNumbersContainer = document.getElementById(references.byTheNumbersContainerId);
         const byTheNumbersHeading = document.getElementById(references.byTheNumbersHeadingId);
 
-        if (!aboutMeGridLayout || !aboutMeContentColumn || !byTheNumbersContainer || !byTheNumbersHeading) return;
+        if (!aboutMeGridLayout || !aboutMeContentColumn || !byTheNumbersContainer || !byTheNumbersHeading) {
+            console.warn("One or more elements not found:", {
+                aboutMeGridLayout,
+                aboutMeContentColumn,
+                byTheNumbersContainer,
+                byTheNumbersHeading
+            });
+            return;
+        }
 
         const tl = gsap.timeline({
             defaults: {

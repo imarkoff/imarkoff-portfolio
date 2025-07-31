@@ -1,12 +1,25 @@
 import AboutMe from "@/lib/models/AboutMe";
+import TechnologyCategory from "@/lib/models/types/TechnologyCategory";
 
 const aboutMeFixture: AboutMe = {
-    name: 'John Doe',
+    name: 'John',
+    surname: 'Doe',
     fullDescription: 'Software Engineer',
     tagline: 'Passionate developer',
-    technologiesCategories: {
-        frontend: ['JavaScript', 'React'],
-    },
+    technologiesCategories: [
+        {
+            categoryName: TechnologyCategory.Frontend,
+            techs: ['react', 'vue', 'angular']
+        },
+        {
+            categoryName: TechnologyCategory.Backend,
+            techs: ['nodejs', 'python', 'java']
+        },
+        {
+            categoryName: TechnologyCategory.Devops,
+            techs: ['docker', 'kubernetes', 'aws']
+        }
+    ],
     byTheNumbers: [
         {
             iconName: 'star',
