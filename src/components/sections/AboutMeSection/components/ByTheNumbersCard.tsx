@@ -32,6 +32,8 @@ export default function ByTheNumbersCard(
 const ByTheNumbersItem = ({item}: { item: ByTheNumbers }) => {
     const Icon = IconMap[item.iconName as IconName];
 
+    const responsiveTextSize = "text-h2-sm md:text-h2-md lg:text-h1-lg !font-extrabold";
+
     return (
         <div className={"flex gap-2.5 items-center"}>
             {Icon && (
@@ -42,9 +44,9 @@ const ByTheNumbersItem = ({item}: { item: ByTheNumbers }) => {
             )}
             <p className={clsx(
                 "leading-none text-transparent bg-clip-text bg-(image:--gradient-text)",
-                "text-h2-sm md:text-h2-md lg:text-h1-lg font-bold"
+                responsiveTextSize
             )}>
-                <Typography component={"span"} className={"text-h2-sm md:text-h2-md lg:text-h1-lg !font-extrabold"}>
+                <Typography component={"span"} className={responsiveTextSize}>
                     <strong>
                         <NumberIncrement initialValue={0} finalValue={item.value} duration={1.5} />
                     </strong>
@@ -62,7 +64,7 @@ const ByTheNumbersItem = ({item}: { item: ByTheNumbers }) => {
                     ),
                     strong: ({node, ...props}) => (
                         <strong
-                            className={"text-transparent text-h2-sm md:text-h2-md lg:text-h1-lg font-extrabold"}
+                            className={`text-transparent ${responsiveTextSize}`}
                             {...props}
                         />
                     )

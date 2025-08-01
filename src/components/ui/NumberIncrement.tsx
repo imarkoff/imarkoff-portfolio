@@ -63,7 +63,7 @@ interface NumberIncrementProps {
  * // will animate from 3.14 to 19.528 with auto precision (3 decimal places) over 1 second
  * <NumberIncrement
  *  initialValue={3.14}
- *  finalValue={19.28}
+ *  finalValue={19.528}
  *  precision="auto"
  *  duration={1}
  * />
