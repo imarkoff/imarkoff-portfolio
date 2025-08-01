@@ -1,7 +1,6 @@
 import Label from "@/components/ui/Label";
 import Typography from "@/components/ui/Typography";
 import ReactMarkdown from "react-markdown";
-import Button from "@/components/ui/Button";
 import DocsIcon from "@/components/icons/DocsIcon";
 import ChatIcon from "@/components/icons/ChatIcon";
 import GitHubIcon from "@/components/icons/GitHubIcon";
@@ -9,7 +8,7 @@ import LinkedInIcon from "@/components/icons/LinkedInIcon";
 import {HeroAnimatorProps} from "@/components/sections/HeroSection/types";
 import AboutMe from "@/lib/models/AboutMe";
 import AnimateHero from "@/components/sections/HeroSection/components/AnimateHero";
-import Link from "next/link";
+import LinkButton from "@/components/ui/Button/LinkButton";
 
 export default function HeroCenterContent({aboutMe}: { aboutMe: AboutMe }) {
     const references: HeroAnimatorProps = {
@@ -82,30 +81,52 @@ export default function HeroCenterContent({aboutMe}: { aboutMe: AboutMe }) {
             </div>
             <div className={"flex items-center justify-center md:justify-start gap-4 flex-wrap"}>
                 {/* buttons has own transitions which are incompatible with GSAP */}
+                {aboutMe.resumeUrl && (
+                    <div className={references.buttonWrapperClassName}>
+                        <LinkButton
+                            href={aboutMe.resumeUrl}
+                            target={"_blank"}
+                            variant={"primary"}
+                            LeftIcon={DocsIcon}
+                        >
+                            Get my CV
+                        </LinkButton>
+                    </div>
+
+                )}
                 <div className={references.buttonWrapperClassName}>
-                    <Button variant={"primary"} LeftIcon={DocsIcon}>
-                        Get my CV
-                    </Button>
-                </div>
-                <div className={references.buttonWrapperClassName}>
-                    <Button LeftIcon={ChatIcon} className={"backdrop-blur-xl"}>
+                    <LinkButton
+                        href={"#contact"}
+                        LeftIcon={ChatIcon}
+                        className={"backdrop-blur-xl"}
+                    >
                         Contact me
-                    </Button>
+                    </LinkButton>
                 </div>
                 <div className={"flex items-center gap-2.5"}>
                     {githubLink && (
-                        <Link className={references.buttonWrapperClassName} href={githubLink.url}>
-                            <Button variant={"tertiary"} isIconButton title={"GitHub profile"}>
-                                <GitHubIcon className={"size-icon-md"} />
-                            </Button>
-                        </Link>
+                        <div className={references.buttonWrapperClassName}>
+                            <LinkButton
+                                href={githubLink.url}
+                                target={"_blank"}
+                                variant={"tertiary"}
+                                title={"GitHub profile"}
+                                LeftIcon={GitHubIcon}
+                                isIconButton
+                            />
+                        </div>
                     )}
                     {linkedinLink && (
-                        <Link className={references.buttonWrapperClassName} href={linkedinLink.url}>
-                            <Button variant={"tertiary"} isIconButton title={"LinkedIn profile"}>
-                                <LinkedInIcon className={"size-icon-md"} />
-                            </Button>
-                        </Link>
+                        <div className={references.buttonWrapperClassName}>
+                            <LinkButton
+                                href={linkedinLink.url}
+                                target={"_blank"}
+                                variant={"tertiary"}
+                                title={"LinkedIn profile"}
+                                LeftIcon={LinkedInIcon}
+                                isIconButton
+                            />
+                        </div>
                     )}
                 </div>
             </div>

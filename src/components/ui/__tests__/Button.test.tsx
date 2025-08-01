@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { describe, it, expect, vi } from 'vitest';
-import Button from '../Button';
+import Button from '../Button/Button';
 import React from 'react';
 import ProgressActivityIcon from "@/components/icons/ProgressActivityIcon";
 

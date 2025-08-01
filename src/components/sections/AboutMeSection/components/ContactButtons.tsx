@@ -1,9 +1,8 @@
 import AboutMe from "@/lib/models/AboutMe";
-import Button from "@/components/ui/Button";
 import DocsIcon from "@/components/icons/DocsIcon";
 import GitHubIcon from "@/components/icons/GitHubIcon";
 import LinkedInIcon from "@/components/icons/LinkedInIcon";
-import Link from "next/link";
+import LinkButton from "@/components/ui/Button/LinkButton";
 
 export default function ContactButtons({ aboutMe }: { aboutMe: AboutMe }) {
     const github = aboutMe.socialLinks.find(link => link.platform === "github");
@@ -12,21 +11,34 @@ export default function ContactButtons({ aboutMe }: { aboutMe: AboutMe }) {
     return (
         <div className={"flex justify-start items-center gap-2.5"}>
             {aboutMe.resumeUrl && (
-                <Link href={aboutMe.resumeUrl} target={"_blank"}>
-                    <Button variant={"secondary"} LeftIcon={DocsIcon}>
-                        Get my CV
-                    </Button>
-                </Link>
+                <LinkButton
+                    href={aboutMe.resumeUrl}
+                    target={"_blank"}
+                    variant={"secondary"}
+                    LeftIcon={DocsIcon}
+                >
+                    Get my CV
+                </LinkButton>
             )}
             {github && (
-                <Link href={github.url} target={"_blank"}>
-                    <Button variant={"tertiary"} LeftIcon={GitHubIcon} isIconButton title={"GitHub"} />
-                </Link>
+                <LinkButton
+                    href={github.url}
+                    target={"_blank"}
+                    variant={"tertiary"}
+                    LeftIcon={GitHubIcon}
+                    isIconButton
+                    title={"GitHub"}
+                />
             )}
             {linkedin && (
-                <Link href={linkedin.url} target={"_blank"}>
-                    <Button variant={"tertiary"} LeftIcon={LinkedInIcon} isIconButton title={"LinkedIn"} />
-                </Link>
+                <LinkButton
+                    href={linkedin.url}
+                    target={"_blank"}
+                    variant={"tertiary"}
+                    LeftIcon={LinkedInIcon}
+                    isIconButton
+                    title={"LinkedIn"}
+                />
             )}
         </div>
     );

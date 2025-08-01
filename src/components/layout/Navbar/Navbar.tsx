@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Button from "@/components/ui/Button";
+import Button from "@/components/ui/Button/Button";
 import clsx from "clsx";
 import GradientBlur from "@/components/ui/GradientBlur";
 import dottedBackground from "@/utils/dottedBackground";
@@ -11,6 +11,7 @@ import {useState} from "react";
 import MenuIcon from "@/components/icons/MenuIcon";
 import NavbarMenu from "@/components/layout/Navbar/components/NavbarMenu";
 import useNavbarMenuAnimation from "@/components/layout/Navbar/hooks/useNavbarMenuAnimation";
+import LinkButton from "@/components/ui/Button/LinkButton";
 
 export default function Navbar() {
     const navbarRef = useNavbarAppear();
@@ -45,21 +46,20 @@ export default function Navbar() {
                     <ul className="flex gap-x-navbar">
                         {navbarLinks.map((link, index) => (
                             <li key={index} className={"hidden sm:block"}>
-                                <Link href={link.href}>
-                                    <Button
-                                        size={"small"}
-                                        LeftIcon={link.icon}
-                                        variant={link.isPrimary ? "primary" : "tertiary"}
-                                        active={link.href === activeLink}
-                                    >
-                                        <span className={clsx(
-                                            "lg:inline-block",
-                                            {"hidden": !link.isPrimary && link.href !== activeLink}
-                                        )}>
-                                            {link.title}
-                                        </span>
-                                    </Button>
-                                </Link>
+                                <LinkButton
+                                    href={link.href}
+                                    size={"small"}
+                                    LeftIcon={link.icon}
+                                    variant={link.isPrimary ? "primary" : "tertiary"}
+                                    active={link.href === activeLink}
+                                >
+                                    <span className={clsx(
+                                        "lg:inline-block",
+                                        {"hidden": !link.isPrimary && link.href !== activeLink}
+                                    )}>
+                                        {link.title}
+                                    </span>
+                                </LinkButton>
                             </li>
                         ))}
                         <li className={"sm:hidden"}>

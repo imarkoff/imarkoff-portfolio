@@ -1,9 +1,8 @@
 import clsx from "clsx";
 import Typography from "@/components/ui/Typography";
 import navbarLinks from "@/components/layout/Navbar/navbarLinks";
-import Link from "next/link";
-import Button from "@/components/ui/Button";
 import {Ref} from "react";
+import LinkButton from "@/components/ui/Button/LinkButton";
 
 interface NavbarMenuProps {
     activeLink: string;
@@ -32,17 +31,17 @@ export default function NavbarMenu({ activeLink, setActiveLink, isOpen, ref, tog
             </li>
             {navbarLinks.map((link, index) => (
                 <li key={index}>
-                    <Link href={link.href} onClick={() => handleLinkClick(link.href)}>
-                        <Button
-                            size={"small"}
-                            LeftIcon={link.icon}
-                            variant={link.isPrimary ? "primary" : "tertiary"}
-                            active={link.href === activeLink}
-                            className={"w-full flex"}
-                        >
-                            {link.title}
-                        </Button>
-                    </Link>
+                    <LinkButton
+                        href={link.href}
+                        onClick={() => handleLinkClick(link.href)}
+                        size={"small"}
+                        LeftIcon={link.icon}
+                        variant={link.isPrimary ? "primary" : "tertiary"}
+                        active={link.href === activeLink}
+                        className={"w-full flex"}
+                    >
+                        {link.title}
+                    </LinkButton>
                 </li>
             ))}
         </ul>
