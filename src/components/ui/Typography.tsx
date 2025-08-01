@@ -8,7 +8,7 @@ export interface TypographyProps extends ComponentProps<'p'> {
      * The HTML element to render as the component.
      * Defaults to "p" for paragraph.
      * */
-    component?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "div";
+    component?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "div" | "figcaption";
     /**
      * The variant of typography to apply.
      * This determines the text style and size.

@@ -38,6 +38,11 @@
   --color-ghost-button-active-hover-bg: hsla(280, 79%, 68%, 0.2);
 
   /* Functional Colors */
+  --color-blue-filled: hsla(210, 79%, 60%, 1);
+  --color-blue-filled-hover: hsla(210, 79%, 60%, 0.8);
+  --color-blue-tinted: hsla(210, 79%, 60%, 0.12);
+  --color-blue-filled-text: hsla(210, 31%, 20%, 1);
+
   --color-green-filled: hsla(133, 79%, 60%, 1);
   --color-green-filled-hover: hsla(133, 79%, 60%, 0.8);
   --color-green-tinted: hsla(133, 79%, 60%, 0.12);

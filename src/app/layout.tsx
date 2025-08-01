@@ -9,7 +9,7 @@ import RemoveAnimateAppear from "@/components/layout/RemoveAnimateAppear";
 const InterFont = Inter({
     subsets: ["latin"],
     variable: "--font-sans",
-    weight: ["400", "600", "700", "800", "900"]
+    weight: ["400", "500", "600", "700", "800", "900"]
 });
 
 const JustAnotherHandFont = Just_Another_Hand({
