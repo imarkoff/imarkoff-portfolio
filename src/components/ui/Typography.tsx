@@ -1,7 +1,9 @@
 import {ComponentProps} from "react";
 import clsx from "clsx";
 
-interface TypographyProps extends ComponentProps<'p'> {
+export type TypographyVariant = "hero" | "tagline" | "h1" | "h2" | "h3" | "body" | "caption"
+
+export interface TypographyProps extends ComponentProps<'p'> {
     /**
      * The HTML element to render as the component.
      * Defaults to "p" for paragraph.
@@ -11,7 +13,7 @@ interface TypographyProps extends ComponentProps<'p'> {
      * The variant of typography to apply.
      * This determines the text style and size.
      */
-    variant?: "hero" | "tagline" | "h1" | "h2" | "h3" | "body" | "caption";
+    variant?: TypographyVariant;
 
     /** Font family to apply to the text. */
     family?: "sans" | "handwritten";

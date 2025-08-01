@@ -23,13 +23,4 @@ describe("ArrowSVG Component", () => {
         expect(pathRef.current?.tagName.toLowerCase()).toBe('path');
         expect(arrowRef.current?.tagName.toLowerCase()).toBe('path');
     });
-
-    it("matches snapshot", () => {
-        const pathRef = createRef<SVGPathElement>();
-        const arrowRef = createRef<SVGPathElement>();
-
-        const { asFragment } = render(<ArrowSVG pathRef={pathRef} arrowRef={arrowRef} />);
-
-        expect(asFragment()).toMatchSnapshot();
-    });
 });

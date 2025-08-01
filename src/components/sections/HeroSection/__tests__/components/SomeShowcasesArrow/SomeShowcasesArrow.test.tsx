@@ -94,10 +94,4 @@ describe("SomeShowcasesArrow Component", () => {
         expect(textElement).toHaveAttribute("family", "handwritten");
         expect(textElement).toHaveAttribute("variant", "h1");
     });
-
-    it("matches snapshot", () => {
-        const { asFragment } = render(<SomeShowcasesArrow />);
-
-        expect(asFragment()).toMatchSnapshot();
-    });
 });

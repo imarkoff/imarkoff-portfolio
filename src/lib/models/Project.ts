@@ -1,4 +1,4 @@
-import {TechnologiesByCategories} from "@/lib/models/types/TechnologyCategory";
+import {TechnologiesSlugsByCategory} from "@/lib/models/types/TechnologyCategory";
 
 export default interface Project {
     id: string;
@@ -11,7 +11,7 @@ export default interface Project {
     shouldShowOnHomepage: boolean;
     fullDescription: string;
     keyFeatures: string[];
-    fullTechStack: TechnologiesByCategories;
+    fullTechStack: TechnologiesSlugsByCategory[];
     challenges: ProjectChallenge[];
     screenshots: string[];
     liveDemoUrl: string | null;

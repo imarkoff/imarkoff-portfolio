@@ -1,15 +1,15 @@
-import {TechnologiesByCategories} from "@/lib/models/types/TechnologyCategory";
+import {TechnologiesSlugsByCategory} from "@/lib/models/types/TechnologyCategory";
 
 export default interface AboutMe {
     name: string;
     surname: string | null;
     tagline: string;
     socialLinks: SocialLink[];
-    resumeUrl: string;
+    resumeUrl: string | null;
     contactEmail: string;
     fullDescription: string;
     byTheNumbers: ByTheNumbers[];
-    technologiesCategories: TechnologiesByCategories;
+    technologiesCategories: TechnologiesSlugsByCategory[];
 }
 
 export interface SocialLink {
