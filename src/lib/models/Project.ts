@@ -11,6 +11,7 @@ export default interface Project {
     heroImage: BackendImage;
     coreTechs: string[];
     shouldShowOnHomepage: boolean;
+    colors: ProjectColor | null;
     fullDescription: string;
     keyFeatures: string[];
     fullTechStack: TechnologiesSlugsByCategory[];
@@ -20,6 +21,11 @@ export default interface Project {
     liveDemoUrl: string | null;
     sourceCodeUrl: string | null;
     order: number;
+}
+
+export interface ProjectColor {
+    primaryHue: number;
+    background: string | null;
 }
 
 export interface ProjectChallenge {

@@ -7,12 +7,16 @@ import ArrowForwardIcon from "@/components/icons/ArrowForwardIcon";
 import GitHubIcon from "@/components/icons/GitHubIcon";
 import CodeIcon from "@/components/icons/CodeIcon";
 import {ProjectCardProps} from "@/components/sections/ProjectsSection/components/ProjectCard/types";
+import clsx from "clsx";
 
 export default function ProjectCardContent(
     {project, techs, index}: ProjectCardProps
 ) {
     return (
-        <div className={"flex flex-col gap-4 items-start lg:col-span-5"}>
+        <div className={clsx(
+            "h-full flex flex-col gap-4 justify-center lg:col-span-4",
+            "p-4 lg:px-10"
+        )}>
             <ContentHeader
                 project={project}
                 index={index}
@@ -44,7 +48,7 @@ const ContentHeader = (
                 <Typography
                     component={"span"}
                     variant={"hero"}
-                    className={"absolute !text-8xl !leading-none -bottom-2 -left-7 mix-blend-overlay -z-10"}
+                    className={"absolute !text-8xl !leading-none -bottom-2 -left-7 mix-blend-overlay"}
                 >
                     {index + 1}
                 </Typography>
@@ -77,6 +81,7 @@ const ContentLinks = (
         <div className={"flex flex-wrap gap-2.5"}>
             <LinkButton
                 href={(route) => route.projects.children.projectBySlug.path(project.slug)}
+                variant={"primary"}
                 RightIcon={ArrowForwardIcon}
             >
                 View Case Study
@@ -86,7 +91,7 @@ const ContentLinks = (
                     href={project.sourceCodeUrl}
                     target={"_blank"}
                     title={'View Source Code'}
-                    variant={"secondary"}
+                    variant={"tertiary"}
                     LeftIcon={sourceCodeUrl?.hostname === "github.com" ? GitHubIcon : CodeIcon}
                     isIconButton
                 />

@@ -5,6 +5,7 @@ import TypographyIcon from "@/components/ui/TypographyIcon";
 import CodeIcon from "@/components/icons/CodeIcon";
 import ProjectCard from "@/components/sections/ProjectsSection/components/ProjectCard/ProjectCard";
 import Technology from "@/lib/models/Technology";
+import AnimateProjectCards from "@/components/sections/ProjectsSection/components/AnimateProjectCards";
 
 interface ProjectsSectionProps {
     projects: Project[];
@@ -14,10 +15,15 @@ interface ProjectsSectionProps {
 export default function ProjectsSection(
     {projects, projectsTechnologies}: ProjectsSectionProps
 ) {
+    const references = {
+        projectsSectionId: "projects.section",
+    };
+
     return (
         <Section slotProps={{
             section: { className: "flex flex-col items-center gap-12" }
         }}>
+            <AnimateProjectCards projectsSectionId={references.projectsSectionId}  />
             <div className={"w-full flex flex-col lg:items-center gap-2.5"}>
                 <div className={"flex items-center lg:justify-center gap-2.5"}>
                     <TypographyIcon
@@ -32,7 +38,10 @@ export default function ProjectsSection(
                     I've built from zero to a ready for production products.
                 </Typography>
             </div>
-            <div className={"grid grid-cols-1 gap-20"}>
+            <div
+                id={references.projectsSectionId}
+                className={"grid grid-cols-1 gap-30"}
+            >
                 {projects.map((item, index) => (
                     <ProjectCard
                         project={item}
