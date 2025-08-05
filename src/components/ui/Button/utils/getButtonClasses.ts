@@ -52,7 +52,7 @@ export default function getButtonClasses(
         "bg-yellow-tinted hover:bg-yellow-tinted-hover text-primary": variant === "secondary" && color === "warning",
 
         // Primary Variant
-        "bg-active-filled hover:bg-active-filled-hover focus-visible:bg-active-filled-hover text-active-filled-text": variant === "primary" && color === "accent",
+        "bg-active-filled hover:bg-active-filled-hover focus-visible:bg-active-filled-hover text-on-active-filled": variant === "primary" && color === "accent",
         "bg-green-filled hover:bg-green-filled-hover text-green-filled-text": variant === "primary" && color === "success",
         "bg-red-filled hover:bg-red-filled-hover text-red-filled-text": variant === "primary" && color === "error",
         "bg-yellow-filled hover:bg-yellow-filled-hover text-yellow-filled-text": variant === "primary" && color === "warning",
