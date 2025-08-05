@@ -17,7 +17,7 @@ export default function ProjectCard({project, techs, index}: ProjectCardProps) {
     return (
         <article
             className={clsx(
-                "relative project-card grid grid-cols-1 lg:grid-cols-12 overflow-hidden",
+                "sticky top-1/4 project-card grid grid-cols-1 lg:grid-cols-12 overflow-hidden",
                 "border-2 box-border border-solid rounded-3xl",
                 {"border-border-menu": !colors}
             )}

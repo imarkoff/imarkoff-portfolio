@@ -17,6 +17,7 @@ export default function ProjectsSection(
 ) {
     const references = {
         projectsSectionId: "projects.section",
+        projectsHeaderId: "projects.header",
     };
 
     return (
@@ -24,7 +25,10 @@ export default function ProjectsSection(
             section: { className: "flex flex-col items-center gap-12" }
         }}>
             <AnimateProjectCards projectsSectionId={references.projectsSectionId}  />
-            <div className={"w-full flex flex-col lg:items-center gap-2.5"}>
+            <div
+                id={references.projectsHeaderId}
+                className={"sticky top-[100px] w-full flex flex-col lg:items-center gap-2.5"}
+            >
                 <div className={"flex items-center lg:justify-center gap-2.5"}>
                     <TypographyIcon
                         Icon={CodeIcon}
@@ -40,7 +44,7 @@ export default function ProjectsSection(
             </div>
             <div
                 id={references.projectsSectionId}
-                className={"grid grid-cols-1 gap-30"}
+                className={"relative grid grid-cols-1 gap-30"}
             >
                 {projects.map((item, index) => (
                     <ProjectCard
