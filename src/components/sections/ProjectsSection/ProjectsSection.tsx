@@ -24,10 +24,10 @@ export default function ProjectsSection(
         <Section slotProps={{
             section: { className: "flex flex-col items-center gap-12" }
         }}>
-            <AnimateProjectCards projectsSectionId={references.projectsSectionId}  />
+            <AnimateProjectCards references={references} />
             <div
                 id={references.projectsHeaderId}
-                className={"sticky top-[100px] w-full flex flex-col lg:items-center gap-2.5"}
+                className={"w-full flex flex-col lg:items-center gap-2.5 z-10"}
             >
                 <div className={"flex items-center lg:justify-center gap-2.5"}>
                     <TypographyIcon
@@ -44,7 +44,7 @@ export default function ProjectsSection(
             </div>
             <div
                 id={references.projectsSectionId}
-                className={"relative grid grid-cols-1 gap-30"}
+                className={"relative grid grid-cols-1 gap-52"}
             >
                 {projects.map((item, index) => (
                     <ProjectCard
