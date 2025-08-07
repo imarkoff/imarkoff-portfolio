@@ -16,7 +16,7 @@ describe('Section', () => {
         );
         const sectionElement = screen.getByRole('region');
         expect(sectionElement).toHaveClass('custom-class');
-        expect(sectionElement).toHaveClass('max-w-[1400px]');
+        expect(sectionElement).toHaveClass('max-w-section');
     });
 
     it('forwards additional props correctly', () => {

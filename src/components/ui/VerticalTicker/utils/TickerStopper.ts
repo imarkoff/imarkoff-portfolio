@@ -1,6 +1,6 @@
 import gsap from "gsap";
 import {Observer} from "gsap/Observer";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import {ScrollTrigger} from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(Observer, ScrollTrigger);
 
@@ -62,7 +62,7 @@ export default class TickerStopper {
     ) {
         const grandParent = tickerStrip.parentElement?.parentElement;
         if (grandParent) {
-            ScrollTrigger.create({
+            this.scrollTrigger = ScrollTrigger.create({
                 trigger: grandParent,
                 start: "top top",
                 end: "bottom top",

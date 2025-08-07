@@ -126,8 +126,7 @@ describe('Button Component', () => {
         const button = screen.getByRole('button', { name: /primary accent/i });
 
         expect(button).toHaveClass('bg-active-filled');
-        expect(button).toHaveClass('text-active-filled-text');
-        expect(button).toHaveClass('focus-visible:border-active-filled');
+        expect(button).toHaveClass('text-on-active-filled');
         expect(button).not.toHaveClass('border-transparent');
     });
 

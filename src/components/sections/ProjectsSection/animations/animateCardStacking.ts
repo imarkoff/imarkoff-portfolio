@@ -14,12 +14,12 @@ export default function animateCardStacking(
     const heightDiffWithLastCard = lastCard.clientHeight - card.clientHeight;
 
     const cardAnimation = gsap.fromTo(card, {
-        opacity: 1,
+        filter: "brightness(1)",
     }, {
         y: -heightDiffWithLastCard -indexFromEnd * SPACE_BETWEEN_STACKED_CARDS,
         // borderColor: "var(--color-border-menu)", // too heavy on performance
         // marginBottom: heightDiffWithLastCard, // too heavy on performance
-        filter: Math.max(1 - indexFromEnd * 0.2, 0.4),
+        filter: `brightness(${Math.max(1 - indexFromEnd * 0.2, 0.5)})`,
         scale: 1 - indexFromEnd * 0.05,
     });
 

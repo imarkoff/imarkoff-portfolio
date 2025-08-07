@@ -19,7 +19,7 @@ describe('GradientBlur', () => {
 
         const firstLayer = container.querySelector('[data-testid^="gradient-blur-layer-"]') as HTMLElement;
         expect(firstLayer.style.mask).not.toContain('to top');
-        expect(firstLayer.style.mask).toContain('linear-gradient(rgba(0, 0, 0, 1) 0%');
+        expect(firstLayer.style.mask).toContain('linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%');
     });
 
     it('applies bottom-to-top direction when specified', () => {

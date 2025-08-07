@@ -74,10 +74,10 @@ describe('HeroCenterContent', () => {
         expect(screen.getByText(/A/)).toBeInTheDocument();
         expect(screen.getByText('passionate')).toBeInTheDocument();
         expect(screen.getByText(/developer./)).toBeInTheDocument();
-        expect(screen.getByRole('button', { name: /Get my CV/i })).toBeInTheDocument();
-        expect(screen.getByRole('button', { name: /Contact me/i })).toBeInTheDocument();
-        expect(screen.getByRole('button', { name: /GitHub profile/i })).toBeInTheDocument();
-        expect(screen.getByRole('button', { name: /LinkedIn profile/i })).toBeInTheDocument();
+        expect(screen.getByRole('link', { name: /Get my CV/i })).toBeInTheDocument();
+        expect(screen.getByRole('link', { name: /Contact me/i })).toBeInTheDocument();
+        expect(screen.getByRole('link', { name: /GitHub profile/i })).toBeInTheDocument();
+        expect(screen.getByRole('link', { name: /LinkedIn profile/i })).toBeInTheDocument();
     });
 
     it('should render correctly when surname is not provided', () => {
@@ -89,14 +89,14 @@ describe('HeroCenterContent', () => {
 
     it('should not render GitHub link when not provided', () => {
         render(<HeroCenterContent aboutMe={mockAboutMeNoGithub} />);
-        expect(screen.queryByRole('button', { name: /GitHub profile/i })).not.toBeInTheDocument();
-        expect(screen.getByRole('button', { name: /LinkedIn profile/i })).toBeInTheDocument();
+        expect(screen.queryByRole('link', { name: /GitHub profile/i })).not.toBeInTheDocument();
+        expect(screen.getByRole('link', { name: /LinkedIn profile/i })).toBeInTheDocument();
     });
 
     it('should not render LinkedIn link when not provided', () => {
         render(<HeroCenterContent aboutMe={mockAboutMeNoLinkedin} />);
-        expect(screen.getByRole('button', { name: /GitHub profile/i })).toBeInTheDocument();
-        expect(screen.queryByRole('button', { name: /LinkedIn profile/i })).not.toBeInTheDocument();
+        expect(screen.getByRole('link', { name: /GitHub profile/i })).toBeInTheDocument();
+        expect(screen.queryByRole('link', { name: /LinkedIn profile/i })).not.toBeInTheDocument();
     });
 
     it('should render the AnimateHero component with correct props', () => {
