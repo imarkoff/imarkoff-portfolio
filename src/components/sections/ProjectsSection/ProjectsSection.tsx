@@ -1,11 +1,11 @@
 import Project from "@/lib/models/Project";
-import Section from "@/components/ui/Section";
 import Typography from "@/components/ui/Typography";
 import TypographyIcon from "@/components/ui/TypographyIcon";
 import CodeIcon from "@/components/icons/CodeIcon";
 import ProjectCard from "@/components/sections/ProjectsSection/components/ProjectCard/ProjectCard";
 import Technology from "@/lib/models/Technology";
-import AnimateProjectCards from "@/components/sections/ProjectsSection/components/AnimateProjectCards";
+import {ProjectsSectionReferences} from "@/components/sections/ProjectsSection/types";
+import ProjectAnimationWrapper from "@/components/sections/ProjectsSection/components/ProjectAnimationWrapper";
 
 interface ProjectsSectionProps {
     projects: Project[];
@@ -15,16 +15,23 @@ interface ProjectsSectionProps {
 export default function ProjectsSection(
     {projects, projectsTechnologies}: ProjectsSectionProps
 ) {
-    const references = {
-        projectsSectionId: "projects.section",
-        projectsHeaderId: "projects.header",
+    const references: ProjectsSectionReferences = {
+        projectsSectionId: "projects__section",
+        projectsHeaderId: "projects__header",
+        projectCard: {
+            className: "projects__project-card",
+            content: {
+                className: "projects__project-card__content",
+                techLabelClassName: "projects__project-card__tech-label"
+            }
+        }
     };
 
     return (
-        <Section slotProps={{
-            section: { className: "flex flex-col items-center gap-12" }
-        }}>
-            <AnimateProjectCards references={references} />
+        <ProjectAnimationWrapper
+            references={references}
+            projects={projects}
+        >
             <div
                 id={references.projectsHeaderId}
                 className={"w-full flex flex-col lg:items-center gap-2.5 z-10"}
@@ -49,12 +56,13 @@ export default function ProjectsSection(
                 {projects.map((item, index) => (
                     <ProjectCard
                         project={item}
+                        references={references.projectCard}
                         techs={projectsTechnologies[index]}
                         key={index}
                         index={index}
                     />
                 ))}
             </div>
-        </Section>
+        </ProjectAnimationWrapper>
     );
 }

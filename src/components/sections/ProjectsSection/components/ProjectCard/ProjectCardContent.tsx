@@ -6,15 +6,23 @@ import LinkButton from "@/components/ui/Button/LinkButton";
 import ArrowForwardIcon from "@/components/icons/ArrowForwardIcon";
 import GitHubIcon from "@/components/icons/GitHubIcon";
 import CodeIcon from "@/components/icons/CodeIcon";
-import {ProjectCardProps} from "@/components/sections/ProjectsSection/components/ProjectCard/types";
+import {
+    ProjectCardContentReference,
+    ProjectCardProps
+} from "@/components/sections/ProjectsSection/components/ProjectCard/types";
 import clsx from "clsx";
 
+interface ProjectCardContentProps extends Omit<ProjectCardProps, 'references'> {
+    references?: ProjectCardContentReference;
+}
+
 export default function ProjectCardContent(
-    {project, techs, index}: ProjectCardProps
+    {project, techs, index, references}: ProjectCardContentProps
 ) {
     return (
         <div className={clsx(
-            "h-full flex flex-col gap-4 justify-center lg:col-span-4",
+            references?.className,
+            "flex flex-col gap-4 lg:col-span-4",
             "p-4 lg:px-10"
         )}>
             <ContentHeader
@@ -29,7 +37,7 @@ export default function ProjectCardContent(
                 style={{maskImage: "linear-gradient(to right, black 0%, black 90%, transparent 100%)"}}
             >
                 {techs.map((tech, index) => (
-                    <TechnologyLabel technology={tech} key={index}/>
+                    <TechnologyLabel className={references?.techLabelClassName} technology={tech} key={index}/>
                 ))}
             </div>
             <ContentLinks project={project} />
@@ -48,7 +56,7 @@ const ContentHeader = (
                 <Typography
                     component={"span"}
                     variant={"hero"}
-                    className={"absolute !text-8xl !leading-none -bottom-2 -left-7 mix-blend-overlay"}
+                    className={"absolute !text-8xl !leading-none -bottom-2 -left-7 opacity-10"}
                 >
                     {index + 1}
                 </Typography>

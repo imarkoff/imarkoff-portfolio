@@ -4,7 +4,7 @@ import {ProjectCardProps} from "@/components/sections/ProjectsSection/components
 import clsx from "clsx";
 import dottedBackground from "@/utils/dottedBackground";
 
-export default function ProjectCard({project, techs, index}: ProjectCardProps) {
+export default function ProjectCard({project, techs, index, references}: ProjectCardProps) {
     const colors = project.colors ? {
         textPrimary: `hsla(${project.colors.primaryHue}, 68%, 95%, 1)`,
         primary: `hsla(${project.colors.primaryHue}, 76%, 60%, 1)`,
@@ -17,7 +17,8 @@ export default function ProjectCard({project, techs, index}: ProjectCardProps) {
     return (
         <article
             className={clsx(
-                "sticky top-1/4 project-card grid grid-cols-1 lg:grid-cols-12 overflow-hidden",
+                references?.className,
+                "sticky top-1/4 items-center grid grid-cols-1 lg:grid-cols-12 overflow-hidden",
                 "border-2 box-border border-solid rounded-3xl",
                 {"border-border-menu": !colors}
             )}
@@ -40,7 +41,12 @@ export default function ProjectCard({project, techs, index}: ProjectCardProps) {
                 className={"pointer-events-none absolute inset-0 -z-0"}
                 style={dottedBackground("rgba(255, 255, 255, 0.05)", "1px", "14px")}
             />
-            <ProjectCardContent project={project} techs={techs} index={index} />
+            <ProjectCardContent
+                project={project}
+                references={references?.content}
+                techs={techs}
+                index={index}
+            />
             <ProjectImage heroImage={project.heroImage} />
         </article>
     );
