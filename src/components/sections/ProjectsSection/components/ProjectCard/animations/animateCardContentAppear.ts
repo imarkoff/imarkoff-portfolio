@@ -1,12 +1,15 @@
 import gsap from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function animateCardContentAppear(
     cardContent: Element,
     cardTechLabels: NodeListOf<Element>,
     index: number,
 ) {
     const appearTl = gsap.timeline({});
+
     ScrollTrigger.create({
         trigger: cardContent,
         start: "top 75%",
@@ -30,4 +33,6 @@ export default function animateCardContentAppear(
         ease: "back.out(1.7)",
         stagger: 0.1
     }, "<");
+
+    return appearTl;
 }

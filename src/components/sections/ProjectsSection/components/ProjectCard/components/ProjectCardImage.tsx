@@ -1,9 +1,9 @@
+import clsx from "clsx";
 import Image from "next/image";
 import Typography from "@/components/ui/Typography";
 import Project from "@/lib/models/Project";
-import clsx from "clsx";
 
-export default function ProjectImage({ heroImage }: { heroImage: Project['heroImage'] }) {
+export default function ProjectCardImage({ heroImage }: { heroImage: Project['heroImage'] }) {
     const imageWidth = 1080;
     const imageHeight = imageWidth / heroImage.width * heroImage.height;
 

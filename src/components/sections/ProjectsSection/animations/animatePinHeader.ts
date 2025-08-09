@@ -6,10 +6,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function animatePinHeader(
     header: HTMLElement,
-    section: HTMLElement,
+    cardsList: HTMLElement,
     lastCard: Element
 ) {
-    const pinEndOffset = section.offsetHeight + SPACE_BETWEEN_HEADER_AND_PROJECTS - lastCard.clientHeight;
+    const pinEndOffset = cardsList.offsetHeight + SPACE_BETWEEN_HEADER_AND_PROJECTS - lastCard.clientHeight;
 
     ScrollTrigger.create({
         trigger: header,

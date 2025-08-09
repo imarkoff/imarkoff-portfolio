@@ -3,7 +3,7 @@ import {ProjectsSectionReferences} from "@/components/sections/ProjectsSection/t
 import Project from "@/lib/models/Project";
 import {useRef} from "react";
 import animatePinHeader from "@/components/sections/ProjectsSection/animations/animatePinHeader";
-import animateProjectCards from "@/components/sections/ProjectsSection/animations/animateProjectCards";
+import animateCardsList from "@/components/sections/ProjectsSection/animations/animateCardsList";
 
 export default function useAnimateProjectCards(
     references: ProjectsSectionReferences,
@@ -15,13 +15,14 @@ export default function useAnimateProjectCards(
         const scope = rootRef.current;
         if (!scope) return;
 
-        const section = scope.querySelector<HTMLDivElement>(`#${references.projectsSectionId}`);
+        const cardsList = scope.querySelector<HTMLDivElement>(`#${references.projectsListId}`);
         const header = scope.querySelector<HTMLDivElement>(`#${references.projectsHeaderId}`);
-        const cards = section?.querySelectorAll(`.${references.projectCard.className}`);
-        if (!section || !header || !cards || cards.length === 0) return;
+        const cards = cardsList?.querySelectorAll(`.${references.projectCard.className}`);
 
-        animatePinHeader(header, section, cards[cards.length - 1]);
-        animateProjectCards(cards, projects, references, scope);
+        if (!cardsList || !header || !cards || cards.length === 0) return;
+
+        animatePinHeader(header, cardsList, cards[cards.length - 1]);
+        animateCardsList(cards, projects, scope);
     }, { scope: rootRef, dependencies: [projects] });
 
     return rootRef;
