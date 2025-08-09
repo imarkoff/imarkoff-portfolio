@@ -9,4 +9,6 @@ const routeConfig = {
     }
 }
 
+export type RouteConfig = typeof routeConfig;
+
 export default routeConfig;

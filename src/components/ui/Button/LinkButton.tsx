@@ -1,12 +1,12 @@
 import Link from "next/link";
-import routeConfig from "@/config/routeConfig";
+import routeConfig, {RouteConfig} from "@/config/routeConfig";
 import {ComponentProps} from "react";
 import {ButtonBaseProps} from "@/components/ui/Button/types";
 import getButtonClasses from "@/components/ui/Button/utils/getButtonClasses";
 import ButtonContent from "@/components/ui/Button/components/ButtonContent";
 
 export type LinkButtonProps = Omit<ComponentProps<'a'>, "href"> & ButtonBaseProps & {
-    href: string | URL | ((route: typeof routeConfig) => string);
+    href: string | URL | ((route: RouteConfig) => string);
 };
 
 /**
