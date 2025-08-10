@@ -1,14 +1,14 @@
 import {useGSAP} from "@gsap/react";
 import {ProjectsSectionReferences} from "@/components/sections/ProjectsSection/types";
 import Project from "@/lib/models/Project";
-import {useRef} from "react";
+import {RefObject, useRef} from "react";
 import animatePinHeader from "@/components/sections/ProjectsSection/animations/animatePinHeader";
 import animateCardsList from "@/components/sections/ProjectsSection/animations/animateCardsList";
 
 export default function useAnimateProjectCards(
     references: ProjectsSectionReferences,
     projects: Project[],
-) {
+): RefObject<HTMLDivElement | null> {
     const rootRef = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {

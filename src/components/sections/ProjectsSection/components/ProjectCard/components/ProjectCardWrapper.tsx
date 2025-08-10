@@ -1,6 +1,6 @@
 "use client";
 
-import {PropsWithChildren} from "react";
+import {PropsWithChildren, useRef} from "react";
 import clsx from "clsx";
 import dottedBackground from "@/utils/dottedBackground";
 import {ProjectCardProps} from "../types";
@@ -16,8 +16,10 @@ interface ProjectCardWrapperProps extends PropsWithChildren {
 export default function ProjectCardWrapper(
     {project, references, index, children}: ProjectCardWrapperProps
 ) {
-    const styles = useProjectCardStyles(project);
-    const cardRef = useCardContentAppear(references, index);
+    const cardRef = useRef<HTMLDivElement>(null);
+
+    const styles = useProjectCardStyles(project.colors);
+    useCardContentAppear(cardRef, references?.content, index);
 
     return (
         <article

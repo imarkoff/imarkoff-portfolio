@@ -6,6 +6,7 @@ export default function ProjectsHeader({id}: {id: string}) {
     return (
         <div
             id={id}
+            data-testid={"projects-header-container"}
             className={"w-full flex flex-col lg:items-center gap-2.5 z-10"}
         >
             <div className={"flex items-center lg:justify-center gap-2.5"}>

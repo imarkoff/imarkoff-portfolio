@@ -1,6 +1,6 @@
-import Project from "@/lib/models/Project";
-import {ScrollTrigger} from "gsap/ScrollTrigger";
 import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import Project from "@/lib/models/Project";
 import {DEFAULT_HUE} from "@/components/sections/ProjectsSection/constants";
 
 export default function animateRootGradient(

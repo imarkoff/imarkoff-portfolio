@@ -15,6 +15,7 @@ export default function ProjectList(
     return (
         <div
             id={references.projectsListId}
+            data-testid={"projects-list"}
             className={"relative grid grid-cols-1 gap-52"}
         >
             {projects.map((item, index) => (
