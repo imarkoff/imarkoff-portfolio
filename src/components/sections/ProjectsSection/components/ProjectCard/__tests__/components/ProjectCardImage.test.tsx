@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { vi, describe, it, expect } from 'vitest';
 import '@testing-library/jest-dom/vitest';
 import ProjectCardImage from '../../components/ProjectCardImage';
-import { Project } from '@/types/project';
+import Project from '@/lib/models/Project';
 
 vi.mock('next/image', () => ({
     default: (props: any) => <img {...props} alt={props.alt} />,

@@ -4,7 +4,7 @@ import {ProjectsSectionReferences} from "@/components/sections/ProjectsSection/t
 import Project from "@/lib/models/Project";
 import Section from "@/components/ui/Section";
 import useAnimateProjectCards from "@/components/sections/ProjectsSection/hooks/useAnimateProjectCards";
-import {PropsWithChildren} from "react";
+import {CSSProperties, PropsWithChildren} from "react";
 import {DEFAULT_HUE, SPACE_BETWEEN_HEADER_AND_PROJECTS} from "@/components/sections/ProjectsSection/constants";
 
 interface ProjectAnimationWrapperProps extends PropsWithChildren {
@@ -22,11 +22,10 @@ export default function ProjectAnimationWrapper(
             root: {
                 ref: rootRef,
                 style: {
-                    // @ts-expect-error 2353 - CSS variables are not recognized by TypeScript
                     "--gradient-hue": DEFAULT_HUE,
                     "--gradient-color": "hsla(var(--gradient-hue), 100%, 50%, 0.15)",
                     background: "radial-gradient(45% 45% at 50% 7%, var(--gradient-color) 1%, #FF000000 99%),radial-gradient(45% 45% at -6% 74%, var(--gradient-color) 1%, #FF000000 99%)"
-                }
+                } as CSSProperties
             },
             section: { className: "flex flex-col items-center", style: { gap: `${SPACE_BETWEEN_HEADER_AND_PROJECTS}px` } }
         }
