@@ -27,18 +27,18 @@ const navbarLinks: NavbarLink[] = [
     {
         title: 'Projects',
         href: '#projects',
-        icon: WorkIcon,
+        icon: CodeIcon,
     },
     {
         title: 'Experience',
         href: '#experience',
-        icon: CodeIcon
+        icon: WorkIcon,
     },
     {
         title: 'Contact me',
         href: '#contact',
         icon: ChatIcon,
-        isPrimary: true
+        isPrimary: true,
     }
 ]
 

@@ -8,12 +8,15 @@ import AboutMeSection from "@/components/sections/AboutMeSection/AboutMeSection"
 import TechnologyGetter from "@/lib/services/interfaces/TechnologyGetter";
 import ProjectsSection from "@/components/sections/ProjectsSection/ProjectsSection";
 import ProjectGetter from "@/lib/services/interfaces/ProjectGetter";
+import ExperienceSection from "@/components/sections/ExperienceSection/ExperienceSection";
+import ExperienceGetter from "@/lib/services/interfaces/ExperienceGetter";
 
 export default async function Home() {
     const aboutMeGetter = container.get<AboutMeGetter>(TYPES.AboutMeGetter);
     const projectGetter = container.get<ProjectGetter>(TYPES.ProjectGetter);
     const showcaseGetter = container.get<ShowcaseGetter>(TYPES.ShowcaseGetter);
     const technologyGetter = container.get<TechnologyGetter>(TYPES.TechnologyGetter);
+    const experienceGetter = container.get<ExperienceGetter>(TYPES.ExperienceGetter);
 
     const aboutMe = await aboutMeGetter.getAboutMe();
     const projects = await projectGetter.getHomepageProjects();
@@ -21,6 +24,7 @@ export default async function Home() {
     const aboutMeTechnologies = await technologyGetter
         .getTechnologiesBySlugGroupedByCategory(aboutMe.technologiesCategories);
     const projectsTechnologies = [];
+    const experiences = await experienceGetter.getExperienceGroupedByType();
 
     for (const {coreTechs} of projects) {
         const technologies = await technologyGetter.getTechnologiesBySlug(coreTechs);
@@ -42,6 +46,9 @@ export default async function Home() {
             <ProjectsSection
                 projects={projects}
                 projectsTechnologies={projectsTechnologies}
+            />
+            <ExperienceSection
+                experience={experiences}
             />
         </main>
     );
