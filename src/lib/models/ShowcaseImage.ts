@@ -1,10 +1,7 @@
+import BackendImage from "@/lib/models/types/BackendImage";
 
-export default interface ShowcaseImage {
+export default interface ShowcaseImage extends BackendImage {
     id?: string;
-    src: string;
-    alt: string;
-    width: number;
-    height: number;
     columnIndex: number;
     orderIndex: number;
 }

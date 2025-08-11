@@ -19,7 +19,7 @@ type BlurLayer = {
  * @property [background] - CSS background value for the container
  */
 interface GradientBlurProps {
-    direction?: "top-to-bottom" | "bottom-to-top";
+    direction?: "top-to-bottom" | "bottom-to-top" | "left-to-right" | "right-to-left";
     layers?: BlurLayer[];
     className?: string;
     background?: string;
@@ -68,14 +68,17 @@ export default function GradientBlur(
         background,
     }: GradientBlurProps
 ) {
-    const isTopToBottom = direction === "top-to-bottom";
+    const directions = {
+        "top-to-bottom": "to bottom",
+        "bottom-to-top": "to top",
+        "left-to-right": "to right",
+        "right-to-left": "to left",
+    }
 
     return (
         <div className={clsx("absolute inset-0 pointer-events-none", className)} style={{ background }}>
             {layers.map(({blurAmount, maskStart, maskEnd}, index) => {
-                const maskGradient = isTopToBottom
-                    ? `linear-gradient(rgba(0, 0, 0, 1) ${maskStart}%, rgba(0, 0, 0, 0) ${maskEnd}%)`
-                    : `linear-gradient(to top, rgba(0, 0, 0, 1) ${maskStart}%, rgba(0, 0, 0, 0) ${maskEnd}%)`;
+                const maskGradient = `linear-gradient(${directions[direction]}, rgba(0, 0, 0, 1) ${maskStart}%, rgba(0, 0, 0, 0) ${maskEnd}%)`;
 
                 return (
                     <div

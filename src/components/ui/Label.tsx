@@ -1,14 +1,14 @@
-import {HTMLAttributes, ReactNode} from "react";
+import {ComponentProps, ReactNode} from "react";
 import clsx from "clsx";
 
-interface LabelProps extends HTMLAttributes<HTMLDivElement> {
+export interface LabelProps extends ComponentProps<'div'> {
     /** Optional icon element to display before the label text */
     icon?: ReactNode;
     /**
      * Color scheme for the label
      * @default "accent"
      */
-    color?: "accent" | "green" | "red" | "yellow";
+    color?: "accent" | "blue" | "green" | "red" | "yellow";
     /** Whether to use fully rounded corners (pill shape) */
     rounded?: boolean;
     /** Content of the label */
@@ -40,6 +40,7 @@ export default function Label(
                 "border border-border-default rounded-button-sm font-medium px-label-x py-label-y",
                 "flex items-center gap-label-x",
                 {"bg-on-surface text-primary": color === "accent"},
+                {"bg-blue-tinted text-blue-filled": color === "blue"},
                 {"bg-green-tinted text-green-filled": color === "green"},
                 {"bg-red-tinted text-red-filled": color === "red"},
                 {"bg-yellow-tinted text-yellow-filled": color === "yellow"},

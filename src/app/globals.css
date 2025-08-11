@@ -1,43 +1,52 @@
 @import "tailwindcss";
 
+:root {
+  --primary-hue: 280;
+}
+
 @theme {
   /* Text Colors */
-  --color-primary: hsla(280, 68%, 95%, 1);
-  --color-secondary: hsla(280, 68%, 95%, 0.67);
-  --color-tertiary: hsla(280, 68%, 95%, 0.35);
+  --color-primary: hsla(var(--primary-hue), 68%, 95%, 1);
+  --color-secondary: hsla(var(--primary-hue), 68%, 95%, 0.67);
+  --color-tertiary: hsla(var(--primary-hue), 68%, 95%, 0.35);
 
   /* Background Colors */
-  --color-background: hsla(280, 9%, 9%, 1);
-  --color-on-background: hsla(280, 5%, 15%, 0.5);
+  --color-background: hsla(var(--primary-hue), 9%, 9%, 1);
+  --color-on-background: hsla(var(--primary-hue), 5%, 15%, 0.5);
 
   /* Surface Colors */
-  --color-surface: hsla(280, 5%, 25%, 0.2);
-  --color-on-surface: hsla(280, 95%, 85%, 0.08);
-  --color-on-surface-hover: hsla(280, 40%, 85%, 0.13);
-  --color-on-surface-disabled: hsla(280, 95%, 85%, 0.04);
-  --color-on-surface-focus-border: hsla(280, 20%, 75%, 1);
+  --color-surface: hsla(var(--primary-hue), 5%, 25%, 0.2);
+  --color-on-surface: hsla(var(--primary-hue), 95%, 85%, 0.08);
+  --color-on-surface-hover: hsla(var(--primary-hue), 40%, 85%, 0.13);
+  --color-on-surface-disabled: hsla(var(--primary-hue), 95%, 85%, 0.04);
+  --color-on-surface-focus-border: hsla(var(--primary-hue), 20%, 75%, 1);
 
   /* Border Colors */
   --color-border-default: hsla(0, 0%, 100%, 0.03);
   --color-border-menu: hsla(0, 0%, 100%, 0.1);
 
   /* State Colors */
-  --color-active-filled: hsla(280, 79%, 68%, 1);
-  --color-active-tinted: hsla(280, 75%, 30%, 0.1);
-  --color-active-filled-text: hsla(280, 31%, 20%, 1);
-  --color-active-filled-hover: hsla(280, 82%, 75%, 1);
-  --color-active-filled-disabled: hsla(280, 79%, 68%, 0.5);
-  --color-active-filled-text-disabled: hsla(280, 74%, 10%, 0.67);
+  --color-active-filled: hsla(var(--primary-hue), 79%, 68%, 1);
+  --color-active-tinted: hsla(var(--primary-hue), 75%, 30%, 0.1);
+  --color-on-active-filled: hsla(var(--primary-hue), 31%, 20%, 1);
+  --color-active-filled-hover: hsla(var(--primary-hue), 82%, 75%, 1);
+  --color-active-filled-disabled: hsla(var(--primary-hue), 79%, 68%, 0.5);
+  --color-active-filled-text-disabled: hsla(var(--primary-hue), 74%, 10%, 0.67);
 
   /* Button Colors */
-  --color-ghost-button-fg: hsla(280, 100%, 92%, 0.87);
-  --color-ghost-button-hover-fg: hsla(280, 27%, 23%, 0.5);
-  --color-ghost-button-disabled-fg: hsla(280, 100%, 92%, 0.3);
-  --color-ghost-button-hover-bg: hsla(280, 29%, 23%, 0.5);
-  --color-ghost-button-active-bg: hsla(280, 79%, 68%, 0.12);
-  --color-ghost-button-active-hover-bg: hsla(280, 79%, 68%, 0.2);
+  --color-ghost-button-fg: hsla(var(--primary-hue), 100%, 92%, 0.87);
+  --color-ghost-button-hover-fg: hsla(var(--primary-hue), 27%, 23%, 0.5);
+  --color-ghost-button-disabled-fg: hsla(var(--primary-hue), 100%, 92%, 0.3);
+  --color-ghost-button-hover-bg: hsla(var(--primary-hue), 29%, 23%, 0.5);
+  --color-ghost-button-active-bg: hsla(var(--primary-hue), 79%, 68%, 0.12);
+  --color-ghost-button-active-hover-bg: hsla(var(--primary-hue), 79%, 68%, 0.2);
 
   /* Functional Colors */
+  --color-blue-filled: hsla(210, 79%, 60%, 1);
+  --color-blue-filled-hover: hsla(210, 79%, 60%, 0.8);
+  --color-blue-tinted: hsla(210, 79%, 60%, 0.12);
+  --color-blue-filled-text: hsla(210, 31%, 20%, 1);
+
   --color-green-filled: hsla(133, 79%, 60%, 1);
   --color-green-filled-hover: hsla(133, 79%, 60%, 0.8);
   --color-green-tinted: hsla(133, 79%, 60%, 0.12);
@@ -121,6 +130,7 @@
   --spacing-icon-caption: 0.75rem;
 
   /* Spacing */
+  --spacing-section: 90rem;
   --spacing-section-lg-x: 6.25rem;
   --spacing-section-lg-y: 4.75rem;
   --spacing-section-md-x: 2.25rem;
@@ -168,13 +178,13 @@
 
 @keyframes animated-button-shadow {
   from {
-    box-shadow: 0 0 10px rgba(250, 99, 255, 0.5);
+    box-shadow: 0 0 10px var(--color-active-filled);
   }
   50% {
-    box-shadow: 0 0 20px rgba(250, 99, 255, 0.75);
+    box-shadow: 0 0 20px var(--color-active-filled);
   }
   to {
-    box-shadow: 0 0 10px rgba(250, 99, 255, 0.5);
+    box-shadow: 0 0 10px var(--color-active-filled);
   }
 }
 

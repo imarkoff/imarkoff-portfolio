@@ -41,14 +41,24 @@ export default class FirestoreTechnologyRepository implements TechnologyReposito
     }
 
     async getTechnologiesBySlug(slugs: string[]): Promise<Technology[]> {
+        if (slugs.length === 0) return [];
+
         const snapshot = await this.firestore
             .collection(FirebaseCollections.Technologies)
             .where("slug", "in", slugs)
             .get();
 
-        return snapshot.docs.map(doc => ({
-            ...doc.data() as Technology,
-            id: doc.id
-        }));
+        const technologiesBySlug = new Map<string, Technology>();
+        snapshot.docs.forEach(doc => {
+            const data = doc.data() as Technology;
+            technologiesBySlug.set(data.slug, {
+                ...data,
+                id: doc.id
+            });
+        });
+
+        return slugs
+            .map(slug => technologiesBySlug.get(slug))
+            .filter((tech): tech is Technology => tech !== undefined);
     }
 }

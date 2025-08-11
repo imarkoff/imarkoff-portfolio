@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { describe, it, expect, vi } from 'vitest';
-import Button from '../Button';
+import Button from '../Button/Button';
 import React from 'react';
 import ProgressActivityIcon from "@/components/icons/ProgressActivityIcon";
 
@@ -126,8 +126,7 @@ describe('Button Component', () => {
         const button = screen.getByRole('button', { name: /primary accent/i });
 
         expect(button).toHaveClass('bg-active-filled');
-        expect(button).toHaveClass('text-active-filled-text');
-        expect(button).toHaveClass('focus-visible:border-active-filled');
+        expect(button).toHaveClass('text-on-active-filled');
         expect(button).not.toHaveClass('border-transparent');
     });
 

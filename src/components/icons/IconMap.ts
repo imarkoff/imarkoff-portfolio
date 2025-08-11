@@ -4,6 +4,7 @@ import {lazy} from "react";
 const IconMap = {
     "account_circle": lazy(() => import("@/components/icons/AccountCircleIcon")),
     "architecture": lazy(() => import("@/components/icons/ArchitectureIcon")),
+    "arrow_forward": lazy(() => import("@/components/icons/ArrowForwardIcon")),
     "bug_report": lazy(() => import("@/components/icons/BugReportIcon")),
     "chat": lazy(() => import("@/components/icons/ChatIcon")),
     "code": lazy(() => import("@/components/icons/CodeIcon")),
