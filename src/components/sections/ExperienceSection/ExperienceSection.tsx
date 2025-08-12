@@ -4,8 +4,8 @@ import WorkIcon from "@/components/icons/WorkIcon";
 import Typography from "@/components/ui/Typography";
 import ExperienceType from "@/lib/models/types/ExperienceType";
 import ExperienceItem from "@/lib/models/ExperienceItem";
-import ExperienceCard from "@/components/sections/ExperienceSection/components/ExperienceCard";
 import SchoolIcon from "@/components/icons/SchoolIcon";
+import ExperienceCard from "@/components/sections/ExperienceSection/components/ExperienceCard/ExperienceCard";
 
 interface ExperienceSectionProps {
     experience: Record<ExperienceType, ExperienceItem[]>;
@@ -48,7 +48,7 @@ export default function ExperienceSection(
                         experience={item}
                         index={{
                             current: index,
-                            total: experience.work.length
+                            total: experience.education.length
                         }}
                         key={index}
                     />
