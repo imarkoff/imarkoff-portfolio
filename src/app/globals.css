@@ -191,3 +191,7 @@
 [data-animate-appear] {
   opacity: 0;
 }
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-[image:var(--gradient-text)];
+}
