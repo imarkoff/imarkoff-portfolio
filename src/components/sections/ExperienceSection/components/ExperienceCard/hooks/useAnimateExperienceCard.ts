@@ -13,7 +13,7 @@ export default function useAnimateExperienceCard(
         const scope = rootRef.current;
         if (!scope) return;
 
-        animateSidesAppear(scope, references);
+        animateSidesAppear(scope, references.sides);
         animateLine(scope, references.line, isPresent);
     }, {scope: rootRef});
 }

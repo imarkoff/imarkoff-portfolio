@@ -1,10 +1,9 @@
 import Section from "@/components/ui/Section";
-import ExperienceType from "@/lib/models/types/ExperienceType";
-import ExperienceItem from "@/lib/models/ExperienceItem";
+import ExperienceType, {ExperienceByType} from "@/lib/models/types/ExperienceType";
 import ExperienceByTypeList from "@/components/sections/ExperienceSection/components/ExperienceByTypeList";
 
 interface ExperienceSectionProps {
-    experience: Record<ExperienceType, ExperienceItem[]>;
+    experience: ExperienceByType;
 }
 
 export default function ExperienceSection(

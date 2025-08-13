@@ -8,7 +8,7 @@ import ExperienceCard from "@/components/sections/ExperienceSection/components/E
 import ExperienceItem from "@/lib/models/ExperienceItem";
 import IconType from "@/components/icons/IconType";
 
-interface ExperienceByTypeListProps {
+export interface ExperienceByTypeListProps {
     type: ExperienceType;
     items: ExperienceItem[];
 }

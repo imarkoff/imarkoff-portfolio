@@ -4,12 +4,17 @@ export type ExperienceCardIndex = {
 }
 
 export type ExperienceCardReferences = {
+    sides: SideReferences;
+    line: LineReferences;
+}
+
+export type SideReferences = {
     leftSideClassName: string;
     rightSideClassName: string;
-    line: LineReferences;
 }
 
 export type LineReferences = {
     filledLineClassName: string;
     pinClassName: string;
+    pinChildClassName: string;
 }

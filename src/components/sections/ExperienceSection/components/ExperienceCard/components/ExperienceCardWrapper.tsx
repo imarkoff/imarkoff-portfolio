@@ -18,7 +18,11 @@ export default function ExperienceCardWrapper(
     useAnimateExperienceCard(rootRef, isPresent, references);
 
     return (
-        <article className={"flex gap-6 lg:gap-12 items-center"} ref={rootRef}>
+        <article
+            className={"flex gap-6 lg:gap-12 items-center"}
+            data-testid="experience-card-wrapper"
+            ref={rootRef}
+        >
             {children}
         </article>
     );

@@ -22,14 +22,28 @@ export default function ExperienceTitle(
     const endDate = experience.endDate ? dayjs(experience.endDate).format("MMM YYYY") : "Present";
 
     return (
-        <div className={"flex flex-col"}>
-            <Typography component={"h3"} variant={"h2"}>
+        <div
+            data-testid={"experience-title-container"}
+            className={"flex flex-col"}
+        >
+            <Typography
+                data-testid={"experience-position"}
+                component={"h3"} variant={"h2"}
+            >
                 {title}
             </Typography>
-            <Typography component={"h4"} variant={"h3"} className={"text-secondary"}>
+            <Typography
+                data-testid={"experience-company"}
+                component={"h4"} variant={"h3"}
+                className={"text-secondary"}
+            >
                 at {company}
             </Typography>
-            <Typography className={"flex gap-1.5 items-center"}>
+            <Typography
+                data-testid={"experience-dates"}
+                className={"flex gap-1.5 items-center"}
+                component={"span"}
+            >
                 <TypographyIcon Icon={CommitIcon} variant={"body"} />
                 <span>
                     {startDate} - {endDate}

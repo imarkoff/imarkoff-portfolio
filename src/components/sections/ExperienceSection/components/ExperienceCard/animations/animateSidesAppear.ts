@@ -1,12 +1,12 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import {ExperienceCardReferences} from "@/components/sections/ExperienceSection/components/ExperienceCard/types";
+import { SideReferences } from "../types";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function animateSidesAppear(
     scope: HTMLDivElement,
-    references: ExperienceCardReferences
+    references: SideReferences
 ) {
     const tl = gsap.timeline({});
 
