@@ -71,7 +71,7 @@ describe('ExperienceLine', () => {
         expect(mainDiv).not.toHaveClass('mask-b-from-80%');
     });
 
-    it('applies masks from tob and bottom correctly when only one item', () => {
+    it('applies masks from top and bottom correctly when only one item', () => {
         const { getByTestId } = render(
             <ExperienceLine
                 references={references}
