@@ -39,7 +39,7 @@ export default function Navbar() {
             )}>
                 <div className="flex justify-between items-center">
                     <div className="px-navbar">
-                        <Link href={"#home"} className={"text-logo font-bold text-transparent bg-clip-text bg-(image:--gradient-logo)"}>
+                        <Link href={"#home"} className={"text-logo font-bold text-gradient-logo"}>
                             imarkoff
                         </Link>
                     </div>

@@ -1,0 +1,15 @@
+@theme {
+    --animate-accent-button-shadow: animated-button-shadow 3s infinite;
+}
+
+@keyframes animated-button-shadow {
+    from {
+        box-shadow: 0 0 10px var(--color-active-filled);
+    }
+    50% {
+        box-shadow: 0 0 20px var(--color-active-filled);
+    }
+    to {
+        box-shadow: 0 0 10px var(--color-active-filled);
+    }
+}

@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@import "./animations/buttons.css";
+
+@import "./components/input.css";
+
+@import "./utilities/animations.css";
+@import "./utilities/text.css";
+
+@import "./variables/colors.css";
+@import "./variables/radiuses.css";
+@import "./variables/shadows.css";
+@import "./variables/typography.css";
+@import "./variables/spacings.css";

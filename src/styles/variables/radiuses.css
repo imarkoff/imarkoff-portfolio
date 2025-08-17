@@ -1,0 +1,8 @@
+@theme {
+    --radius-button-md: 0.625rem;
+    --radius-button-sm: 0.5rem;
+    --radius-input: 0.5rem;
+    --radius-label: 0.5rem;
+    --radius-card: 1.25rem;
+    --radius-navbar: calc(var(--radius-button-sm) + var(--spacing-navbar));
+}
