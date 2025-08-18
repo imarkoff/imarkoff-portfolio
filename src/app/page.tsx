@@ -10,6 +10,7 @@ import ProjectsSection from "@/components/sections/ProjectsSection/ProjectsSecti
 import ProjectGetter from "@/lib/services/interfaces/ProjectGetter";
 import ExperienceSection from "@/components/sections/ExperienceSection/ExperienceSection";
 import ExperienceGetter from "@/lib/services/interfaces/ExperienceGetter";
+import ContactMeSection from "@/components/sections/ContactMeSection/ContactMeSection";
 
 export default async function Home() {
     const aboutMeGetter = container.get<AboutMeGetter>(TYPES.AboutMeGetter);
@@ -34,7 +35,7 @@ export default async function Home() {
 
     return (
         <main className={"min-h-full flex flex-col"}>
-            <Navbar />
+            <Navbar/>
             <HeroSection
                 aboutMe={aboutMe}
                 showcases={showcases}
@@ -49,6 +50,9 @@ export default async function Home() {
             />
             <ExperienceSection
                 experience={experiences}
+            />
+            <ContactMeSection
+                email={aboutMe.contactEmail}
             />
         </main>
     );

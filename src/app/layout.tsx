@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Inter, Just_Another_Hand } from "next/font/google";
-import "./globals.css";
 import {ReactNode} from "react";
 import clsx from "clsx";
+import { Inter, Just_Another_Hand } from "next/font/google";
+import "@/styles/index.css";
 import dottedBackground from "@/utils/dottedBackground";
 import RemoveAnimateAppear from "@/components/layout/RemoveAnimateAppear";
 

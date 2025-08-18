@@ -3,6 +3,7 @@ import {lazy} from "react";
 /** A mapping of icon names to their respective React components. */
 const IconMap = {
     "account_circle": lazy(() => import("@/components/icons/AccountCircleIcon")),
+    "alternate_email": lazy(() => import("@/components/icons/AlternateEmailIcon")),
     "architecture": lazy(() => import("@/components/icons/ArchitectureIcon")),
     "arrow_forward": lazy(() => import("@/components/icons/ArrowForwardIcon")),
     "bug_report": lazy(() => import("@/components/icons/BugReportIcon")),
@@ -15,11 +16,13 @@ const IconMap = {
     "github": lazy(() => import("@/components/icons/GitHubIcon")),
     "home": lazy(() => import("@/components/icons/HomeIcon")),
     "linkedin": lazy(() => import("@/components/icons/LinkedInIcon")),
+    "mail": lazy(() => import("@/components/icons/MailIcon")),
     "memory": lazy(() => import("@/components/icons/MemoryIcon")),
     "menu": lazy(() => import("@/components/icons/MenuIcon")),
     "more_horiz": lazy(() => import("@/components/icons/MoreHorizIcon")),
     "progress_activity": lazy(() => import("@/components/icons/ProgressActivityIcon")),
     "school": lazy(() => import("@/components/icons/SchoolIcon")),
+    "send": lazy(() => import("@/components/icons/SendIcon")),
     "sentiment_very_satisfied": lazy(() => import("@/components/icons/SentimentVerySatisfiedIcon")),
     "trending_up": lazy(() => import("@/components/icons/TrendingUpIcon")),
     "web": lazy(() => import("@/components/icons/WebIcon")),
