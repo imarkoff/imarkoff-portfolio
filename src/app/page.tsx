@@ -34,26 +34,31 @@ export default async function Home() {
     }
 
     return (
-        <main className={"min-h-full flex flex-col"}>
-            <Navbar/>
-            <HeroSection
-                aboutMe={aboutMe}
-                showcases={showcases}
-            />
-            <AboutMeSection
-                aboutMe={aboutMe}
-                technologies={aboutMeTechnologies}
-            />
-            <ProjectsSection
-                projects={projects}
-                projectsTechnologies={projectsTechnologies}
-            />
-            <ExperienceSection
-                experience={experiences}
-            />
-            <ContactMeSection
-                email={aboutMe.contactEmail}
-            />
-        </main>
+        <>
+            <main className={"min-h-full flex flex-col"}>
+                <Navbar/>
+                <HeroSection
+                    aboutMe={aboutMe}
+                    showcases={showcases}
+                />
+                <AboutMeSection
+                    aboutMe={aboutMe}
+                    technologies={aboutMeTechnologies}
+                />
+                <ProjectsSection
+                    projects={projects}
+                    projectsTechnologies={projectsTechnologies}
+                />
+                <ExperienceSection
+                    experience={experiences}
+                />
+            </main>
+            <footer>
+                <ContactMeSection
+                    aboutMe={aboutMe}
+                />
+            </footer>
+        </>
+
     );
 }
