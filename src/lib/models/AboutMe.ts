@@ -14,7 +14,7 @@ export default interface AboutMe {
 
 export interface SocialLink {
     platform: string;
-    url: string;
+    username: string;
 }
 
 export interface ByTheNumbers {
