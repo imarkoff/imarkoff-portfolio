@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import Button from "@/components/ui/Button/Button";
 import clsx from "clsx";
 import GradientBlur from "@/components/ui/GradientBlur";
@@ -12,6 +11,7 @@ import MenuIcon from "@/components/icons/MenuIcon";
 import NavbarMenu from "@/components/layout/Navbar/components/NavbarMenu";
 import useNavbarMenuAnimation from "@/components/layout/Navbar/hooks/useNavbarMenuAnimation";
 import LinkButton from "@/components/ui/Button/LinkButton";
+import Logo from "@/components/layout/Logo";
 
 export default function Navbar() {
     const navbarRef = useNavbarAppear();
@@ -39,9 +39,7 @@ export default function Navbar() {
             )}>
                 <div className="flex justify-between items-center">
                     <div className="px-navbar">
-                        <Link href={"#home"} className={"text-logo font-bold text-gradient-logo"}>
-                            imarkoff
-                        </Link>
+                        <Logo />
                     </div>
                     <ul className="flex gap-x-navbar">
                         {navbarLinks.map((link, index) => (

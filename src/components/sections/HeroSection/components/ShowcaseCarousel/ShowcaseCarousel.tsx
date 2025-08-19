@@ -21,7 +21,7 @@ export default function ShowcaseCarousel({showcases}: { showcases: Array<Showcas
                 <VerticalTicker
                     spacing={20}
                     direction={index % 2 === 0 ? "down" : "up"}
-                    speed={0.5}
+                    speed={0.35}
                     startDelay={tickerStartDelay}
                     key={index}
                 >

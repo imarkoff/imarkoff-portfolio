@@ -67,7 +67,7 @@ export default function HeroCenterContent({aboutMe}: { aboutMe: AboutMe }) {
                                 className={"text-center md:text-left"}
                                 {...props} />,
                             strong: ({node, ...props}) => <strong
-                                className={"text-transparent font-tagline bg-clip-text bg-(image:--gradient-text)"}
+                                className={"font-tagline text-gradient"}
                                 {...props} />,
                         }}
                     >

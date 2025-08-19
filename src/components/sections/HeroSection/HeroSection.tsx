@@ -33,7 +33,7 @@ export default function HeroSection(
                 </div>
             </div>
 
-            <div className={"absolute -top-full bottom-0 right-0 translate-x-1/3 translate-y-1/3 flex items-center justify-center opacity-35 lg:opacity-100"}>
+            <div className={"absolute -top-full bottom-0 right-0 translate-x-1/4 translate-y-1/3 flex items-center justify-center opacity-35 lg:opacity-100"}>
                 <SomeShowcasesArrow />
                 <ShowcaseCarousel showcases={showcases} />
             </div>
