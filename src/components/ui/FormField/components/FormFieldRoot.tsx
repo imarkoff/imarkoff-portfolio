@@ -1,10 +1,22 @@
 import {PropsWithChildren} from "react";
+import {InputState} from "@/components/ui/FormField/types";
+import clsx from "clsx";
+
+interface FormFieldProps extends PropsWithChildren {
+    state: InputState;
+}
 
 export default function FormFieldRoot(
-    {children}: PropsWithChildren
+    {children, state}: FormFieldProps
 ) {
     return (
-        <div className="flex flex-col gap-1.5">
+        <div className={clsx(
+            "form-field-box",
+            {
+                "error": state === "error",
+                "success": state === "success",
+            }
+        )}>
             {children}
         </div>
     );

@@ -7,11 +7,12 @@ import FormFieldRoot from "./components/FormFieldRoot";
 import useCurrentLength from "./hooks/useCurrentLength";
 import getFormFieldClassName from "./utils/getFormFieldClassName";
 import FormFieldFooter from "@/components/ui/FormField/components/FormFieldFooter";
+import clsx from "clsx";
 
 type TextAreaProps = ComponentProps<'textarea'> & ExtendedInputProps;
 
 export default function TextArea(
-    {label, labelIcon, state, message, maxLength, ...props}: TextAreaProps
+    {label, labelIcon, state = "default", message, maxLength, ...props}: TextAreaProps
 ) {
     const {
         length, handleChange
@@ -21,7 +22,7 @@ export default function TextArea(
     );
 
     return (
-        <FormFieldRoot>
+        <FormFieldRoot state={state}>
             <FormFieldLabel
                 label={label}
                 labelIcon={labelIcon}
@@ -30,7 +31,7 @@ export default function TextArea(
             <textarea
                 {...props}
                 onChange={handleChange}
-                className={getFormFieldClassName(state, props.className)}
+                className={clsx("input", props.className)}
             />
             <FormFieldFooter
                 message={message}

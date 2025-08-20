@@ -6,7 +6,7 @@ import FormFieldLabel from "./components/FormFieldLabel";
 import FormFieldRoot from "./components/FormFieldRoot";
 import FormFieldFooter from "./components/FormFieldFooter";
 import useCurrentLength from "./hooks/useCurrentLength";
-import getFormFieldClassName from "./utils/getFormFieldClassName";
+import clsx from "clsx";
 
 type InputProps = ComponentProps<'input'> & ExtendedInputProps;
 
@@ -21,7 +21,7 @@ export default function Input(
     );
 
     return (
-        <FormFieldRoot>
+        <FormFieldRoot state={state}>
             <FormFieldLabel
                 label={label}
                 labelIcon={labelIcon}
@@ -30,7 +30,7 @@ export default function Input(
             <input
                 {...props}
                 onChange={handleChange}
-                className={getFormFieldClassName(state, props.className)}
+                className={clsx("input", props.className)}
             />
             <FormFieldFooter
                 message={message}
