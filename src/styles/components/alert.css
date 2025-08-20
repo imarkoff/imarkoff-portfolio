@@ -1,0 +1,48 @@
+.alert {
+    @apply
+    p-2
+    bg-on-surface text-primary text-sm
+    border border-border-default rounded-button-md
+    flex items-center gap-2.5;
+
+    .icon {
+        @apply
+        w-icon-body text-primary;
+    }
+
+    &.alert-success {
+        @apply
+        bg-green-tinted border-green-filled;
+
+        .icon {
+            @apply text-green-filled;
+        }
+    }
+
+    &.alert-error {
+        @apply
+        bg-red-tinted border-red-filled;
+
+        .icon {
+            @apply text-red-filled;
+        }
+    }
+
+    &.alert-warning {
+        @apply
+        bg-yellow-tinted border-yellow-filled;
+
+        .icon {
+            @apply text-yellow-filled;
+        }
+    }
+
+    &.alert-info {
+        @apply
+        bg-blue-tinted border-blue-filled;
+
+        .icon {
+            @apply text-blue-filled;
+        }
+    }
+}

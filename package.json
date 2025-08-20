@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
+    "@hookform/resolvers": "^5.2.1",
     "@tailwindcss/postcss": "^4.1.11",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.13",
@@ -23,9 +24,12 @@
     "postcss": "^8.5.6",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "react-hook-form": "^7.62.0",
     "react-markdown": "^10.1.0",
     "reflect-metadata": "^0.2.2",
-    "tailwindcss": "^4.1.11"
+    "swr": "^2.3.6",
+    "tailwindcss": "^4.1.11",
+    "zod": "^4.0.17"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.6.3",

@@ -1,0 +1,1 @@
+export const SECTION_GRADIENT = "radial-gradient(70% 91% at -3% 93%, #A92CDD38 1%, #FF000000 99%),radial-gradient(90% 91% at 102% 36%, #DD2CA812 1%, #FF000000 99%)";

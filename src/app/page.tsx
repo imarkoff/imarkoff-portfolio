@@ -35,12 +35,14 @@ export default async function Home() {
 
     return (
         <>
-            <main className={"min-h-full flex flex-col"}>
+            <header>
                 <Navbar/>
                 <HeroSection
                     aboutMe={aboutMe}
                     showcases={showcases}
                 />
+            </header>
+            <main>
                 <AboutMeSection
                     aboutMe={aboutMe}
                     technologies={aboutMeTechnologies}
@@ -59,6 +61,5 @@ export default async function Home() {
                 />
             </footer>
         </>
-
     );
 }

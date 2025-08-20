@@ -1,22 +1,39 @@
+.form-field-box {
+    @apply flex flex-col gap-1.5;
+
+    &:not(:is(.error, .success)) {
+        .input {
+            @apply border-border-menu hover:border-tertiary focus:border-active-filled
+            bg-black/20 focus:bg-active-tinted;
+        }
+    }
+
+    &.error {
+        .input {
+            @apply border-red-filled bg-red-tinted;
+        }
+
+        .input-message {
+            @apply text-red-filled;
+        }
+    }
+
+    &.success {
+        .input {
+            @apply border-green-filled bg-green-tinted;
+        }
+
+        .input-message {
+            @apply text-green-filled;
+        }
+    }
+}
+
 .input {
     @apply
     py-2 px-3
     text-primary placeholder-tertiary
     border-2 rounded-button-md focus:outline-none transition-[border];
-
-    &:not(:is(.error, .success)) {
-        @apply
-        border-border-menu hover:border-tertiary focus:border-active-filled
-        bg-black/20 focus:bg-active-tinted;
-    }
-
-    &.error {
-        @apply border-red-filled bg-red-tinted;
-    }
-
-    &.success {
-        @apply border-green-filled bg-green-tinted;
-    }
 }
 
 .input-label {
@@ -24,17 +41,13 @@
 }
 
 .input-message {
-    @apply text-caption;
+    @apply text-caption text-tertiary;
+}
 
-    &:not(:is(.error, .success)) {
-        @apply text-tertiary;
-    }
+.length-counter {
+    @apply text-caption text-tertiary text-right;
 
     &.error {
         @apply text-red-filled;
-    }
-
-    &.success {
-        @apply text-green-filled;
     }
 }
