@@ -1,9 +1,9 @@
+import {ComponentProps} from "react";
 import Link from "next/link";
 import routeConfig, {RouteConfig} from "@/config/routeConfig";
-import {ComponentProps} from "react";
-import {ButtonBaseProps} from "@/components/ui/Button/types";
-import getButtonClasses from "@/components/ui/Button/utils/getButtonClasses";
-import ButtonContent from "@/components/ui/Button/components/ButtonContent";
+import {ButtonBaseProps} from "./types";
+import ButtonContent from "./components/ButtonContent";
+import getButtonClasses from "./utils/getButtonClasses";
 
 export type LinkButtonProps = Omit<ComponentProps<'a'>, "href"> & ButtonBaseProps & {
     href: string | URL | ((route: RouteConfig) => string);
@@ -61,14 +61,12 @@ export default function LinkButton(
             target={target}
             rel={rel}
             className={getButtonClasses({
-                size, variant, color,
-                isIconButton, LeftIcon, RightIcon,
-                active, className,
+                size, variant, color, isIconButton,
+                active, className
             })}
             {...props}
         >
             <ButtonContent
-                size={size}
                 LeftIcon={LeftIcon}
                 RightIcon={RightIcon}
             >

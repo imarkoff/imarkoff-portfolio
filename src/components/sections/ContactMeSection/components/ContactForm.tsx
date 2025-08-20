@@ -36,7 +36,7 @@ export default function ContactForm() {
             <Button
                 type={"submit"}
                 RightIcon={SendIcon}
-                className={"w-full"}
+                className={"w-full justify-center"}
                 variant={"primary"}
             >
                 Send Message

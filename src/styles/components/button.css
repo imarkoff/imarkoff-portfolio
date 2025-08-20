@@ -1,0 +1,127 @@
+.button {
+    @apply
+    relative inline-flex
+    font-semibold leading-0
+    disabled:opacity-50
+    border border-border-default
+    outline-2 outline-offset-0 outline-transparent focus-visible:outline-on-surface-focus-border
+    cursor-pointer disabled:cursor-not-allowed
+    transition-[background-color,color,scale,opacity] duration-200
+    active:scale-95;
+
+    &.loading > :not(.loading-spinner) {
+        @apply opacity-0 transition-opacity;
+    }
+
+    .icon {
+        @apply size-icon-md;
+    }
+
+    .loading-spinner {
+        @apply absolute left-1/2 top-1/2 -translate-1/2;
+
+        .spinner-icon {
+            @apply size-icon-md animate-spin;
+        }
+    }
+
+    &.size-small {
+        @apply py-button-sm-y gap-button-gap-sm rounded-button-sm;
+
+        &:not(.icon-only) {
+            @apply px-button-sm-x;
+        }
+
+        &.icon-only {
+            @apply px-button-sm-y;
+        }
+
+        .icon {
+            &:first-child:not(:last-child) {
+                @apply -ml-button-icon-sm-x;
+            }
+            &:last-child:not(:first-child) {
+                @apply -mr-button-icon-sm-x;
+            }
+        }
+    }
+
+    &.size-medium {
+        @apply py-button-md-y gap-button-gap-md rounded-button-md;
+
+        &:not(.icon-only) {
+            @apply px-button-md-x;
+        }
+
+        &.icon-only {
+            @apply px-button-md-y;
+        }
+
+        .icon {
+            &:first-child:not(:last-child) {
+                @apply -ml-button-icon-md-x;
+            }
+            &:last-child:not(:first-child) {
+                @apply -mr-button-icon-md-x;
+            }
+        }
+    }
+
+    &.primary {
+        @apply
+        outline-offset-2
+        focus-visible:scale-105 hover:scale-105 active:scale-95;
+
+        &:not(:is(.success, .error, .warning)) {
+            @apply
+            bg-active-filled text-on-active-filled
+            hover:bg-active-filled-hover focus-visible:bg-active-filled-hover
+            hover:animate-accent-button-shadow focus-visible:animate-accent-button-shadow;
+        }
+
+        &.success {
+            @apply bg-green-filled text-green-filled-text hover:bg-green-filled-hover;
+        }
+
+        &.error {
+            @apply bg-red-filled text-red-filled-text hover:bg-red-filled-hover;
+        }
+
+        &.warning {
+            @apply bg-yellow-filled text-yellow-filled-text hover:bg-yellow-filled-hover;
+        }
+    }
+
+    &.secondary {
+        &:not(:is(.success, .error, .warning)) {
+            @apply bg-on-surface hover:bg-on-surface-hover text-primary;
+        }
+
+        &.success {
+            @apply bg-green-tinted hover:bg-green-tinted-hover text-primary;
+        }
+
+        &.error {
+            @apply bg-red-tinted hover:bg-red-tinted-hover text-primary;
+        }
+
+        &.warning {
+            @apply bg-yellow-tinted hover:bg-yellow-tinted-hover text-primary;
+        }
+    }
+
+    &.tertiary {
+        @apply
+        text-ghost-button-fg
+        hover:bg-ghost-button-hover-bg hover:text-ghost-button-hover-fg
+        focus-visible:bg-ghost-button-hover-bg focus-visible:text-ghost-button-hover-fg;
+
+        &:not(:is(.active, :hover, :focus-visible)) {
+            @apply border-transparent;
+        }
+
+        &.active {
+            @apply bg-ghost-button-active-bg text-active-filled;
+        }
+    }
+}
