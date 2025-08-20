@@ -2,7 +2,7 @@ import {Children, ComponentType, ReactNode} from "react";
 import IconType from "@/components/icons/IconType";
 import ProgressActivityIcon from "@/components/icons/ProgressActivityIcon";
 
-interface ButtonContentProps {
+export interface ButtonContentProps {
     loading?: boolean;
     LeftIcon?: ComponentType<IconType>;
     RightIcon?: ComponentType<IconType>;
@@ -27,7 +27,7 @@ export default function ButtonContent(
                 <LeftIcon className={"icon"} data-testid={"left-icon"} />
             )}
             {childrenExists && (
-                <span className={"leading-tight"}>
+                <span className={"leading-tight"} data-testid={"button-children"}>
                     {children}
                 </span>
             )}

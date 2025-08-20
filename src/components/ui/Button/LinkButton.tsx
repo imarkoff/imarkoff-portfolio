@@ -14,10 +14,7 @@ export type LinkButtonProps = Omit<ComponentProps<'a'>, "href"> & ButtonBaseProp
  *
  * @example
  * ```tsx
- * <LinkButton
- *   href="#about"
- *   rel="noopener noreferrer"
- * />
+ * <LinkButton href="#about" />
  * ```
  *
  * @example
@@ -30,16 +27,12 @@ export type LinkButtonProps = Omit<ComponentProps<'a'>, "href"> & ButtonBaseProp
  */
 export default function LinkButton(
     {
-        href,
-        target,
-        rel,
+        href, target, rel,
         className,
         size = "medium",
         variant = "secondary",
         color = "accent",
-        isIconButton,
-        LeftIcon,
-        RightIcon,
+        isIconButton, LeftIcon, RightIcon,
         active,
         children,
         ...props

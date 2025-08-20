@@ -1,10 +1,10 @@
 import clsx from "clsx";
 import {ButtonColor, ButtonSize, ButtonVariant} from "../types";
 
-interface ButtonClassesProps {
-    size: ButtonSize;
-    variant: ButtonVariant;
-    color: ButtonColor;
+export interface ButtonClassesProps {
+    size?: ButtonSize;
+    variant?: ButtonVariant;
+    color?: ButtonColor;
     isLoading?: boolean;
     isIconButton?: boolean;
     active?: boolean;
@@ -13,8 +13,8 @@ interface ButtonClassesProps {
 
 export default function getButtonClasses(
     {
-        size,
-        variant,
+        size = "medium",
+        variant = "secondary",
         color,
         isLoading = false,
         isIconButton = false,
