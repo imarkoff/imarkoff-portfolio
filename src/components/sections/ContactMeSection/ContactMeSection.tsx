@@ -15,7 +15,10 @@ export default function ContactMeSection(
     return (
         <Section
             slotProps={{
-                root: { style: { background: SECTION_GRADIENT } },
+                root: {
+                    className: "overflow-hidden",
+                    style: { background: SECTION_GRADIENT }
+                },
                 section: {
                     className: "flex flex-col gap-12 lg:gap-20 pb-5 md:pb-9 lg:pb-12"
                 }

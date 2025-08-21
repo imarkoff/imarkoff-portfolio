@@ -12,8 +12,13 @@ import Card from "@/components/ui/Card";
 import useSendContactRequestApi from "@/components/sections/ContactMeSection/hooks/lib/useSendContactRequestApi";
 import useContactRequestForm from "@/components/sections/ContactMeSection/hooks/useContactRequestForm";
 import Alert from "@/components/ui/Alert/Alert";
+import {useRef} from "react";
+import useAnimateForm from "@/components/sections/ContactMeSection/hooks/useAnimateForm";
 
 export default function ContactForm() {
+    const cardRef = useRef<HTMLDivElement>(null);
+    useAnimateForm(cardRef);
+
     const {
         isSendingContactRequest,
         contactRequestResponse,
@@ -36,14 +41,20 @@ export default function ContactForm() {
     const disabled = isSendingContactRequest || !!contactRequestResponse;
 
     return (
-        <form onSubmit={handleSubmit} noValidate>
-            <Card className={"flex flex-col gap-2.5 md:w-[450px]"}>
+        <form
+            onSubmit={handleSubmit}
+            noValidate
+        >
+            <Card
+                className={"flex flex-col gap-2.5 md:w-[450px]"}
+                ref={cardRef}
+            >
                 <Input
                     id={"contact-name"}
                     label={"Your Name"}
                     labelIcon={<TypographyIcon Icon={AccountCircleIcon} />}
                     autoComplete={"name"}
-                    placeholder={"Enter your name"}
+                    placeholder={"John Doe"}
                     disabled={disabled}
                     state={errors.name ? "error" : "default"}
                     message={errors.name?.message}
@@ -54,7 +65,7 @@ export default function ContactForm() {
                     label={"Your Email"}
                     labelIcon={<TypographyIcon Icon={AlternateEmailIcon} />}
                     type={"email"}
-                    placeholder={"johndoe@exaple.com"}
+                    placeholder={"johndoe@example.com"}
                     disabled={disabled}
                     state={errors.email ? "error" : "default"}
                     message={errors.email?.message}
@@ -72,16 +83,18 @@ export default function ContactForm() {
                     message={errors.message?.message}
                     {...register("message", { required: true, maxLength: 500 })}
                 />
-                <Button
-                    type={"submit"}
-                    RightIcon={SendIcon}
-                    className={"w-full justify-center"}
-                    variant={"primary"}
-                    disabled={disabled}
-                    loading={isSendingContactRequest}
-                >
-                    Send Message
-                </Button>
+                <div>
+                    <Button
+                        type={"submit"}
+                        RightIcon={SendIcon}
+                        className={"w-full justify-center"}
+                        variant={"primary"}
+                        disabled={disabled}
+                        loading={isSendingContactRequest}
+                    >
+                        Send Message
+                    </Button>
+                </div>
                 {contactRequestResponse && (
                     <Alert
                         message={successMessage}
@@ -94,8 +107,13 @@ export default function ContactForm() {
                         type={'error'}
                     />
                 )}
+                <noscript>
+                    <Alert
+                        message={"Sending messages requires JavaScript to be enabled. Please enable JavaScript and try again."}
+                        type={'warning'}
+                    />
+                </noscript>
             </Card>
         </form>
-
     );
 }
