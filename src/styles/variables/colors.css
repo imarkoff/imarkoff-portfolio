@@ -65,4 +65,6 @@
     /* Gradient Colors */
     --gradient-text: linear-gradient(90deg, rgb(138, 111, 235), rgb(235, 111, 212), rgb(249, 90, 93), rgb(181, 111, 235));
     --gradient-text-logo: linear-gradient(90deg, rgb(167, 111, 235), rgb(235, 111, 208), rgb(225, 111, 235));
+    --dotted-background: linear-gradient(90deg, hsla(var(--primary-hue), 5%, 50%, 0.035) 1px, transparent 1px),
+        linear-gradient(hsla(var(--primary-hue), 5%, 50%, 0.035) 1px, transparent 1px);
 }
