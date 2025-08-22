@@ -1,19 +1,20 @@
 "use client";
 
+import {useRef} from "react";
+import Card from "@/components/ui/Card";
 import Input from "@/components/ui/FormField/Input";
+import TextArea from "@/components/ui/FormField/TextArea";
 import TypographyIcon from "@/components/ui/TypographyIcon";
+import Button from "@/components/ui/Button/Button";
+import Alert from "@/components/ui/Alert/Alert";
 import AccountCircleIcon from "@/components/icons/AccountCircleIcon";
 import AlternateEmailIcon from "@/components/icons/AlternateEmailIcon";
-import TextArea from "@/components/ui/FormField/TextArea";
 import ChatIcon from "@/components/icons/ChatIcon";
-import Button from "@/components/ui/Button/Button";
 import SendIcon from "@/components/icons/SendIcon";
-import Card from "@/components/ui/Card";
-import useSendContactRequestApi from "@/components/sections/ContactMeSection/hooks/lib/useSendContactRequestApi";
-import useContactRequestForm from "@/components/sections/ContactMeSection/hooks/useContactRequestForm";
-import Alert from "@/components/ui/Alert/Alert";
-import {useRef} from "react";
-import useAnimateForm from "@/components/sections/ContactMeSection/hooks/useAnimateForm";
+import useSendContactRequestApi from "../hooks/lib/useSendContactRequestApi";
+import useContactRequestForm from "../hooks/useContactRequestForm";
+import useAnimateForm from "../hooks/useAnimateForm";
+import {NOSCRIPT_MESSAGE, SUCCESS_MESSAGE, UNKNOWN_ERROR_MESSAGE} from "../constants";
 
 export default function ContactForm() {
     const cardRef = useRef<HTMLDivElement>(null);
@@ -21,7 +22,7 @@ export default function ContactForm() {
 
     const {
         isSendingContactRequest,
-        contactRequestResponse,
+        isContactRequestResponse,
         contactRequestError,
         sendContactRequest
     } = useSendContactRequestApi();
@@ -33,12 +34,10 @@ export default function ContactForm() {
     } = useContactRequestForm(
         sendContactRequest,
         isSendingContactRequest,
-        !!contactRequestResponse
+        isContactRequestResponse
     );
 
-    const successMessage = "Your message has been sent successfully! I will get back to you soon.";
-
-    const disabled = isSendingContactRequest || !!contactRequestResponse;
+    const disabled = isSendingContactRequest || isContactRequestResponse;
 
     return (
         <form
@@ -95,21 +94,24 @@ export default function ContactForm() {
                         Send Message
                     </Button>
                 </div>
-                {contactRequestResponse && (
+                {isContactRequestResponse && (
                     <Alert
-                        message={successMessage}
+                        message={SUCCESS_MESSAGE}
+                        data-testid={"contact-success-message"}
                         type={'success'}
                     />
                 )}
                 {contactRequestError && (
                     <Alert
-                        message={contactRequestError.message}
+                        message={!!contactRequestError.message ? contactRequestError.message : UNKNOWN_ERROR_MESSAGE}
+                        data-testid={"contact-error-message"}
                         type={'error'}
                     />
                 )}
                 <noscript>
                     <Alert
-                        message={"Sending messages requires JavaScript to be enabled. Please enable JavaScript and try again."}
+                        message={NOSCRIPT_MESSAGE}
+                        data-testid={"contact-noscript-message"}
                         type={'warning'}
                     />
                 </noscript>

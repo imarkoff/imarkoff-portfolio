@@ -8,7 +8,7 @@ import FormFieldFooter from "./components/FormFieldFooter";
 import useCurrentLength from "./hooks/useCurrentLength";
 import clsx from "clsx";
 
-type InputProps = ComponentProps<'input'> & ExtendedInputProps;
+export type InputProps = ComponentProps<'input'> & ExtendedInputProps;
 
 export default function Input(
     {label, labelIcon, state = 'default', message, maxLength, ...props}: InputProps

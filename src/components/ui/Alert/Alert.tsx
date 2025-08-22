@@ -4,7 +4,7 @@ import IconType from "@/components/icons/IconType";
 import AlertIcon from "./components/AlertIcon";
 import {AlertType} from "./types";
 
-interface AlertProps {
+export interface AlertProps {
     /**
      * The type of alert to display, which determines the styling and icon.
      * Can be one of 'success', 'error', 'warning', or 'info'.

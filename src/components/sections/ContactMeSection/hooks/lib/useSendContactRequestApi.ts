@@ -25,6 +25,6 @@ export default function useSendContactRequestApi() {
         sendContactRequest: send,
         isSendingContactRequest,
         contactRequestError,
-        contactRequestResponse,
+        isContactRequestResponse: !!contactRequestResponse,
     };
 }

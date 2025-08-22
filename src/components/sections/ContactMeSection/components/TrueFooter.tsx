@@ -28,7 +28,7 @@ export default function TrueFooter(
             <div>
                 <Logo />
                 <Typography variant={"caption"} className={"!leading-none"}>
-                    {aboutMe.name} {aboutMe.surname}
+                    {`${aboutMe.name} ${aboutMe.surname}`}
                 </Typography>
             </div>
             <div className={"flex items-center justify-end lg:justify-center gap-2"}>
@@ -43,7 +43,7 @@ export default function TrueFooter(
                 />
             </div>
             <Typography variant={"caption"} className={"lg:text-end col-span-2 lg:col-span-1"}>
-                © {currentYear} {aboutMe.name} {aboutMe.surname}. All rights reserved.
+                {`© ${currentYear} ${aboutMe.name} ${aboutMe.surname}. All rights reserved.`}
             </Typography>
         </Card>
     );

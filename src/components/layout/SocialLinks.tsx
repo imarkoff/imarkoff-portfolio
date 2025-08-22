@@ -5,7 +5,7 @@ import LinkButton from "@/components/ui/Button/LinkButton";
 import socialLinksMetadata from "@/lib/constants/socialLinksMetadata";
 import {ComponentType, Fragment, PropsWithChildren} from "react";
 
-interface SocialLinksProps {
+export interface SocialLinksProps {
     /**
      * Array of social links to render.
      * Each link should contain a platform and a username.
@@ -63,24 +63,27 @@ export default function SocialLinks(
         Wrapper = Fragment
     }: SocialLinksProps
 ) {
-    return (socialLinks.map((link) => {
-        const metadata = socialLinksMetadata[link.platform];
-        const Icon = iconMap[metadata.icon];
+    return (
+        <>
+            {socialLinks.map((link) => {
+                const metadata = socialLinksMetadata[link.platform];
+                const Icon = iconMap[metadata.icon];
 
-        return (
-            <Wrapper key={link.platform}>
-                <LinkButton
-                    key={link.platform}
-                    href={metadata.url(link.username)}
-                    target={"_blank"}
-                    LeftIcon={Icon}
-                    title={`${metadata.name} - ${link.username}`}
-                    {...buttonProps}
-                >
-                    {description === 'platform' && metadata.name}
-                    {description === 'username' && link.username}
-                </LinkButton>
-            </Wrapper>
-        );
-    }))
+                return (
+                    <Wrapper key={link.platform}>
+                        <LinkButton
+                            href={metadata.url(link.username)}
+                            target={"_blank"}
+                            LeftIcon={Icon}
+                            title={`${metadata.name} - ${link.username}`}
+                            {...buttonProps}
+                        >
+                            {description === 'platform' && metadata.name}
+                            {description === 'username' && link.username}
+                        </LinkButton>
+                    </Wrapper>
+                );
+            })}
+        </>
+    );
 }
