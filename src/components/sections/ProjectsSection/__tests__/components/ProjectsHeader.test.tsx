@@ -3,8 +3,16 @@ import { vi, describe, it, expect } from 'vitest';
 import "@testing-library/jest-dom/vitest";
 import ProjectsHeader from '../../components/ProjectsHeader';
 
-vi.mock('@/components/ui/TypographyIcon', () => ({
-    default: vi.fn(({ Icon }) => (
+vi.mock('@/components/ui/Typography', () => ({
+    Typography: vi.fn(({ children, variant, component }) => {
+        const Tag = component || 'p';
+        return (
+            <Tag data-testid={`typography-${variant || 'body'}`}>
+                {children}
+            </Tag>
+        );
+    }),
+    TypographyIcon: vi.fn(({ Icon }) => (
         <div data-testid="typography-icon">
             <Icon />
         </div>

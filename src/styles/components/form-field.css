@@ -1,0 +1,55 @@
+.form-field-box {
+    @apply flex flex-col gap-1.5;
+
+    &:not(:is([data-state="error"], [data-state="success"])) {
+        .form-field {
+            @apply border-border-menu hover:border-tertiary focus:border-active-filled
+            bg-black/20 focus:bg-active-tinted;
+        }
+    }
+
+    &[data-state="error"] {
+        .form-field {
+            @apply border-red-filled bg-red-tinted;
+        }
+
+        .form-field-message {
+            @apply text-red-filled;
+        }
+    }
+
+    &[data-state="success"] {
+        .form-field {
+            @apply border-green-filled bg-green-tinted;
+        }
+
+        .form-field-message {
+            @apply text-green-filled;
+        }
+    }
+}
+
+.form-field {
+    @apply
+    py-2 px-3
+    text-primary placeholder-tertiary
+    border-2 rounded-button-md focus:outline-none transition-[border];
+}
+
+.form-field-label {
+    @apply
+    text-body font-medium
+    flex items-center gap-2;
+}
+
+.form-field-message {
+    @apply text-caption text-tertiary;
+}
+
+.length-counter {
+    @apply text-caption text-tertiary text-right;
+
+    &.error {
+        @apply text-red-filled;
+    }
+}

@@ -1,9 +1,7 @@
 import {ComponentProps} from "react";
-import getButtonClasses from "@/components/ui/Button/utils/getButtonClasses";
-import {ButtonBaseProps} from "@/components/ui/Button/types";
-import ButtonContent from "@/components/ui/Button/components/ButtonContent";
-
-
+import {ButtonBaseProps} from "./types";
+import ButtonContent from "./components/ButtonContent";
+import getButtonClasses from "./utils/getButtonClasses";
 
 export type ButtonProps = ComponentProps<'button'> & ButtonBaseProps & {
     /**
@@ -54,16 +52,15 @@ export default function Button(
     return (
         <button
             className={getButtonClasses({
-                size, variant, color,
-                isIconButton, LeftIcon, RightIcon,
-                active, className,
+                size, variant, color, isIconButton,
+                active, isLoading: loading,
+                className
             })}
             type={type}
             disabled={loading || props.disabled}
             {...props}
         >
             <ButtonContent
-                size={size}
                 loading={loading}
                 LeftIcon={LeftIcon}
                 RightIcon={RightIcon}

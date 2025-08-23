@@ -20,11 +20,15 @@ import {CSSProperties} from "react";
 export default function dottedBackground(
     dotColor: string,
     dotSize: number | string,
-    spacing: number | string,
+    spacing: number | string
 ): CSSProperties {
+    const dotSizeStr = typeof dotSize === 'number' ? `${dotSize}px` : dotSize;
+    const spacingStr = typeof spacing === 'number' ? `${spacing}px` : spacing;
+
+
     return {
-        backgroundImage: `radial-gradient(${dotColor} ${dotSize}, transparent 0)`,
-        backgroundSize: `${spacing} ${spacing}`,
+        backgroundImage: `radial-gradient(${dotColor} ${dotSizeStr}, transparent 0)`,
+        backgroundSize: `${spacingStr} ${spacingStr}`,
         backgroundPosition: "0 0, 50% 50%",
         backgroundRepeat: "repeat",
     };

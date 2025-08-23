@@ -2,9 +2,8 @@ import { ComponentType } from "react";
 import experienceMetadata from "@/lib/constants/experienceMetadata";
 import ExperienceType from "@/lib/models/types/ExperienceType";
 import iconMap from "@/components/icons/IconMap";
-import TypographyIcon from "@/components/ui/TypographyIcon";
-import Typography from "@/components/ui/Typography";
-import ExperienceCard from "@/components/sections/ExperienceSection/components/ExperienceCard/ExperienceCard";
+import {Typography, TypographyIcon} from "@/components/ui/Typography";
+import ExperienceCard from "./ExperienceCard/ExperienceCard";
 import ExperienceItem from "@/lib/models/ExperienceItem";
 import IconType from "@/components/icons/IconType";
 

@@ -3,22 +3,26 @@ import TYPES from "@/lib/di/types";
 import {db} from "@/lib/database/firestore";
 
 import AboutMeRepository from "@/lib/repositories/interfaces/AboutMeRepository";
+import ContactRequestRepository from "@/lib/repositories/interfaces/ContactRequestRepository";
 import ExperienceRepository from "@/lib/repositories/interfaces/ExperienceRepository";
 import ProjectRepository from "@/lib/repositories/interfaces/ProjectRepository";
 import ShowcaseRepository from "@/lib/repositories/interfaces/ShowcaseRepository";
 import TechnologyRepository from "@/lib/repositories/interfaces/TechnologyRepository";
 import FirestoreAboutMeRepository from "@/lib/repositories/FirestoreAboutMeRepository";
+import FirestoreContactRequestRepository from "@/lib/repositories/FirestoreContactRequestRepository";
 import FirestoreExperienceRepository from "@/lib/repositories/FirestoreExperienceRepository";
 import FirestoreProjectRepository from "@/lib/repositories/FirestoreProjectRepository";
 import FirestoreShowcaseRepository from "@/lib/repositories/FirestoreShowcaseRepository";
 import FirestoreTechnologyRepository from "@/lib/repositories/FirestoreTechnologyRepository";
 
 import AboutMeGetter from "@/lib/services/interfaces/AboutMeGetter";
+import ContactRequestService from "@/lib/services/interfaces/ContactRequestService";
 import ExperienceGetter from "@/lib/services/interfaces/ExperienceGetter";
 import ProjectGetter from "@/lib/services/interfaces/ProjectGetter";
 import ShowcaseGetter from "@/lib/services/interfaces/ShowcaseGetter";
 import TechnologyGetter from "@/lib/services/interfaces/TechnologyGetter";
 import AboutMeGetterImpl from "@/lib/services/AboutMeGetterImpl";
+import ContactRequestServiceImpl from "@/lib/services/ContactRequestServiceImpl";
 import ExperienceGetterImpl from "@/lib/services/ExperienceGetterImpl";
 import ProjectGetterImpl from "@/lib/services/ProjectGetterImpl";
 import ShowcaseGetterImpl from "@/lib/services/ShowcaseGetterImpl";
@@ -31,6 +35,7 @@ container.bind<FirebaseFirestore.Firestore>(TYPES.Firestore).toConstantValue(db)
 
 // Repository Bindings
 container.bind<AboutMeRepository>(TYPES.AboutMeRepository).to(FirestoreAboutMeRepository);
+container.bind<ContactRequestRepository>(TYPES.ContactRequestRepository).to(FirestoreContactRequestRepository);
 container.bind<ExperienceRepository>(TYPES.ExperienceRepository).to(FirestoreExperienceRepository);
 container.bind<ProjectRepository>(TYPES.ProjectRepository).to(FirestoreProjectRepository);
 container.bind<ShowcaseRepository>(TYPES.ShowcaseRepository).to(FirestoreShowcaseRepository);
@@ -38,6 +43,7 @@ container.bind<TechnologyRepository>(TYPES.TechnologyRepository).to(FirestoreTec
 
 // Service Bindings
 container.bind<AboutMeGetter>(TYPES.AboutMeGetter).to(AboutMeGetterImpl);
+container.bind<ContactRequestService>(TYPES.ContactRequestService).to(ContactRequestServiceImpl);
 container.bind<ExperienceGetter>(TYPES.ExperienceGetter).to(ExperienceGetterImpl);
 container.bind<ProjectGetter>(TYPES.ProjectGetter).to(ProjectGetterImpl);
 container.bind<ShowcaseGetter>(TYPES.ShowcaseGetter).to(ShowcaseGetterImpl);

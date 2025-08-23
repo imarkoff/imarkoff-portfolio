@@ -5,6 +5,7 @@
 const TYPES = {
     // Repositories
     AboutMeRepository: Symbol.for('AboutMeRepository'),
+    ContactRequestRepository: Symbol.for('ContactRequestRepository'),
     ExperienceRepository: Symbol.for('ExperienceRepository'),
     ProjectRepository: Symbol.for('ProjectRepository'),
     ShowcaseRepository: Symbol.for('ShowcaseRepository'),
@@ -12,6 +13,7 @@ const TYPES = {
 
     // Services
     AboutMeGetter: Symbol.for('AboutMeGetter'),
+    ContactRequestService: Symbol.for('ContactRequestService'),
     ExperienceGetter: Symbol.for('ExperienceGetter'),
     ProjectGetter: Symbol.for('ProjectGetter'),
     ShowcaseGetter: Symbol.for('ShowcaseGetter'),

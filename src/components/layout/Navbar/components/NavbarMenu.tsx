@@ -1,8 +1,8 @@
 import clsx from "clsx";
-import Typography from "@/components/ui/Typography";
+import {Typography} from "@/components/ui/Typography";
 import navbarLinks from "@/components/layout/Navbar/navbarLinks";
 import {Ref} from "react";
-import LinkButton from "@/components/ui/Button/LinkButton";
+import {LinkButton} from "@/components/ui/Button";
 
 interface NavbarMenuProps {
     activeLink: string;

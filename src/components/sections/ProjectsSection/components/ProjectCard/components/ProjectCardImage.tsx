@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import Image from "next/image";
-import Typography from "@/components/ui/Typography";
+import {Typography} from "@/components/ui/Typography";
 import Project from "@/lib/models/Project";
 
 export default function ProjectCardImage({ heroImage }: { heroImage: Project['heroImage'] }) {

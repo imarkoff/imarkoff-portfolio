@@ -1,107 +1,91 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render } from '@testing-library/react';
-import "@testing-library/jest-dom/vitest";
-import ContactButtons from '@/components/sections/AboutMeSection/components/ContactButtons';
+import ContactButtons, {ContactButtonsProps} from '@/components/sections/AboutMeSection/components/ContactButtons';
 import aboutMeFixture from "@/lib/test-utils/fixtures/aboutMe.fixtures";
-import AboutMe from "@/lib/models/AboutMe";
+import { LinkButton } from '@/components/ui/Button';
+import SocialLinks from '@/components/layout/SocialLinks';
+import DocsIcon from '@/components/icons/DocsIcon';
+
+vi.mock('@/components/ui/Button', () => ({
+    LinkButton: vi.fn(() => <div data-testid="LinkButton" />)
+}));
+vi.mock('@/components/layout/SocialLinks', () => ({
+    default: vi.fn(() => <div data-testid="SocialLinks" />)
+}));
 
 describe('ContactButtons', () => {
-    it('renders all buttons when all links are provided', () => {
-        const mockAboutMe = {
-            ...aboutMeFixture,
+    beforeEach(() => {
+        vi.clearAllMocks();
+    });
+
+    it('calls LinkButton and SocialLinks with correct props when all links are provided', () => {
+        const mockAboutMe: ContactButtonsProps = {
             socialLinks: [
-                { platform: 'github', url: 'https://github.com/user' },
-                { platform: 'linkedin', url: 'https://linkedin.com/in/user' }
+                { platform: 'github', username: 'john' },
+                { platform: 'linkedin', username: 'john_doe' }
             ],
             resumeUrl: 'https://example.com/cv.pdf'
         };
 
-        const { getByText, getByTitle } = render(<ContactButtons aboutMe={mockAboutMe} />);
+        render(<ContactButtons {...mockAboutMe} />);
 
-        expect(getByText('Get my CV')).toBeDefined();
-        expect(getByTitle('GitHub')).toBeDefined();
-        expect(getByTitle('LinkedIn')).toBeDefined();
+        expect(LinkButton).toHaveBeenCalledWith(
+            expect.objectContaining({
+                href: mockAboutMe.resumeUrl,
+                target: '_blank',
+                variant: 'secondary',
+                LeftIcon: DocsIcon,
+                children: 'Get my CV'
+            }),
+            undefined
+        );
+        expect(SocialLinks).toHaveBeenCalledWith(
+            expect.objectContaining({
+                socialLinks: mockAboutMe.socialLinks,
+                description: false,
+                buttonProps: {
+                    isIconButton: true,
+                    variant: 'tertiary'
+                }
+            }),
+            undefined
+        );
     });
 
-    it('does not render CV button when resumeUrl is missing', () => {
-        const mockAboutMe: AboutMe = {
-            ...aboutMeFixture,
+    it('does not call LinkButton when resumeUrl is missing', () => {
+        const mockAboutMe = {
             resumeUrl: null,
             socialLinks: [
-                { platform: 'github', url: 'https://github.com/user' },
-                { platform: 'linkedin', url: 'https://linkedin.com/in/user' }
+                { platform: 'github', username: 'john' }
             ]
         };
 
-        const { queryByText, getByTitle } = render(<ContactButtons aboutMe={mockAboutMe} />);
+        render(<ContactButtons {...mockAboutMe} />);
 
-        expect(queryByText('Get my CV')).toBeNull();
-        expect(getByTitle('GitHub')).toBeDefined();
-        expect(getByTitle('LinkedIn')).toBeDefined();
+        expect(LinkButton).not.toHaveBeenCalled();
+        expect(SocialLinks).toHaveBeenCalled();
     });
 
-    it('does not render GitHub button when GitHub link is missing', () => {
-        const mockAboutMe: AboutMe = {
-            ...aboutMeFixture,
-            socialLinks: [
-                { platform: 'linkedin', url: 'https://linkedin.com/in/user' }
-            ],
-            resumeUrl: 'https://example.com/cv.pdf'
-        };
-
-        const { getByText, queryByTitle, getByTitle } = render(<ContactButtons aboutMe={mockAboutMe} />);
-
-        expect(getByText('Get my CV')).toBeDefined();
-        expect(queryByTitle('GitHub')).toBeNull();
-        expect(getByTitle('LinkedIn')).toBeDefined();
-    });
-
-    it('does not render LinkedIn button when LinkedIn link is missing', () => {
-        const mockAboutMe = {
-            ...aboutMeFixture,
-            socialLinks: [
-                { platform: 'github', url: 'https://github.com/user' }
-            ],
-            resumeUrl: 'https://example.com/cv.pdf'
-        };
-
-        const { getByText, getByTitle, queryByTitle } = render(<ContactButtons aboutMe={mockAboutMe} />);
-
-        expect(getByText('Get my CV')).toBeDefined();
-        expect(getByTitle('GitHub')).toBeDefined();
-        expect(queryByTitle('LinkedIn')).toBeNull();
-    });
-
-    it('renders empty container when all links are missing', () => {
+    it('calls SocialLinks with empty array when all links are missing', () => {
         const mockAboutMe = {
             ...aboutMeFixture,
             resumeUrl: null,
             socialLinks: []
         };
 
-        const { container } = render(<ContactButtons aboutMe={mockAboutMe} />);
+        render(<ContactButtons {...mockAboutMe} />);
 
-        expect((container.firstChild as HTMLElement).children.length).toBe(0);
-    });
-
-    it('renders buttons with correct href attributes', () => {
-        const githubUrl = 'https://github.com/user';
-        const linkedinUrl = 'https://linkedin.com/in/user';
-        const resumeUrl = 'https://example.com/cv.pdf';
-
-        const mockAboutMe = {
-            ...aboutMeFixture,
-            socialLinks: [
-                { platform: 'github', url: githubUrl },
-                { platform: 'linkedin', url: linkedinUrl }
-            ],
-            resumeUrl: resumeUrl
-        };
-
-        const { getByText, getByTitle } = render(<ContactButtons aboutMe={mockAboutMe} />);
-
-        expect(getByText('Get my CV').closest('a')).toHaveAttribute('href', resumeUrl);
-        expect(getByTitle('GitHub').closest('a')).toHaveAttribute('href', githubUrl);
-        expect(getByTitle('LinkedIn').closest('a')).toHaveAttribute('href', linkedinUrl);
+        expect(LinkButton).not.toHaveBeenCalled();
+        expect(SocialLinks).toHaveBeenCalledWith(
+            expect.objectContaining({
+                socialLinks: [],
+                description: false,
+                buttonProps: {
+                    isIconButton: true,
+                    variant: 'tertiary'
+                }
+            }),
+            undefined
+        );
     });
 });

@@ -2,14 +2,14 @@ import { render } from '@testing-library/react';
 import { vi, describe, it, expect, beforeEach } from 'vitest';
 import projectFixtures from '@/lib/test-utils/fixtures/project.fixtures';
 import routeConfig from '@/config/routeConfig';
-import LinkButton from '@/components/ui/Button/LinkButton';
+import {LinkButton} from '@/components/ui/Button';
 import ArrowForwardIcon from '@/components/icons/ArrowForwardIcon';
 import GitHubIcon from '@/components/icons/GitHubIcon';
 import CodeIcon from '@/components/icons/CodeIcon';
 import ProjectCardLinks from '../../components/ProjectCardLinks';
 
-vi.mock('@/components/ui/Button/LinkButton', () => ({
-    default: vi.fn(() => null),
+vi.mock('@/components/ui/Button', () => ({
+    LinkButton: vi.fn(() => null),
 }));
 
 vi.mock('@/config/routeConfig', () => ({

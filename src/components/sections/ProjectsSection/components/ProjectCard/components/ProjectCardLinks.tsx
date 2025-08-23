@@ -1,4 +1,4 @@
-import LinkButton from "@/components/ui/Button/LinkButton";
+import {LinkButton} from "@/components/ui/Button";
 import ArrowForwardIcon from "@/components/icons/ArrowForwardIcon";
 import GitHubIcon from "@/components/icons/GitHubIcon";
 import CodeIcon from "@/components/icons/CodeIcon";

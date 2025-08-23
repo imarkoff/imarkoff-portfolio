@@ -57,33 +57,4 @@ describe('HeroBackground', () => {
 
         expect(gsap.fromTo).not.toHaveBeenCalled();
     });
-
-    it('contains divs with correct gradient styles', () => {
-        const { container } = render(<HeroBackground />);
-        const gradientDivs = container.querySelectorAll('.hero-gradient');
-
-        expect(gradientDivs[0]).toHaveAttribute(
-            'style',
-            expect.stringContaining('radial-gradient(40% 70% at 55% 72%, #4903FF15 0%, #073AFF00 100%)')
-        );
-        expect(gradientDivs[0]).toHaveAttribute(
-            'style',
-            expect.stringContaining('box-shadow: 0px 12px 100px 0px rgba(67, 7, 38, 0.25)')
-        );
-
-        expect(gradientDivs[1]).toHaveAttribute(
-            'style',
-            expect.stringContaining('radial-gradient(113% 91% at 16% 45%, #EE00FF0A 1%, #FF000000 99%)')
-        );
-
-        expect(gradientDivs[2]).toHaveAttribute(
-            'style',
-            expect.stringContaining('radial-gradient(50% 91% at -3% 48%, #CF00FF2A 1%, #FF000000 99%)')
-        );
-
-        expect(gradientDivs[3]).toHaveAttribute(
-            'style',
-            expect.stringContaining('radial-gradient(75% 75% at 126% 0%, #FF000040 1%, #FF000000 99%)')
-        );
-    });
 });

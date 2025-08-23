@@ -5,9 +5,14 @@ import HeroCenterContent from '../../components/HeroCenterContent';
 import AboutMe from '@/lib/models/AboutMe';
 import AnimateHero from "@/components/sections/HeroSection/components/AnimateHero";
 import aboutMeFixture from "@/lib/test-utils/fixtures/aboutMe.fixtures";
+import SocialLinks, {SocialLinksProps} from "@/components/layout/SocialLinks";
 
 vi.mock('@/components/sections/HeroSection/components/AnimateHero', () => ({
-    default: vi.fn(() => null),
+    default: vi.fn(),
+}));
+
+vi.mock('@/components/layout/SocialLinks', () => ({
+    default: vi.fn(),
 }));
 
 const MockedAnimateHero = AnimateHero as Mock;
@@ -19,8 +24,8 @@ describe('HeroCenterContent', () => {
         surname: 'Doe',
         tagline: 'A **passionate** developer.',
         socialLinks: [
-            { platform: 'github', url: 'https://github.com/johndoe' },
-            { platform: 'linkedin', url: 'https://linkedin.com/in/johndoe' }
+            { platform: 'github', username: 'johndoe' },
+            { platform: 'linkedin', username: 'john_doe' }
         ]
     };
 
@@ -28,31 +33,6 @@ describe('HeroCenterContent', () => {
         ...aboutMeFixture,
         name: 'Jane',
         surname: null,
-        tagline: 'Another **great** developer.',
-        socialLinks: [
-            { platform: 'github', url: 'https://github.com/janedoe' },
-            { platform: 'linkedin', url: 'https://linkedin.com/in/janedoe' }
-        ]
-    };
-
-    const mockAboutMeNoGithub: AboutMe = {
-        ...aboutMeFixture,
-        name: 'John',
-        surname: 'Doe',
-        tagline: 'A **passionate** developer.',
-        socialLinks: [
-            { platform: 'linkedin', url: 'https://linkedin.com/in/johndoe' }
-        ]
-    };
-
-    const mockAboutMeNoLinkedin: AboutMe = {
-        ...aboutMeFixture,
-        name: 'John',
-        surname: 'Doe',
-        tagline: 'A **passionate** developer.',
-        socialLinks: [
-            { platform: 'github', url: 'https://github.com/johndoe' }
-        ]
     };
 
     beforeEach(() => {
@@ -74,10 +54,7 @@ describe('HeroCenterContent', () => {
         expect(screen.getByText(/A/)).toBeInTheDocument();
         expect(screen.getByText('passionate')).toBeInTheDocument();
         expect(screen.getByText(/developer./)).toBeInTheDocument();
-        expect(screen.getByRole('link', { name: /Get my CV/i })).toBeInTheDocument();
-        expect(screen.getByRole('link', { name: /Contact me/i })).toBeInTheDocument();
-        expect(screen.getByRole('link', { name: /GitHub profile/i })).toBeInTheDocument();
-        expect(screen.getByRole('link', { name: /LinkedIn profile/i })).toBeInTheDocument();
+        expect(SocialLinks).toHaveBeenCalledTimes(1);
     });
 
     it('should render correctly when surname is not provided', () => {
@@ -87,16 +64,21 @@ describe('HeroCenterContent', () => {
         expect(screen.queryByText('Doe')).not.toBeInTheDocument();
     });
 
-    it('should not render GitHub link when not provided', () => {
-        render(<HeroCenterContent aboutMe={mockAboutMeNoGithub} />);
-        expect(screen.queryByRole('link', { name: /GitHub profile/i })).not.toBeInTheDocument();
-        expect(screen.getByRole('link', { name: /LinkedIn profile/i })).toBeInTheDocument();
-    });
+    it('calls SocialLinks with correct props', () => {
+        render(<HeroCenterContent aboutMe={mockAboutMe} />);
 
-    it('should not render LinkedIn link when not provided', () => {
-        render(<HeroCenterContent aboutMe={mockAboutMeNoLinkedin} />);
-        expect(screen.getByRole('link', { name: /GitHub profile/i })).toBeInTheDocument();
-        expect(screen.queryByRole('link', { name: /LinkedIn profile/i })).not.toBeInTheDocument();
+        expect(SocialLinks).toHaveBeenCalledWith(
+            expect.objectContaining<SocialLinksProps>({
+                socialLinks: mockAboutMe.socialLinks,
+                description: false,
+                buttonProps: {
+                    isIconButton: true,
+                    variant: 'tertiary'
+                },
+                Wrapper: expect.any(Function)
+            }),
+            undefined
+        );
     });
 
     it('should render the AnimateHero component with correct props', () => {
@@ -122,6 +104,6 @@ describe('HeroCenterContent', () => {
         expect(container.querySelector('#hero\\.greeting\\.other')).toBeInTheDocument();
         expect(container.querySelector('#hero\\.name')).toBeInTheDocument();
         expect(container.querySelector('#hero\\.tagline')).toBeInTheDocument();
-        expect(container.querySelectorAll('.button-wrapper').length).toBe(4);
+        expect(container.querySelectorAll('.button-wrapper').length).toBe(2); // except for SocialLinks
     });
 });

@@ -11,7 +11,7 @@ import ProjectCardHeader from '../../components/ProjectCardHeader';
 import { ProjectCardContentReference } from '../../types';
 
 vi.mock('@/components/ui/Typography', () => ({
-    default: ({ children }: { children: ReactNode }) => <p>{children}</p>,
+    Typography: ({ children }: { children: ReactNode }) => <p>{children}</p>,
 }));
 
 vi.mock('@/components/common/TechnologyLabel', () => ({

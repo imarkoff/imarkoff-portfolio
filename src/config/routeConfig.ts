@@ -1,4 +1,7 @@
 const routeConfig = {
+    home: {
+        path: '/'
+    },
     projects: {
         path: '/projects',
         children: {

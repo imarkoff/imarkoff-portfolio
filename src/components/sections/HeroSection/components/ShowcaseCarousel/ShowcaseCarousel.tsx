@@ -1,10 +1,9 @@
 "use client";
 
-import VerticalTicker from "@/components/ui/VerticalTicker/VerticalTicker";
+import VerticalTicker from "@/components/ui/VerticalTicker";
 import Image from "next/image";
 import ShowcaseImage from "@/lib/models/ShowcaseImage";
-import useCarouselAppear
-    from "@/components/sections/HeroSection/components/ShowcaseCarousel/hooks/useCarouselAppear";
+import useCarouselAppear from "./hooks/useCarouselAppear";
 
 export default function ShowcaseCarousel({showcases}: { showcases: Array<ShowcaseImage[]> }) {
     const carouselRef = useCarouselAppear();
@@ -21,7 +20,7 @@ export default function ShowcaseCarousel({showcases}: { showcases: Array<Showcas
                 <VerticalTicker
                     spacing={20}
                     direction={index % 2 === 0 ? "down" : "up"}
-                    speed={0.5}
+                    speed={0.35}
                     startDelay={tickerStartDelay}
                     key={index}
                 >

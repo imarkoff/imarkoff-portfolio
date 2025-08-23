@@ -4,11 +4,10 @@ import '@testing-library/jest-dom/vitest';
 import ShowcaseImage from "@/lib/models/ShowcaseImage";
 import Image from "next/image";
 import {showcaseImageFixture} from "@/lib/test-utils/fixtures/showcaseImage.fixtures";
-import ShowcaseCarousel from "@/components/sections/HeroSection/components/ShowcaseCarousel/ShowcaseCarousel";
-import useCarouselAppear
-    from "@/components/sections/HeroSection/components/ShowcaseCarousel/hooks/useCarouselAppear";
+import ShowcaseCarousel from "../../../components/ShowcaseCarousel/ShowcaseCarousel";
+import useCarouselAppear from "../../../components/ShowcaseCarousel/hooks/useCarouselAppear";
 
-vi.mock('@/components/ui/VerticalTicker/VerticalTicker', () => ({
+vi.mock('@/components/ui/VerticalTicker', () => ({
     default: vi.fn(({ children, ...props }) => (
         <div data-testid="vertical-ticker" data-props={JSON.stringify(props)}>
             {children}
@@ -20,7 +19,7 @@ vi.mock('next/image', () => ({
     default: vi.fn((props) => <div {...props} data-testid="showcase-image" />),
 }));
 
-vi.mock('@/components/sections/HeroSection/components/ShowcaseCarousel/hooks/useCarouselAppear', () => ({
+vi.mock('../../../components/ShowcaseCarousel/hooks/useCarouselAppear', () => ({
     default: vi.fn(() => ({ current: null })),
 }));
 
@@ -67,7 +66,7 @@ describe('ShowcaseCarousel', () => {
 
         const firstTickerProps = JSON.parse(tickers[0].getAttribute('data-props')!);
         expect(firstTickerProps.direction).toBe('down');
-        expect(firstTickerProps.speed).toBe(0.5);
+        expect(firstTickerProps.speed).toBe(0.35);
         expect(firstTickerProps.startDelay).toBe(4.5);
 
         const secondTickerProps = JSON.parse(tickers[1].getAttribute('data-props')!);

@@ -33,7 +33,7 @@ const aboutMeFixture: AboutMe = {
     socialLinks: [
         {
             platform: 'GitHub',
-            url: 'https://github.com/johndoe',
+            username: 'https://github.com/johndoe',
         }
     ]
 };

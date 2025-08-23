@@ -1,0 +1,3 @@
+.cell-background {
+    @apply bg-[image:var(--dotted-background)] bg-[length:25px_25px];
+}

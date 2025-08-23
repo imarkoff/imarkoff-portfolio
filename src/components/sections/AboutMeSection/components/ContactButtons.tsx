@@ -1,18 +1,21 @@
 import AboutMe from "@/lib/models/AboutMe";
 import DocsIcon from "@/components/icons/DocsIcon";
-import GitHubIcon from "@/components/icons/GitHubIcon";
-import LinkedInIcon from "@/components/icons/LinkedInIcon";
-import LinkButton from "@/components/ui/Button/LinkButton";
+import {LinkButton} from "@/components/ui/Button";
+import SocialLinks from "@/components/layout/SocialLinks";
 
-export default function ContactButtons({ aboutMe }: { aboutMe: AboutMe }) {
-    const github = aboutMe.socialLinks.find(link => link.platform === "github");
-    const linkedin = aboutMe.socialLinks.find(link => link.platform === "linkedin");
+export interface ContactButtonsProps {
+    socialLinks: AboutMe["socialLinks"];
+    resumeUrl: AboutMe["resumeUrl"];
+}
 
+export default function ContactButtons(
+    { socialLinks, resumeUrl }: ContactButtonsProps
+) {
     return (
         <div className={"flex justify-start items-center gap-2.5"}>
-            {aboutMe.resumeUrl && (
+            {resumeUrl && (
                 <LinkButton
-                    href={aboutMe.resumeUrl}
+                    href={resumeUrl}
                     target={"_blank"}
                     variant={"secondary"}
                     LeftIcon={DocsIcon}
@@ -20,26 +23,14 @@ export default function ContactButtons({ aboutMe }: { aboutMe: AboutMe }) {
                     Get my CV
                 </LinkButton>
             )}
-            {github && (
-                <LinkButton
-                    href={github.url}
-                    target={"_blank"}
-                    variant={"tertiary"}
-                    LeftIcon={GitHubIcon}
-                    isIconButton
-                    title={"GitHub"}
-                />
-            )}
-            {linkedin && (
-                <LinkButton
-                    href={linkedin.url}
-                    target={"_blank"}
-                    variant={"tertiary"}
-                    LeftIcon={LinkedInIcon}
-                    isIconButton
-                    title={"LinkedIn"}
-                />
-            )}
+            <SocialLinks
+                socialLinks={socialLinks}
+                description={false}
+                buttonProps={{
+                    isIconButton: true,
+                    variant: "tertiary",
+                }}
+            />
         </div>
     );
 }

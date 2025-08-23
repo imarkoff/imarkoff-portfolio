@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import Typography from "@/components/ui/Typography";
+import {Typography} from "@/components/ui/Typography";
 import TechnologyLabel from "@/components/common/TechnologyLabel";
 import {ProjectCardContentReference,ProjectCardProps} from "../types";
 import ProjectCardLinks from "../components/ProjectCardLinks";

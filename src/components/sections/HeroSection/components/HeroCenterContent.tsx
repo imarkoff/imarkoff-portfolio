@@ -1,14 +1,13 @@
 import Label from "@/components/ui/Label";
-import Typography from "@/components/ui/Typography";
+import {Typography} from "@/components/ui/Typography";
 import ReactMarkdown from "react-markdown";
 import DocsIcon from "@/components/icons/DocsIcon";
 import ChatIcon from "@/components/icons/ChatIcon";
-import GitHubIcon from "@/components/icons/GitHubIcon";
-import LinkedInIcon from "@/components/icons/LinkedInIcon";
 import {HeroAnimatorProps} from "@/components/sections/HeroSection/types";
 import AboutMe from "@/lib/models/AboutMe";
 import AnimateHero from "@/components/sections/HeroSection/components/AnimateHero";
-import LinkButton from "@/components/ui/Button/LinkButton";
+import {LinkButton} from "@/components/ui/Button";
+import SocialLinks from "@/components/layout/SocialLinks";
 
 export default function HeroCenterContent({aboutMe}: { aboutMe: AboutMe }) {
     const references: HeroAnimatorProps = {
@@ -21,9 +20,6 @@ export default function HeroCenterContent({aboutMe}: { aboutMe: AboutMe }) {
         labelId: "hero.label",
         buttonWrapperClassName: "button-wrapper"
     };
-
-    const githubLink = aboutMe.socialLinks.find(link => link.platform === "github");
-    const linkedinLink = aboutMe.socialLinks.find(link => link.platform === "linkedin");
 
     return (
         <div className={"md:w-fit flex flex-col items-center md:items-start gap-3 md:gap-6 z-10"}>
@@ -71,7 +67,7 @@ export default function HeroCenterContent({aboutMe}: { aboutMe: AboutMe }) {
                                 className={"text-center md:text-left"}
                                 {...props} />,
                             strong: ({node, ...props}) => <strong
-                                className={"text-transparent font-tagline bg-clip-text bg-(image:--gradient-text)"}
+                                className={"font-tagline text-gradient"}
                                 {...props} />,
                         }}
                     >
@@ -104,30 +100,19 @@ export default function HeroCenterContent({aboutMe}: { aboutMe: AboutMe }) {
                     </LinkButton>
                 </div>
                 <div className={"flex items-center gap-2.5"}>
-                    {githubLink && (
-                        <div className={references.buttonWrapperClassName}>
-                            <LinkButton
-                                href={githubLink.url}
-                                target={"_blank"}
-                                variant={"tertiary"}
-                                title={"GitHub profile"}
-                                LeftIcon={GitHubIcon}
-                                isIconButton
-                            />
-                        </div>
-                    )}
-                    {linkedinLink && (
-                        <div className={references.buttonWrapperClassName}>
-                            <LinkButton
-                                href={linkedinLink.url}
-                                target={"_blank"}
-                                variant={"tertiary"}
-                                title={"LinkedIn profile"}
-                                LeftIcon={LinkedInIcon}
-                                isIconButton
-                            />
-                        </div>
-                    )}
+                    <SocialLinks
+                        socialLinks={aboutMe.socialLinks}
+                        description={false}
+                        buttonProps={{
+                            isIconButton: true,
+                            variant: "tertiary",
+                        }}
+                        Wrapper={({children}) => (
+                            <div className={references.buttonWrapperClassName}>
+                                {children}
+                            </div>
+                        )}
+                    />
                 </div>
             </div>
         </div>

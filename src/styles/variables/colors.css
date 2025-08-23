@@ -1,0 +1,70 @@
+@theme {
+    --primary-hue: 280;
+
+    /* Text Colors */
+    --color-primary: hsla(var(--primary-hue), 68%, 95%, 1);
+    --color-secondary: hsla(var(--primary-hue), 68%, 95%, 0.67);
+    --color-tertiary: hsla(var(--primary-hue), 68%, 95%, 0.35);
+
+    /* Background Colors */
+    --color-background: hsla(var(--primary-hue), 9%, 9%, 1);
+    --color-on-background: hsla(var(--primary-hue), 5%, 15%, 0.5);
+
+    /* Surface Colors */
+    --color-surface: hsla(var(--primary-hue), 5%, 25%, 0.2);
+    --color-on-surface: hsla(var(--primary-hue), 95%, 85%, 0.08);
+    --color-on-surface-hover: hsla(var(--primary-hue), 40%, 85%, 0.13);
+    --color-on-surface-disabled: hsla(var(--primary-hue), 95%, 85%, 0.04);
+    --color-on-surface-focus-border: hsla(var(--primary-hue), 20%, 75%, 1);
+
+    /* Border Colors */
+    --color-border-default: hsla(0, 0%, 100%, 0.03);
+    --color-border-menu: hsla(0, 0%, 100%, 0.1);
+
+    /* State Colors */
+    --color-active-filled: hsla(var(--primary-hue), 79%, 68%, 1);
+    --color-active-tinted: hsla(var(--primary-hue), 75%, 30%, 0.1);
+    --color-on-active-filled: hsla(var(--primary-hue), 31%, 20%, 1);
+    --color-active-filled-hover: hsla(var(--primary-hue), 82%, 75%, 1);
+    --color-active-filled-disabled: hsla(var(--primary-hue), 79%, 68%, 0.5);
+    --color-active-filled-text-disabled: hsla(var(--primary-hue), 74%, 10%, 0.67);
+
+    /* Button Colors */
+    --color-ghost-button-fg: hsla(var(--primary-hue), 100%, 92%, 0.87);
+    --color-ghost-button-hover-fg: hsla(var(--primary-hue), 100%, 83%, 1);
+    --color-ghost-button-disabled-fg: hsla(var(--primary-hue), 100%, 92%, 0.3);
+    --color-ghost-button-hover-bg: hsla(var(--primary-hue), 29%, 23%, 0.5);
+    --color-ghost-button-active-bg: hsla(var(--primary-hue), 79%, 68%, 0.12);
+    --color-ghost-button-active-hover-bg: hsla(var(--primary-hue), 79%, 68%, 0.2);
+
+    /* Functional Colors */
+    --color-blue-filled: hsla(210, 79%, 60%, 1);
+    --color-blue-filled-hover: hsla(210, 79%, 60%, 0.8);
+    --color-blue-tinted: hsla(210, 79%, 60%, 0.12);
+    --color-blue-tinted-hover: hsla(210, 79%, 60%, 0.2);
+    --color-blue-filled-text: hsla(210, 31%, 20%, 1);
+
+    --color-green-filled: hsla(133, 79%, 60%, 1);
+    --color-green-filled-hover: hsla(133, 79%, 60%, 0.8);
+    --color-green-tinted: hsla(133, 79%, 60%, 0.12);
+    --color-green-tinted-hover: hsla(133, 79%, 60%, 0.2);
+    --color-green-filled-text: hsla(133, 31%, 20%, 1);
+
+    --color-yellow-filled: hsla(51, 79%, 60%, 1);
+    --color-yellow-filled-hover: hsla(51, 79%, 60%, 0.8);
+    --color-yellow-filled-text: hsla(51, 31%, 20%, 1);
+    --color-yellow-tinted: hsla(51, 79%, 60%, 0.12);
+    --color-yellow-tinted-hover: hsla(51, 79%, 60%, 0.2);
+
+    --color-red-filled: hsla(0, 79%, 67%, 1);
+    --color-red-filled-hover: hsla(0, 79%, 67%, 0.8);
+    --color-red-filled-text: hsla(0, 31%, 20%, 1);
+    --color-red-tinted: hsla(0, 75%, 30%, 0.12);
+    --color-red-tinted-hover: hsla(0, 75%, 30%, 0.2);
+
+    /* Gradient Colors */
+    --gradient-text: linear-gradient(90deg, rgb(138, 111, 235), rgb(235, 111, 212), rgb(249, 90, 93), rgb(181, 111, 235));
+    --gradient-text-logo: linear-gradient(90deg, rgb(167, 111, 235), rgb(235, 111, 208), rgb(225, 111, 235));
+    --dotted-background: linear-gradient(90deg, hsla(var(--primary-hue), 5%, 50%, 0.035) 1px, transparent 1px),
+        linear-gradient(hsla(var(--primary-hue), 5%, 50%, 0.035) 1px, transparent 1px);
+}
