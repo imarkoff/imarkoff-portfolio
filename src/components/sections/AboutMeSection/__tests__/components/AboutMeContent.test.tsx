@@ -7,8 +7,8 @@ import {TypographyProps, TypographyIconProps} from "@/components/ui/Typography";
 import aboutMeFixture from "@/lib/test-utils/fixtures/aboutMe.fixtures";
 import ContactButtons from "../../components/ContactButtons";
 
-vi.mock('@/components/icons/AccountCircleIcon', () => ({
-    default: () => <div data-testid="mock-account-circle-icon" />
+vi.mock('@/components/icons', () => ({
+    AccountCircleIcon: () => <div data-testid="mock-account-circle-icon" />
 }));
 
 vi.mock('@/components/ui/Typography', () => ({

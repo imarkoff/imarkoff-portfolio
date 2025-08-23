@@ -1,5 +1,5 @@
 import AboutMe from "@/lib/models/AboutMe";
-import DocsIcon from "@/components/icons/DocsIcon";
+import {DocsIcon} from "@/components/icons";
 import {LinkButton} from "@/components/ui/Button";
 import SocialLinks from "@/components/layout/SocialLinks";
 

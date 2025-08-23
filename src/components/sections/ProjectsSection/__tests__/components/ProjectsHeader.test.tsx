@@ -19,8 +19,8 @@ vi.mock('@/components/ui/Typography', () => ({
     )),
 }));
 
-vi.mock('@/components/icons/CodeIcon', () => ({
-    default: vi.fn(() => <svg data-testid="code-icon" />),
+vi.mock('@/components/icons', () => ({
+    CodeIcon: vi.fn(() => <svg data-testid="code-icon" />),
 }));
 
 describe('ProjectsHeader', () => {

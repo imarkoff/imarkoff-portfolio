@@ -1,11 +1,11 @@
 import {Children, ComponentType, ReactNode} from "react";
-import IconType from "@/components/icons/IconType";
-import ProgressActivityIcon from "@/components/icons/ProgressActivityIcon";
+import IconProps from "@/components/icons/types/IconProps";
+import {ProgressActivityIcon} from "@/components/icons";
 
 export interface ButtonContentProps {
     loading?: boolean;
-    LeftIcon?: ComponentType<IconType>;
-    RightIcon?: ComponentType<IconType>;
+    LeftIcon?: ComponentType<IconProps>;
+    RightIcon?: ComponentType<IconProps>;
     children?: ReactNode;
 }
 

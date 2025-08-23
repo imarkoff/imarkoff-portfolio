@@ -4,7 +4,7 @@ import '@testing-library/jest-dom/vitest';
 import ContactIntro from '../../components/ContactIntro';
 import useAnimateIntro from '../../hooks/useAnimateIntro';
 import {LinkButton} from "@/components/ui/Button";
-import MailIcon from "@/components/icons/MailIcon";
+import {MailIcon} from "@/components/icons";
 import {Typography} from "@/components/ui/Typography";
 
 vi.mock('../../hooks/useAnimateIntro', () => ({

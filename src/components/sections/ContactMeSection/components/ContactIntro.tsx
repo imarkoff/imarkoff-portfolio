@@ -1,10 +1,9 @@
 "use client";
 
 import {useRef} from "react";
-import ChatIcon from "@/components/icons/ChatIcon";
+import {ChatIcon, MailIcon} from "@/components/icons";
 import {Typography, TypographyIcon} from "@/components/ui/Typography";
 import {LinkButton} from "@/components/ui/Button";
-import MailIcon from "@/components/icons/MailIcon";
 import useAnimateIntro from "../hooks/useAnimateIntro";
 
 interface ContactIntroProps {

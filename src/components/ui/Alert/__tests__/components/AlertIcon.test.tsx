@@ -4,11 +4,11 @@ import '@testing-library/jest-dom/vitest';
 import AlertIcon from '../../components/AlertIcon';
 import { AlertType } from '../../types';
 import { DEFAULT_ICONS } from '../../constants';
-import iconMap from "@/components/icons/IconMap";
+import iconMap from "@/components/icons/utils/iconMap";
 
 const CustomIcon = vi.fn(() => <svg data-testid="custom-icon" />);
 
-vi.mock('@/components/icons/IconMap', async () => {
+vi.mock('@/components/icons/utils/iconMap', async () => {
     const { DEFAULT_ICONS } = await import('../../constants');
 
     return {

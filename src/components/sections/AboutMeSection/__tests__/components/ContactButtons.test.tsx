@@ -4,7 +4,7 @@ import ContactButtons, {ContactButtonsProps} from '@/components/sections/AboutMe
 import aboutMeFixture from "@/lib/test-utils/fixtures/aboutMe.fixtures";
 import { LinkButton } from '@/components/ui/Button';
 import SocialLinks from '@/components/layout/SocialLinks';
-import DocsIcon from '@/components/icons/DocsIcon';
+import {DocsIcon} from '@/components/icons';
 
 vi.mock('@/components/ui/Button', () => ({
     LinkButton: vi.fn(() => <div data-testid="LinkButton" />)

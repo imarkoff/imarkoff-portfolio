@@ -3,7 +3,7 @@ import {Typography, TypographyIcon} from "@/components/ui/Typography";
 import Card from "@/components/ui/Card";
 import clsx from "clsx";
 import ReactMarkdown from "react-markdown";
-import IconMap, {IconName} from "@/components/icons/IconMap";
+import iconMap, {IconName} from "@/components/icons/utils/iconMap";
 import NumberIncrement from "@/components/ui/NumberIncrement";
 
 export interface ByTheNumbersCardProps {
@@ -29,7 +29,7 @@ export default function ByTheNumbersCard(
 }
 
 const ByTheNumbersItem = ({item}: { item: ByTheNumbers }) => {
-    const Icon = IconMap[item.iconName as IconName];
+    const Icon = iconMap[item.iconName as IconName];
 
     const responsiveTextSize = "text-h2-sm md:text-h2-md lg:text-h1-lg !font-extrabold";
 

@@ -1,4 +1,4 @@
-import {IconName} from "@/components/icons/IconMap";
+import {IconName} from "@/components/icons/utils/iconMap";
 
 interface SocialLinkMetadata {
     name: string;

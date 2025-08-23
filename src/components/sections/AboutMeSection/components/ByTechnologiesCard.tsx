@@ -2,7 +2,7 @@ import {Typography, TypographyIcon} from "@/components/ui/Typography";
 import Card from "@/components/ui/Card";
 import {TechnologiesByCategory} from "@/lib/models/types/TechnologyCategory";
 import technologyCategoryMetadata from "@/lib/constants/technologyCategoryMetadata";
-import IconMap from "@/components/icons/IconMap";
+import iconMap from "@/components/icons/utils/iconMap";
 import Label from "@/components/ui/Label";
 import Image from "next/image";
 import {Fragment} from "react";
@@ -48,7 +48,7 @@ export default function ByTechnologiesCard(
 
 const TechnologiesGroup = ({category} : { category: TechnologiesByCategory }) => {
     const categoryMetadata = technologyCategoryMetadata[category.categoryName];
-    const Icon = IconMap[categoryMetadata.icon];
+    const Icon = iconMap[categoryMetadata.icon];
 
     return (
         <div className={`mb-4`}>

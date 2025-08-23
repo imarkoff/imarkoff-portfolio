@@ -1,5 +1,5 @@
 import {ComponentType, ReactNode} from "react";
-import IconType from "@/components/icons/IconType";
+import IconProps from "@/components/icons/types/IconProps";
 
 export type ButtonSize = "small" | "medium";
 export type ButtonVariant = "primary" | "secondary" | "tertiary";
@@ -34,7 +34,7 @@ export interface ButtonBaseProps {
     /** Is the button currently active */
     active?: boolean;
     /** Icon to display on the left side of the button. */
-    LeftIcon?: ComponentType<IconType>;
+    LeftIcon?: ComponentType<IconProps>;
     /** Icon to display on the right side of the button. */
-    RightIcon?: ComponentType<IconType>;
+    RightIcon?: ComponentType<IconProps>;
 }

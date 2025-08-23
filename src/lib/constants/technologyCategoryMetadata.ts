@@ -1,5 +1,5 @@
 import TechnologyCategory from "@/lib/models/types/TechnologyCategory";
-import {IconName} from "@/components/icons/IconMap";
+import {IconName} from "@/components/icons/utils/iconMap";
 
 type TechnologyCategoryMetadata = {
     name: string;

@@ -7,7 +7,7 @@ import dottedBackground from "@/utils/dottedBackground";
 import useNavbarAppear from "@/components/layout/Navbar/hooks/useNavbarAppear";
 import navbarLinks from "@/components/layout/Navbar/navbarLinks";
 import {useState} from "react";
-import MenuIcon from "@/components/icons/MenuIcon";
+import {MenuIcon} from "@/components/icons";
 import NavbarMenu from "@/components/layout/Navbar/components/NavbarMenu";
 import useNavbarMenuAnimation from "@/components/layout/Navbar/hooks/useNavbarMenuAnimation";
 import Logo from "@/components/layout/Logo";

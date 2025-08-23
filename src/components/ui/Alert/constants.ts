@@ -1,5 +1,5 @@
-import {AlertType} from "@/components/ui/Alert/types";
-import {IconName} from "@/components/icons/IconMap";
+import {AlertType} from "./types";
+import {IconName} from "@/components/icons/utils/iconMap";
 
 export const DEFAULT_ICONS: Record<AlertType, IconName> = {
     success: "check_circle",

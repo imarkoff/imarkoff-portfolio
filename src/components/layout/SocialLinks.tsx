@@ -1,6 +1,6 @@
 import {SocialLink} from "@/lib/models/AboutMe";
 import {LinkButton, LinkButtonProps} from "@/components/ui/Button";
-import iconMap from "@/components/icons/IconMap";
+import iconMap from "@/components/icons/utils/iconMap";
 import socialLinksMetadata from "@/lib/constants/socialLinksMetadata";
 import {ComponentType, Fragment, PropsWithChildren} from "react";
 

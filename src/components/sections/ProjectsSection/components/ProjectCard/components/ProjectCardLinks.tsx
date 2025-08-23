@@ -1,7 +1,5 @@
 import {LinkButton} from "@/components/ui/Button";
-import ArrowForwardIcon from "@/components/icons/ArrowForwardIcon";
-import GitHubIcon from "@/components/icons/GitHubIcon";
-import CodeIcon from "@/components/icons/CodeIcon";
+import {ArrowForwardIcon, CodeIcon, GitHubIcon} from "@/components/icons";
 import Project from "@/lib/models/Project";
 import {RouteConfig} from "@/config/routeConfig";
 

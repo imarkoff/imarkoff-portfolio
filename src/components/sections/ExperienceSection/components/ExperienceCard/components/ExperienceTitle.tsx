@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 import ExperienceItem from "@/lib/models/ExperienceItem";
 import {Typography, TypographyIcon} from "@/components/ui/Typography";
-import CommitIcon from "@/components/icons/CommitIcon";
+import {CommitIcon} from "@/components/icons";
 import ExperienceType from "@/lib/models/types/ExperienceType";
 
 interface ExperienceTitleProps {

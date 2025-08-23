@@ -1,5 +1,5 @@
 import {ComponentType, ReactNode} from "react";
-import IconType from "@/components/icons/IconType";
+import IconProps from "@/components/icons/types/IconProps";
 import AlertIcon from "./components/AlertIcon";
 import {AlertType} from "./types";
 
@@ -21,7 +21,7 @@ export interface AlertProps {
      * If set to false, no icon will be displayed.
      * If not provided, a default icon based on the alert type will be used.
      */
-    Icon?: ComponentType<IconType> | false;
+    Icon?: ComponentType<IconProps> | false;
 }
 
 /**

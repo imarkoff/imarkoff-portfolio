@@ -1,5 +1,5 @@
 import ExperienceType from "@/lib/models/types/ExperienceType";
-import {IconName} from "@/components/icons/IconMap";
+import {IconName} from "@/components/icons/utils/iconMap";
 
 interface ExperienceMetadata {
     title: string;

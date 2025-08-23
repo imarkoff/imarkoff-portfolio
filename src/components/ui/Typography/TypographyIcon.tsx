@@ -1,10 +1,10 @@
 import {ComponentProps, ComponentType} from "react";
 import { TypographyVariant } from "./Typography";
-import IconType from "@/components/icons/IconType";
+import IconProps from "@/components/icons/types/IconProps";
 import clsx from "clsx";
 
 export interface TypographyIconProps extends ComponentProps<'svg'> {
-    Icon: ComponentType<IconType>;
+    Icon: ComponentType<IconProps>;
     variant?: TypographyVariant;
 }
 

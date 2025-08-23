@@ -16,7 +16,7 @@ vi.mock('@/lib/constants/technologyCategoryMetadata', () => ({
     }
 }));
 
-vi.mock('@/components/icons/IconMap', () => ({
+vi.mock('@/components/icons/utils/iconMap', () => ({
     default: {
         MonitorIcon: () => <div data-testid="monitor-icon" />,
         ServerIcon: () => <div data-testid="server-icon" />,

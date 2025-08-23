@@ -1,12 +1,12 @@
-import IconType from "@/components/icons/IconType";
+import IconProps from "@/components/icons/types/IconProps";
 import {ComponentType} from "react";
-import iconMap from "@/components/icons/IconMap";
+import iconMap from "@/components/icons/utils/iconMap";
 import {DEFAULT_ICONS} from "@/components/ui/Alert/constants";
 import {AlertType} from "@/components/ui/Alert/types";
 
 export interface AlertIconProps {
     type?: AlertType;
-    Icon?: ComponentType<IconType> | false;
+    Icon?: ComponentType<IconProps> | false;
 }
 
 export default function AlertIcon(

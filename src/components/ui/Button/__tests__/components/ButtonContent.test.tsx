@@ -2,11 +2,11 @@ import {render, screen} from "@testing-library/react";
 import {describe, vi, it, expect, beforeEach} from "vitest";
 import "@testing-library/jest-dom/vitest";
 import {ReactNode} from "react";
-import ProgressActivityIcon from "@/components/icons/ProgressActivityIcon";
+import {ProgressActivityIcon} from "@/components/icons";
 import ButtonContent from "../../components/ButtonContent";
 
-vi.mock("@/components/icons/ProgressActivityIcon", () => ({
-    default: vi.fn()
+vi.mock("@/components/icons", () => ({
+    ProgressActivityIcon: vi.fn()
 }));
 
 const mockedProgressActivityIcon = vi.mocked(ProgressActivityIcon);

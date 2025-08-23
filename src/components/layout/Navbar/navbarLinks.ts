@@ -1,15 +1,11 @@
-import HomeIcon from "@/components/icons/HomeIcon";
-import AccountCircleIcon from "@/components/icons/AccountCircleIcon";
-import WorkIcon from "@/components/icons/WorkIcon";
-import CodeIcon from "@/components/icons/CodeIcon";
-import ChatIcon from "@/components/icons/ChatIcon";
-import IconType from "@/components/icons/IconType";
 import {ComponentType} from "react";
+import {AccountCircleIcon, ChatIcon, CodeIcon, HomeIcon, WorkIcon} from "@/components/icons";
+import IconProps from "@/components/icons/types/IconProps";
 
 type NavbarLink = {
     title: string;
     href: string;
-    icon: ComponentType<IconType>;
+    icon: ComponentType<IconProps>;
     isPrimary?: boolean;
 }
 

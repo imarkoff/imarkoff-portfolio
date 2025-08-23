@@ -1,4 +1,4 @@
-import AccountCircleIcon from "@/components/icons/AccountCircleIcon";
+import {AccountCircleIcon} from "@/components/icons";
 import {Typography, TypographyIcon} from "@/components/ui/Typography";
 import AboutMe from "@/lib/models/AboutMe";
 import ReactMarkdown from "react-markdown";

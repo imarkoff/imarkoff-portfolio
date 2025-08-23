@@ -3,7 +3,7 @@ import { describe, beforeEach, it, expect, vi } from 'vitest';
 import ExperienceItem from '@/lib/models/ExperienceItem';
 import ExperienceType from '@/lib/models/types/ExperienceType';
 import {groupedExperienceFixtures} from "@/lib/test-utils/fixtures/experience.fixtures";
-import iconMap, {IconName} from "@/components/icons/IconMap";
+import iconMap, {IconName} from "@/components/icons/utils/iconMap";
 import {
     Typography, TypographyProps,
     TypographyIcon, TypographyIconProps
@@ -18,7 +18,7 @@ vi.mock('@/lib/constants/experienceMetadata', () => ({
     }
 }));
 
-vi.mock('@/components/icons/IconMap', () => ({
+vi.mock('@/components/icons/iconMap', () => ({
     default: {
         briefcase: vi.fn(),
         graduation: vi.fn()

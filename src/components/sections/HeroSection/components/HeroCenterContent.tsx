@@ -1,8 +1,7 @@
 import Label from "@/components/ui/Label";
 import {Typography} from "@/components/ui/Typography";
 import ReactMarkdown from "react-markdown";
-import DocsIcon from "@/components/icons/DocsIcon";
-import ChatIcon from "@/components/icons/ChatIcon";
+import {ChatIcon, DocsIcon} from "@/components/icons";
 import {HeroAnimatorProps} from "@/components/sections/HeroSection/types";
 import AboutMe from "@/lib/models/AboutMe";
 import AnimateHero from "@/components/sections/HeroSection/components/AnimateHero";

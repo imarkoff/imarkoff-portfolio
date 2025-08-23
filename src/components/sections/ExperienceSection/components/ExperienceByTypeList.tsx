@@ -1,11 +1,11 @@
 import { ComponentType } from "react";
 import experienceMetadata from "@/lib/constants/experienceMetadata";
 import ExperienceType from "@/lib/models/types/ExperienceType";
-import iconMap from "@/components/icons/IconMap";
+import iconMap from "@/components/icons/utils/iconMap";
 import {Typography, TypographyIcon} from "@/components/ui/Typography";
 import ExperienceCard from "./ExperienceCard/ExperienceCard";
 import ExperienceItem from "@/lib/models/ExperienceItem";
-import IconType from "@/components/icons/IconType";
+import IconProps from "@/components/icons/types/IconProps";
 
 export interface ExperienceByTypeListProps {
     type: ExperienceType;
@@ -27,7 +27,7 @@ export default function ExperienceByTypeList(
 }
 
 const TypeHeader = (
-    {Icon, title}: { Icon: ComponentType<IconType>; title: string }
+    {Icon, title}: { Icon: ComponentType<IconProps>; title: string }
 ) => (
     <div className={"flex gap-2.5 items-center lg:justify-center"}>
         <TypographyIcon Icon={Icon} variant={"h1"}/>
