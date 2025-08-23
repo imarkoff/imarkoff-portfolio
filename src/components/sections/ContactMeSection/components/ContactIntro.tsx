@@ -1,12 +1,11 @@
 "use client";
 
-import TypographyIcon from "@/components/ui/TypographyIcon";
-import ChatIcon from "@/components/icons/ChatIcon";
-import Typography from "@/components/ui/Typography";
-import LinkButton from "@/components/ui/Button/LinkButton";
-import MailIcon from "@/components/icons/MailIcon";
 import {useRef} from "react";
-import useAnimateIntro from "@/components/sections/ContactMeSection/hooks/useAnimateIntro";
+import ChatIcon from "@/components/icons/ChatIcon";
+import {Typography, TypographyIcon} from "@/components/ui/Typography";
+import {LinkButton} from "@/components/ui/Button";
+import MailIcon from "@/components/icons/MailIcon";
+import useAnimateIntro from "../hooks/useAnimateIntro";
 
 interface ContactIntroProps {
     email?: string;

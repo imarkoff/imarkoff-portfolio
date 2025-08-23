@@ -1,5 +1,5 @@
 import projectTypeMetadata from "@/lib/constants/projectTypeMetadata";
-import Typography from "@/components/ui/Typography";
+import {Typography} from "@/components/ui/Typography";
 import Label from "@/components/ui/Label";
 import Project from "@/lib/models/Project";
 

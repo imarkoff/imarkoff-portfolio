@@ -1,6 +1,6 @@
 "use client";
 
-import Typography from "@/components/ui/Typography";
+import {Typography} from "@/components/ui/Typography";
 import useShowcaseAppear
     from "@/components/sections/HeroSection/components/SomeShowcasesArrow/hooks/useShowcaseAppear";
 import ArrowSVG from "@/components/sections/HeroSection/components/SomeShowcasesArrow/components/ArrowSVG";

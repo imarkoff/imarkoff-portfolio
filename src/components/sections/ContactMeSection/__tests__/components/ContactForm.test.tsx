@@ -3,8 +3,8 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import {FormState} from "react-hook-form";
 import "@testing-library/jest-dom/vitest";
 import FormField, {FormFieldProps} from "@/components/ui/FormField";
-import Button, {ButtonProps} from "@/components/ui/Button/Button";
-import Alert, {AlertProps} from "@/components/ui/Alert/Alert";
+import {Button, ButtonProps} from "@/components/ui/Button";
+import Alert, {AlertProps} from "@/components/ui/Alert";
 import ContactRequestDto from "@/lib/dto/ContactRequestDto";
 import ContactForm from '../../components/ContactForm';
 import useSendContactRequestApi from "../../hooks/lib/useSendContactRequestApi";
@@ -21,13 +21,13 @@ vi.mock('@/components/ui/FormField/FormField', () => ({
 vi.mock('@/components/ui/FormField/TextArea', () => ({
     default: vi.fn(),
 }));
-vi.mock('@/components/ui/TypographyIcon', () => ({
-    default: vi.fn(props => <span {...props} />),
+vi.mock('@/components/ui/Typography', () => ({
+    TypographyIcon: vi.fn(props => <span {...props} />),
 }));
-vi.mock('@/components/ui/Button/Button', () => ({
-    default: vi.fn(({children}) => <button>{children}</button>),
+vi.mock('@/components/ui/Button', () => ({
+    Button: vi.fn(({children}) => <button>{children}</button>),
 }));
-vi.mock('@/components/ui/Alert/Alert', () => ({
+vi.mock('@/components/ui/Alert', () => ({
     default: vi.fn(props => <div {...props} />),
 }));
 

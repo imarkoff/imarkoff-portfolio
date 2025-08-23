@@ -1,6 +1,6 @@
 import AboutMe from "@/lib/models/AboutMe";
 import DocsIcon from "@/components/icons/DocsIcon";
-import LinkButton from "@/components/ui/Button/LinkButton";
+import {LinkButton} from "@/components/ui/Button";
 import SocialLinks from "@/components/layout/SocialLinks";
 
 export default function ContactButtons({ aboutMe }: { aboutMe: AboutMe }) {

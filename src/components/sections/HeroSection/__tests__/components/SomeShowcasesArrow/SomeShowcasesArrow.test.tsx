@@ -4,7 +4,7 @@ import "@testing-library/jest-dom/vitest";
 import SomeShowcasesArrow from "@/components/sections/HeroSection/components/SomeShowcasesArrow/SomeShowcasesArrow";
 import useShowcaseAppear from "@/components/sections/HeroSection/components/SomeShowcasesArrow/hooks/useShowcaseAppear";
 import ArrowSVG from "@/components/sections/HeroSection/components/SomeShowcasesArrow/components/ArrowSVG";
-import Typography from "@/components/ui/Typography";
+import {Typography} from "@/components/ui/Typography";
 
 vi.mock("@/components/sections/HeroSection/components/SomeShowcasesArrow/hooks/useShowcaseAppear", () => ({
     default: vi.fn(() => ({
@@ -19,7 +19,7 @@ vi.mock("@/components/sections/HeroSection/components/SomeShowcasesArrow/compone
 }));
 
 vi.mock("@/components/ui/Typography", () => ({
-    default: vi.fn(({ children, ...props }) => <div data-testid={"text"} {...props}>{children}</div>)
+    Typography: vi.fn(({ children, ...props }) => <div data-testid={"text"} {...props}>{children}</div>)
 }));
 
 describe("SomeShowcasesArrow Component", () => {

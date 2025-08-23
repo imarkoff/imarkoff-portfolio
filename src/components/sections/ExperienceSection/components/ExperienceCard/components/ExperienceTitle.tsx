@@ -1,7 +1,6 @@
 import dayjs from "dayjs";
 import ExperienceItem from "@/lib/models/ExperienceItem";
-import Typography from "@/components/ui/Typography";
-import TypographyIcon from "@/components/ui/TypographyIcon";
+import {Typography, TypographyIcon} from "@/components/ui/Typography";
 import CommitIcon from "@/components/icons/CommitIcon";
 import ExperienceType from "@/lib/models/types/ExperienceType";
 

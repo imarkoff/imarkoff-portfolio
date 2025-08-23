@@ -1,6 +1,5 @@
-import TypographyIcon from "@/components/ui/TypographyIcon";
 import CodeIcon from "@/components/icons/CodeIcon";
-import Typography from "@/components/ui/Typography";
+import {Typography, TypographyIcon} from "@/components/ui/Typography";
 
 export default function ProjectsHeader({id}: {id: string}) {
     return (

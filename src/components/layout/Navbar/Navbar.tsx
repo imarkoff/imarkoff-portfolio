@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/ui/Button/Button";
+import {Button, LinkButton} from "@/components/ui/Button";
 import clsx from "clsx";
 import GradientBlur from "@/components/ui/GradientBlur";
 import dottedBackground from "@/utils/dottedBackground";
@@ -10,7 +10,6 @@ import {useState} from "react";
 import MenuIcon from "@/components/icons/MenuIcon";
 import NavbarMenu from "@/components/layout/Navbar/components/NavbarMenu";
 import useNavbarMenuAnimation from "@/components/layout/Navbar/hooks/useNavbarMenuAnimation";
-import LinkButton from "@/components/ui/Button/LinkButton";
 import Logo from "@/components/layout/Logo";
 
 export default function Navbar() {
@@ -23,7 +22,7 @@ export default function Navbar() {
     const [activeLink, setActiveLink] = useState<string>("#home");
 
     return (
-        <div className={"fixed top-0 inset-x-0 z-50 p-4 md:p-5 lg:px-0"} data-animate-appear>
+        <div className={"fixed top-0 inset-x-0 z-50 p-4 md:p-5 lg:px-0"} data-animate-appear={"true"}>
             <GradientBlur
                 direction={"top-to-bottom"}
                 background={"linear-gradient(180deg, rgba(21, 23, 25, 75%) 0%, rgba(21, 23, 25, 25%) 33%, rgba(21, 23, 25, 0%) 100%)"}

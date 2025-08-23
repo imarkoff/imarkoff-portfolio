@@ -1,12 +1,12 @@
 import Label from "@/components/ui/Label";
-import Typography from "@/components/ui/Typography";
+import {Typography} from "@/components/ui/Typography";
 import ReactMarkdown from "react-markdown";
 import DocsIcon from "@/components/icons/DocsIcon";
 import ChatIcon from "@/components/icons/ChatIcon";
 import {HeroAnimatorProps} from "@/components/sections/HeroSection/types";
 import AboutMe from "@/lib/models/AboutMe";
 import AnimateHero from "@/components/sections/HeroSection/components/AnimateHero";
-import LinkButton from "@/components/ui/Button/LinkButton";
+import {LinkButton} from "@/components/ui/Button";
 import SocialLinks from "@/components/layout/SocialLinks";
 
 export default function HeroCenterContent({aboutMe}: { aboutMe: AboutMe }) {

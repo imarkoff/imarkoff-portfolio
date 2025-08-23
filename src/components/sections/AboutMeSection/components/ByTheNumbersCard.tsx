@@ -1,9 +1,8 @@
 import {ByTheNumbers} from "@/lib/models/AboutMe";
-import Typography from "@/components/ui/Typography";
+import {Typography, TypographyIcon} from "@/components/ui/Typography";
 import Card from "@/components/ui/Card";
 import clsx from "clsx";
 import ReactMarkdown from "react-markdown";
-import TypographyIcon from "@/components/ui/TypographyIcon";
 import IconMap, {IconName} from "@/components/icons/IconMap";
 import NumberIncrement from "@/components/ui/NumberIncrement";
 

@@ -1,5 +1,12 @@
 import {render} from '@testing-library/react';
 import {describe, it, expect, vi, beforeEach} from 'vitest';
+import AboutMe from "@/lib/models/AboutMe";
+import aboutMeFixture from "@/lib/test-utils/fixtures/aboutMe.fixtures";
+import Logo from "@/components/layout/Logo";
+import SocialLinks, {SocialLinksProps} from "@/components/layout/SocialLinks";
+import {Typography} from "@/components/ui/Typography";
+import Card from "@/components/ui/Card";
+import useAnimateTrueFooter from '../../hooks/useAnimateTrueFooter';
 import TrueFooter from '../../components/TrueFooter';
 
 vi.mock('../../hooks/useAnimateTrueFooter', () => ({
@@ -11,7 +18,7 @@ vi.mock('@/components/layout/Logo', () => ({
 }));
 
 vi.mock('@/components/ui/Typography', () => ({
-    default: vi.fn(({children}) => (<p>{children}</p>)),
+    Typography: vi.fn(({children}) => (<p>{children}</p>)),
 }));
 
 vi.mock('@/components/layout/SocialLinks', () => ({
@@ -21,14 +28,6 @@ vi.mock('@/components/layout/SocialLinks', () => ({
 vi.mock('@/components/ui/Card', () => ({
     default: vi.fn(props => (<div {...props} />)),
 }));
-
-import useAnimateTrueFooter from '../../hooks/useAnimateTrueFooter';
-import SocialLinks, {SocialLinksProps} from "@/components/layout/SocialLinks";
-import AboutMe from "@/lib/models/AboutMe";
-import aboutMeFixture from "@/lib/test-utils/fixtures/aboutMe.fixtures";
-import Logo from "@/components/layout/Logo";
-import Typography from "@/components/ui/Typography";
-import Card from "@/components/ui/Card";
 
 const mockUseAnimateTrueFooter = vi.mocked(useAnimateTrueFooter);
 

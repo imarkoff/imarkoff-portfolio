@@ -3,8 +3,7 @@ import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import "@testing-library/jest-dom/vitest";
 import AboutMeContent from '../../components/AboutMeContent';
-import {TypographyProps} from "@/components/ui/Typography";
-import {TypographyIconProps} from "@/components/ui/TypographyIcon";
+import {TypographyProps, TypographyIconProps} from "@/components/ui/Typography";
 import AboutMe from "@/lib/models/AboutMe";
 import aboutMeFixture from "@/lib/test-utils/fixtures/aboutMe.fixtures";
 
@@ -13,15 +12,12 @@ vi.mock('@/components/icons/AccountCircleIcon', () => ({
 }));
 
 vi.mock('@/components/ui/Typography', () => ({
-    default: ({ children, variant, component }: TypographyProps) => (
+    Typography: ({ children, variant, component }: TypographyProps) => (
         <div data-testid="mock-typography" data-variant={variant} data-component={component}>
             {children}
         </div>
-    )
-}));
-
-vi.mock('@/components/ui/TypographyIcon', () => ({
-    default: ({ Icon, variant }: TypographyIconProps) => (
+    ),
+    TypographyIcon: ({ Icon, variant }: TypographyIconProps) => (
         <div data-testid="mock-typography-icon" data-variant={variant}>
             {Icon && <Icon />}
         </div>

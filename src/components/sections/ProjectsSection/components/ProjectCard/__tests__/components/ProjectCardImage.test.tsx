@@ -9,7 +9,7 @@ vi.mock('next/image', () => ({
 }));
 
 vi.mock('@/components/ui/Typography', () => ({
-    default: ({ children, component: Component = 'div', ...props }: any) => (
+    Typography: ({ children, component: Component = 'div', ...props }: any) => (
         <Component {...props}>{children}</Component>
     ),
 }));

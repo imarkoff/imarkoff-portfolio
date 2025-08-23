@@ -2,7 +2,7 @@
 
 import Logo from "@/components/layout/Logo";
 import {useMemo, useRef} from "react";
-import Typography from "@/components/ui/Typography";
+import {Typography} from "@/components/ui/Typography";
 import SocialLinks from "@/components/layout/SocialLinks";
 import AboutMe from "@/lib/models/AboutMe";
 import Card from "@/components/ui/Card";

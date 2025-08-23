@@ -1,10 +1,9 @@
 "use client";
 
-import VerticalTicker from "@/components/ui/VerticalTicker/VerticalTicker";
+import VerticalTicker from "@/components/ui/VerticalTicker";
 import Image from "next/image";
 import ShowcaseImage from "@/lib/models/ShowcaseImage";
-import useCarouselAppear
-    from "@/components/sections/HeroSection/components/ShowcaseCarousel/hooks/useCarouselAppear";
+import useCarouselAppear from "./hooks/useCarouselAppear";
 
 export default function ShowcaseCarousel({showcases}: { showcases: Array<ShowcaseImage[]> }) {
     const carouselRef = useCarouselAppear();

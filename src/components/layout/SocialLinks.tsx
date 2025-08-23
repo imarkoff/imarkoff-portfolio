@@ -1,7 +1,6 @@
 import {SocialLink} from "@/lib/models/AboutMe";
-import {ButtonProps} from "@/components/ui/Button/Button";
+import {LinkButton, LinkButtonProps} from "@/components/ui/Button";
 import iconMap from "@/components/icons/IconMap";
-import LinkButton from "@/components/ui/Button/LinkButton";
 import socialLinksMetadata from "@/lib/constants/socialLinksMetadata";
 import {ComponentType, Fragment, PropsWithChildren} from "react";
 
@@ -26,7 +25,7 @@ export interface SocialLinksProps {
      * Props to pass to the LinkButton component.
      * Can include properties like isIconButton, size, variant, and className.
      */
-    buttonProps?: Pick<ButtonProps, 'isIconButton' | 'size' | 'variant' | 'className'>;
+    buttonProps?: Pick<LinkButtonProps, 'isIconButton' | 'size' | 'variant' | 'className'>;
 
     /**
      * Optional wrapper component to wrap each social link button.

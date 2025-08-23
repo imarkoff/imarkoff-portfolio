@@ -1,9 +1,8 @@
-import Typography from "@/components/ui/Typography";
+import {Typography, TypographyIcon} from "@/components/ui/Typography";
 import Card from "@/components/ui/Card";
 import {TechnologiesByCategory} from "@/lib/models/types/TechnologyCategory";
 import technologyCategoryMetadata from "@/lib/constants/technologyCategoryMetadata";
 import IconMap from "@/components/icons/IconMap";
-import TypographyIcon from "@/components/ui/TypographyIcon";
 import Label from "@/components/ui/Label";
 import Image from "next/image";
 import {Fragment} from "react";

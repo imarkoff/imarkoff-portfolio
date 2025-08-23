@@ -4,8 +4,10 @@ import ExperienceItem from '@/lib/models/ExperienceItem';
 import ExperienceType from '@/lib/models/types/ExperienceType';
 import {groupedExperienceFixtures} from "@/lib/test-utils/fixtures/experience.fixtures";
 import iconMap, {IconName} from "@/components/icons/IconMap";
-import Typography, {TypographyProps} from "@/components/ui/Typography";
-import TypographyIcon, {TypographyIconProps} from '@/components/ui/TypographyIcon';
+import {
+    Typography, TypographyProps,
+    TypographyIcon, TypographyIconProps
+} from "@/components/ui/Typography";
 import ExperienceCard, {ExperienceCardProps} from "../../components/ExperienceCard/ExperienceCard";
 import ExperienceByTypeList from '../../components/ExperienceByTypeList';
 
@@ -24,20 +26,13 @@ vi.mock('@/components/icons/IconMap', () => ({
 }));
 
 vi.mock('@/components/ui/Typography', () => ({
-    default: vi.fn()
-}));
-
-vi.mock('@/components/ui/TypographyIcon', () => ({
-    default: vi.fn()
+    Typography: vi.fn(),
+    TypographyIcon: vi.fn()
 }));
 
 vi.mock('../../components/ExperienceCard/ExperienceCard', () => ({
     default: vi.fn()
 }));
-
-const MockTypography = vi.mocked(Typography);
-const MockTypographyIcon = vi.mocked(TypographyIcon);
-const MockExperienceCard = vi.mocked(ExperienceCard);
 
 describe('ExperienceByTypeList', () => {
     const mockWorkItems: ExperienceItem[] = groupedExperienceFixtures.work;
@@ -55,14 +50,14 @@ describe('ExperienceByTypeList', () => {
 
         render(<ExperienceByTypeList type={ExperienceType.Work} items={mockWorkItems} />);
 
-        expect(MockTypographyIcon).toHaveBeenCalledOnce();
-        expect(MockTypographyIcon).toHaveBeenCalledWith(
+        expect(TypographyIcon).toHaveBeenCalledOnce();
+        expect(TypographyIcon).toHaveBeenCalledWith(
             expect.objectContaining<TypographyIconProps>({
                 Icon: BriefcaseIcon,
             }),
             undefined
         );
-        expect(MockTypography).toHaveBeenCalledWith(
+        expect(Typography).toHaveBeenCalledWith(
             expect.objectContaining<TypographyProps>({
                 children: 'Work Experience'
             }),
@@ -75,14 +70,14 @@ describe('ExperienceByTypeList', () => {
 
         render(<ExperienceByTypeList type={ExperienceType.Education} items={mockEducationItems} />);
 
-        expect(MockTypographyIcon).toHaveBeenCalledOnce();
-        expect(MockTypographyIcon).toHaveBeenCalledWith(
+        expect(TypographyIcon).toHaveBeenCalledOnce();
+        expect(TypographyIcon).toHaveBeenCalledWith(
             expect.objectContaining<TypographyIconProps>({
                 Icon: GraduationIcon
             }),
             undefined
         );
-        expect(MockTypography).toHaveBeenCalledWith(
+        expect(Typography).toHaveBeenCalledWith(
             expect.objectContaining<TypographyProps>({
                 children: 'Education'
             }),
@@ -93,15 +88,15 @@ describe('ExperienceByTypeList', () => {
     it('renders typography with correct component and variant', () => {
         render(<ExperienceByTypeList type={ExperienceType.Work} items={mockWorkItems} />);
 
-        expect(MockTypography).toHaveBeenCalledOnce();
-        expect(MockTypography).toHaveBeenCalledWith(
+        expect(Typography).toHaveBeenCalledOnce();
+        expect(Typography).toHaveBeenCalledWith(
             expect.objectContaining<Partial<TypographyProps>>({
                 component: 'h2',
                 variant: 'h1'
             }),
             undefined
         );
-        expect(MockTypographyIcon).toHaveBeenCalledWith(
+        expect(TypographyIcon).toHaveBeenCalledWith(
             expect.objectContaining<Partial<TypographyIconProps>>({
                 variant: 'h1',
             }),
@@ -112,15 +107,15 @@ describe('ExperienceByTypeList', () => {
     it('passes correct index information to each experience card', () => {
         render(<ExperienceByTypeList type={ExperienceType.Work} items={mockWorkItems} />);
 
-        expect(MockExperienceCard).toHaveBeenCalledTimes(mockWorkItems.length);
-        expect(MockExperienceCard).toHaveBeenCalledWith(
+        expect(ExperienceCard).toHaveBeenCalledTimes(mockWorkItems.length);
+        expect(ExperienceCard).toHaveBeenCalledWith(
             expect.objectContaining<ExperienceCardProps>({
                 experience: mockWorkItems[0],
                 index: { current: 0, total: mockWorkItems.length }
             }),
             undefined
         );
-        expect(MockExperienceCard).toHaveBeenCalledWith(
+        expect(ExperienceCard).toHaveBeenCalledWith(
             expect.objectContaining<ExperienceCardProps>({
                 experience: mockWorkItems[1],
                 index: { current: 1, total: mockWorkItems.length }
@@ -134,26 +129,26 @@ describe('ExperienceByTypeList', () => {
 
         render(<ExperienceByTypeList type={ExperienceType.Work} items={[]} />);
 
-        expect(MockTypographyIcon).toHaveBeenCalledWith(
+        expect(TypographyIcon).toHaveBeenCalledWith(
             expect.objectContaining<TypographyIconProps>({
                 Icon: BriefcaseIcon,
             }),
             undefined
         );
-        expect(MockTypography).toHaveBeenCalledWith(
+        expect(Typography).toHaveBeenCalledWith(
             expect.objectContaining<TypographyProps>({
                 children: 'Work Experience'
             }),
             undefined
         );
-        expect(MockExperienceCard).not.toHaveBeenCalled();
+        expect(ExperienceCard).not.toHaveBeenCalled();
     });
 
     it('renders single experience item with correct index', () => {
         render(<ExperienceByTypeList type={ExperienceType.Education} items={mockEducationItems} />);
 
-        expect(MockExperienceCard).toHaveBeenCalledOnce();
-        expect(MockExperienceCard).toHaveBeenCalledWith(
+        expect(ExperienceCard).toHaveBeenCalledOnce();
+        expect(ExperienceCard).toHaveBeenCalledWith(
             expect.objectContaining<ExperienceCardProps>({
                 experience: mockEducationItems[0],
                 index: { current: 0, total: mockEducationItems.length }
