@@ -1,6 +1,5 @@
 import {PropsWithChildren} from "react";
-import {InputState} from "@/components/ui/FormField/types";
-import clsx from "clsx";
+import {InputState} from "../types";
 
 interface FormFieldProps extends PropsWithChildren {
     state: InputState;
@@ -10,13 +9,10 @@ export default function FormFieldRoot(
     {children, state}: FormFieldProps
 ) {
     return (
-        <div className={clsx(
-            "form-field-box",
-            {
-                "error": state === "error",
-                "success": state === "success",
-            }
-        )}>
+        <div
+            className={"form-field-box"}
+            data-state={state}
+        >
             {children}
         </div>
     );

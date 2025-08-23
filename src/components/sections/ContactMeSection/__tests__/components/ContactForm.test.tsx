@@ -2,8 +2,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import {FormState} from "react-hook-form";
 import "@testing-library/jest-dom/vitest";
-import Input, {InputProps} from "@/components/ui/FormField/Input";
-import TextArea, {TextAreaProps} from "@/components/ui/FormField/TextArea";
+import FormField, {FormFieldProps} from "@/components/ui/FormField";
 import Button, {ButtonProps} from "@/components/ui/Button/Button";
 import Alert, {AlertProps} from "@/components/ui/Alert/Alert";
 import ContactRequestDto from "@/lib/dto/ContactRequestDto";
@@ -16,7 +15,7 @@ import {SUCCESS_MESSAGE, UNKNOWN_ERROR_MESSAGE} from "../../constants";
 vi.mock('@/components/ui/Card', () => ({
     default: vi.fn(props => <div {...props} />),
 }));
-vi.mock('@/components/ui/FormField/Input', () => ({
+vi.mock('@/components/ui/FormField/FormField', () => ({
     default: vi.fn(),
 }));
 vi.mock('@/components/ui/FormField/TextArea', () => ({
@@ -47,20 +46,20 @@ const mockUseContactRequestForm = vi.mocked(useContactRequestForm);
 const mockUseAnimateForm = vi.mocked(useAnimateForm);
 
 const expectDisabledFields = () => {
-    expect(Input).toHaveBeenCalledWith(
-        expect.objectContaining<InputProps>({
+    expect(FormField).toHaveBeenCalledWith(
+        expect.objectContaining<FormFieldProps<'input'>>({
             disabled: true
         }),
         undefined
     );
-    expect(Input).not.toHaveBeenCalledWith(
-        expect.objectContaining<InputProps>({
+    expect(FormField).not.toHaveBeenCalledWith(
+        expect.objectContaining<FormFieldProps<'input'>>({
             disabled: false
         }),
         undefined
     );
-    expect(TextArea).toHaveBeenCalledWith(
-        expect.objectContaining<TextAreaProps>({
+    expect(FormField).toHaveBeenCalledWith(
+        expect.objectContaining<FormFieldProps<'textarea'>>({
             disabled: true
         }),
         undefined
@@ -111,27 +110,30 @@ describe('ContactForm', () => {
     it('renders the form with all fields and a submit button', () => {
         render(<ContactForm />);
 
-        expect(Input).toHaveBeenCalledTimes(2);
-        expect(TextArea).toHaveBeenCalledTimes(1);
+        expect(FormField).toHaveBeenCalledTimes(3);
         expect(Button).toHaveBeenCalledTimes(1);
-        expect(Input).toHaveBeenCalledWith(
-            expect.objectContaining<InputProps>({
+        expect(FormField).toHaveBeenCalledWith(
+            expect.objectContaining<FormFieldProps<'input'>>({
                 id: 'contact-name',
-                label: 'Your Name'
+                label: 'Your Name',
+                autoComplete: 'name'
             }),
             undefined
         );
-        expect(Input).toHaveBeenCalledWith(
-            expect.objectContaining<InputProps>({
+        expect(FormField).toHaveBeenCalledWith(
+            expect.objectContaining<FormFieldProps<'input'>>({
                 id: 'contact-email',
-                label: 'Your Email'
+                label: 'Your Email',
+                type: 'email',
+                autoComplete: 'email'
             }),
             undefined
         );
-        expect(TextArea).toHaveBeenCalledWith(
-            expect.objectContaining<TextAreaProps>({
+        expect(FormField).toHaveBeenCalledWith(
+            expect.objectContaining<FormFieldProps<'textarea'>>({
                 id: 'contact-message',
-                label: 'Your Message'
+                label: 'Your Message',
+                as: 'textarea'
             }),
             undefined
         );
@@ -265,24 +267,24 @@ describe('ContactForm', () => {
 
         render(<ContactForm />);
 
-        expect(Input).toHaveBeenCalledWith(
-            expect.objectContaining<InputProps>({
+        expect(FormField).toHaveBeenCalledWith(
+            expect.objectContaining<FormFieldProps<'input'>>({
                 id: 'contact-name',
                 state: 'error',
                 message: 'Name is required'
             }),
             undefined
         );
-        expect(Input).toHaveBeenCalledWith(
-            expect.objectContaining<InputProps>({
+        expect(FormField).toHaveBeenCalledWith(
+            expect.objectContaining<FormFieldProps<'input'>>({
                 id: 'contact-email',
                 state: 'error',
                 message: 'Email is invalid'
             }),
             undefined
         );
-        expect(TextArea).toHaveBeenCalledWith(
-            expect.objectContaining<TextAreaProps>({
+        expect(FormField).toHaveBeenCalledWith(
+            expect.objectContaining<FormFieldProps<'textarea'>>({
                 id: 'contact-message',
                 state: 'error',
                 message: 'Message exceeds maximum length'

@@ -1,20 +1,21 @@
-import FormFieldMessage from "@/components/ui/FormField/components/FormFieldMessage";
-import FormFieldLengthCounter from "@/components/ui/FormField/components/FormFieldLengthCounter";
-import {ExtendedInputProps} from "@/components/ui/FormField/types";
+import FormFieldMessage from "../components/FormFieldMessage";
+import FormFieldLengthCounter from "../components/FormFieldLengthCounter";
+import {ExtendedInputProps} from "../types";
 
 interface InputFooterProps {
     message: ExtendedInputProps['message'];
+    messageId?: string;
     maxLength?: ExtendedInputProps['maxLength'];
     length: number;
 }
 
 export default function FormFieldFooter(
-    {message, maxLength, length}: InputFooterProps
+    {message, messageId, maxLength, length}: InputFooterProps
 ) {
     return (
         <div className={"flex items-center gap-2.5"}>
-            {message && (
-                <FormFieldMessage message={message}/>
+            {message && messageId && (
+                <FormFieldMessage message={message} messageId={messageId} />
             )}
             {maxLength && (
                 <span className={"ml-auto"}>

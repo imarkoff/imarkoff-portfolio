@@ -2,8 +2,7 @@
 
 import {useRef} from "react";
 import Card from "@/components/ui/Card";
-import Input from "@/components/ui/FormField/Input";
-import TextArea from "@/components/ui/FormField/TextArea";
+import FormField from "@/components/ui/FormField";
 import TypographyIcon from "@/components/ui/TypographyIcon";
 import Button from "@/components/ui/Button/Button";
 import Alert from "@/components/ui/Alert/Alert";
@@ -18,6 +17,7 @@ import {NOSCRIPT_MESSAGE, SUCCESS_MESSAGE, UNKNOWN_ERROR_MESSAGE} from "../const
 
 export default function ContactForm() {
     const cardRef = useRef<HTMLDivElement>(null);
+
     useAnimateForm(cardRef);
 
     const {
@@ -30,7 +30,7 @@ export default function ContactForm() {
     const {
         handleSubmit,
         register,
-        formState: { errors }
+        formState: {errors}
     } = useContactRequestForm(
         sendContactRequest,
         isSendingContactRequest,
@@ -48,39 +48,41 @@ export default function ContactForm() {
                 className={"flex flex-col gap-2.5 md:w-[450px]"}
                 ref={cardRef}
             >
-                <Input
+                <FormField
                     id={"contact-name"}
                     label={"Your Name"}
-                    labelIcon={<TypographyIcon Icon={AccountCircleIcon} />}
+                    labelIcon={<TypographyIcon Icon={AccountCircleIcon}/>}
                     autoComplete={"name"}
                     placeholder={"John Doe"}
                     disabled={disabled}
                     state={errors.name ? "error" : "default"}
                     message={errors.name?.message}
-                    {...register("name", { required: true })}
+                    {...register("name", {required: true})}
                 />
-                <Input
+                <FormField
                     id={"contact-email"}
                     label={"Your Email"}
-                    labelIcon={<TypographyIcon Icon={AlternateEmailIcon} />}
+                    labelIcon={<TypographyIcon Icon={AlternateEmailIcon}/>}
                     type={"email"}
+                    autoComplete={"email"}
                     placeholder={"johndoe@example.com"}
                     disabled={disabled}
                     state={errors.email ? "error" : "default"}
                     message={errors.email?.message}
-                    {...register("email", { required: true })}
+                    {...register("email", {required: true})}
                 />
-                <TextArea
+                <FormField
+                    as={'textarea'}
                     id={"contact-message"}
                     label={"Your Message"}
-                    labelIcon={<TypographyIcon Icon={ChatIcon} />}
+                    labelIcon={<TypographyIcon Icon={ChatIcon}/>}
                     placeholder={"Write your message here..."}
                     maxLength={500}
                     rows={5}
                     disabled={disabled}
                     state={errors.message ? "error" : "default"}
                     message={errors.message?.message}
-                    {...register("message", { required: true, maxLength: 500 })}
+                    {...register("message", {required: true, maxLength: 500})}
                 />
                 <div>
                     <Button

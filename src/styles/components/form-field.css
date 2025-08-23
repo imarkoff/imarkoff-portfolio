@@ -1,46 +1,48 @@
 .form-field-box {
     @apply flex flex-col gap-1.5;
 
-    &:not(:is(.error, .success)) {
-        .input {
+    &:not(:is([data-state="error"], [data-state="success"])) {
+        .form-field {
             @apply border-border-menu hover:border-tertiary focus:border-active-filled
             bg-black/20 focus:bg-active-tinted;
         }
     }
 
-    &.error {
-        .input {
+    &[data-state="error"] {
+        .form-field {
             @apply border-red-filled bg-red-tinted;
         }
 
-        .input-message {
+        .form-field-message {
             @apply text-red-filled;
         }
     }
 
-    &.success {
-        .input {
+    &[data-state="success"] {
+        .form-field {
             @apply border-green-filled bg-green-tinted;
         }
 
-        .input-message {
+        .form-field-message {
             @apply text-green-filled;
         }
     }
 }
 
-.input {
+.form-field {
     @apply
     py-2 px-3
     text-primary placeholder-tertiary
     border-2 rounded-button-md focus:outline-none transition-[border];
 }
 
-.input-label {
-    @apply text-body font-medium;
+.form-field-label {
+    @apply
+    text-body font-medium
+    flex items-center gap-2;
 }
 
-.input-message {
+.form-field-message {
     @apply text-caption text-tertiary;
 }
 

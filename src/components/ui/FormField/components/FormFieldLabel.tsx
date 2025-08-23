@@ -1,5 +1,5 @@
 import {ReactNode} from "react";
-import {ExtendedInputProps} from "@/components/ui/FormField/types";
+import {ExtendedInputProps} from "../types";
 
 interface InputLabelProps {
     label?: ReactNode;
@@ -17,7 +17,7 @@ export default function FormFieldLabel(
     return (
         <label
             htmlFor={htmlFor}
-            className="flex items-center gap-2 input-label"
+            className="form-field-label"
         >
             {labelIcon}
             {label}
