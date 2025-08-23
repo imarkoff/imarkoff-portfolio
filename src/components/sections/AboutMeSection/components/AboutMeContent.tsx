@@ -35,7 +35,10 @@ export default function AboutMeContent(
                     {aboutMe.fullDescription}
                 </ReactMarkdown>
             </div>
-            <ContactButtons aboutMe={aboutMe} />
+            <ContactButtons
+                socialLinks={aboutMe.socialLinks}
+                resumeUrl={aboutMe.resumeUrl}
+            />
         </div>
     );
 }

@@ -4,8 +4,8 @@ import { render, screen } from '@testing-library/react';
 import "@testing-library/jest-dom/vitest";
 import AboutMeContent from '../../components/AboutMeContent';
 import {TypographyProps, TypographyIconProps} from "@/components/ui/Typography";
-import AboutMe from "@/lib/models/AboutMe";
 import aboutMeFixture from "@/lib/test-utils/fixtures/aboutMe.fixtures";
+import ContactButtons from "../../components/ContactButtons";
 
 vi.mock('@/components/icons/AccountCircleIcon', () => ({
     default: () => <div data-testid="mock-account-circle-icon" />
@@ -36,10 +36,8 @@ vi.mock('react-markdown', () => ({
     )
 }));
 
-vi.mock('@/components/sections/AboutMeSection/components/ContactButtons', () => ({
-    default: ({ aboutMe }: { aboutMe: AboutMe }) => (
-        <div data-testid="mock-contact-buttons" data-about-me={JSON.stringify(aboutMe)} />
-    )
+vi.mock('../../components/ContactButtons', () => ({
+    default: vi.fn()
 }));
 
 describe('AboutMeContent', () => {
@@ -84,9 +82,13 @@ describe('AboutMeContent', () => {
     it('passes the aboutMe data to ContactButtons component', () => {
         render(<AboutMeContent aboutMe={mockAboutMe} id="test-id" />);
 
-        const contactButtons = screen.getByTestId('mock-contact-buttons');
-        expect(contactButtons).toBeInTheDocument();
-        expect(JSON.parse(contactButtons.getAttribute('data-about-me')!)).toEqual(mockAboutMe);
+        expect(ContactButtons).toHaveBeenCalledWith(
+            {
+                socialLinks: mockAboutMe.socialLinks,
+                resumeUrl: mockAboutMe.resumeUrl
+            },
+            undefined
+        );
     });
 
     it('renders icon with h1 variant', () => {

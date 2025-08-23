@@ -3,12 +3,19 @@ import DocsIcon from "@/components/icons/DocsIcon";
 import {LinkButton} from "@/components/ui/Button";
 import SocialLinks from "@/components/layout/SocialLinks";
 
-export default function ContactButtons({ aboutMe }: { aboutMe: AboutMe }) {
+export interface ContactButtonsProps {
+    socialLinks: AboutMe["socialLinks"];
+    resumeUrl: AboutMe["resumeUrl"];
+}
+
+export default function ContactButtons(
+    { socialLinks, resumeUrl }: ContactButtonsProps
+) {
     return (
         <div className={"flex justify-start items-center gap-2.5"}>
-            {aboutMe.resumeUrl && (
+            {resumeUrl && (
                 <LinkButton
-                    href={aboutMe.resumeUrl}
+                    href={resumeUrl}
                     target={"_blank"}
                     variant={"secondary"}
                     LeftIcon={DocsIcon}
@@ -17,7 +24,7 @@ export default function ContactButtons({ aboutMe }: { aboutMe: AboutMe }) {
                 </LinkButton>
             )}
             <SocialLinks
-                socialLinks={aboutMe.socialLinks}
+                socialLinks={socialLinks}
                 description={false}
                 buttonProps={{
                     isIconButton: true,

@@ -66,7 +66,7 @@ describe('ShowcaseCarousel', () => {
 
         const firstTickerProps = JSON.parse(tickers[0].getAttribute('data-props')!);
         expect(firstTickerProps.direction).toBe('down');
-        expect(firstTickerProps.speed).toBe(0.5);
+        expect(firstTickerProps.speed).toBe(0.35);
         expect(firstTickerProps.startDelay).toBe(4.5);
 
         const secondTickerProps = JSON.parse(tickers[1].getAttribute('data-props')!);
