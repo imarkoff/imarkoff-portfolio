@@ -4,7 +4,7 @@ import iconMap from "@/components/icons/IconMap";
 import {DEFAULT_ICONS} from "@/components/ui/Alert/constants";
 import {AlertType} from "@/components/ui/Alert/types";
 
-interface AlertIconProps {
+export interface AlertIconProps {
     type?: AlertType;
     Icon?: ComponentType<IconType> | false;
 }
@@ -17,7 +17,7 @@ export default function AlertIcon(
     const IconToRender = Icon || (type ? iconMap[DEFAULT_ICONS[type]] : null);
 
     return IconToRender && (
-        <div className={`icon-wrapper icon-wrapper-${type}`}>
+        <div className={"icon-wrapper"}>
             <IconToRender className="icon" />
         </div>
     );

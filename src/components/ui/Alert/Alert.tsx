@@ -1,5 +1,4 @@
 import {ComponentType, ReactNode} from "react";
-import clsx from "clsx";
 import IconType from "@/components/icons/IconType";
 import AlertIcon from "./components/AlertIcon";
 import {AlertType} from "./types";
@@ -26,7 +25,8 @@ export interface AlertProps {
 }
 
 /**
- * Renders an alert box with a message and an optional icon, styled according to the alert type.
+ * Renders an alert box with a message and an optional icon,
+ * styled according to the alert type.
  *
  * @example
  * // Basic usage with a success type
@@ -45,15 +45,8 @@ export default function Alert(
 ) {
     return (
         <div
-            className={clsx(
-                `alert`,
-                {
-                    'alert-success': type === 'success',
-                    'alert-error': type === 'error',
-                    'alert-warning': type === 'warning',
-                    'alert-info': type === 'info',
-                }
-            )}
+            className={"alert"}
+            data-type={type}
             role="alert"
         >
             <AlertIcon type={type} Icon={Icon} />

@@ -10,7 +10,7 @@
         w-icon-body text-primary;
     }
 
-    &.alert-success {
+    &[data-type="success"] {
         @apply
         bg-green-tinted border-green-filled;
 
@@ -19,7 +19,7 @@
         }
     }
 
-    &.alert-error {
+    &[data-type="error"] {
         @apply
         bg-red-tinted border-red-filled;
 
@@ -28,7 +28,7 @@
         }
     }
 
-    &.alert-warning {
+    &[data-type="warning"] {
         @apply
         bg-yellow-tinted border-yellow-filled;
 
@@ -37,7 +37,7 @@
         }
     }
 
-    &.alert-info {
+    &[data-type="info"] {
         @apply
         bg-blue-tinted border-blue-filled;
 
