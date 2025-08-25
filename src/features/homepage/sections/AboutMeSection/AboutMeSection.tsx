@@ -1,13 +1,12 @@
 import AboutMe from "@/lib/models/AboutMe";
 import ByTheNumbersCard from "@/features/homepage/sections/AboutMeSection/components/ByTheNumbersCard";
-import {TechnologiesByCategory} from "@/lib/models/types/TechnologyCategory";
 import ByTechnologiesCard from "@/features/homepage/sections/AboutMeSection/components/ByTechnologiesCard";
 import AboutMeScroll from "@/features/homepage/sections/AboutMeSection/components/AboutMeScroll";
 import AboutMeContent from "@/features/homepage/sections/AboutMeSection/components/AboutMeContent";
 import HomePageSection from "@/features/homepage/components/HomePageSection";
 
 export default function AboutMeSection(
-    {aboutMe, technologies}: { aboutMe: AboutMe, technologies: TechnologiesByCategory[] }
+    {aboutMe}: { aboutMe: AboutMe }
 ) {
     const references = {
         aboutMeGridLayoutId: "about-me.section",
@@ -39,7 +38,7 @@ export default function AboutMeSection(
                         headingId={references.byTheNumbersHeadingId}
                     />
                 </div>
-                <ByTechnologiesCard technologies={technologies} />
+                <ByTechnologiesCard technologies={aboutMe.technologiesCategories} />
             </div>
         </HomePageSection>
     );

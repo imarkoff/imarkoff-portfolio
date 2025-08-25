@@ -3,7 +3,7 @@ import Image from "next/image";
 import Label, {LabelProps} from "@/components/ui/Label";
 import clsx from "clsx";
 
-interface TechnologyLabelProps extends Omit<LabelProps, "icon" | "children"> {
+export interface TechnologyLabelProps extends Omit<LabelProps, "icon" | "children"> {
     /** The technology object containing the name and optional icon URL. */
     technology: Technology;
 }

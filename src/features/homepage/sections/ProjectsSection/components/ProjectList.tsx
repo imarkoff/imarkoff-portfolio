@@ -1,16 +1,14 @@
 import Project from "@/lib/models/Project";
-import Technology from "@/lib/models/Technology";
 import ProjectCard from "@/features/homepage/sections/ProjectsSection/components/ProjectCard/ProjectCard";
 import {ProjectsSectionReferences} from "@/features/homepage/sections/ProjectsSection/types";
 
 interface ProjectListProps {
     references: ProjectsSectionReferences;
     projects: Project[];
-    projectsTechnologies: Technology[][];
 }
 
 export default function ProjectList(
-    {references, projects, projectsTechnologies}: ProjectListProps
+    {references, projects}: ProjectListProps
 ) {
     return (
         <div
@@ -22,7 +20,6 @@ export default function ProjectList(
                 <ProjectCard
                     project={item}
                     references={references.projectCard}
-                    techs={projectsTechnologies[index]}
                     key={index}
                     index={index}
                 />

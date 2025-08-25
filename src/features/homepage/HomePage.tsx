@@ -6,22 +6,18 @@ import ExperienceSection from "./sections/ExperienceSection/ExperienceSection";
 import ContactMeSection from "./sections/ContactMeSection/ContactMeSection";
 import AboutMe from "@/lib/models/AboutMe";
 import ShowcaseImage from "@/lib/models/ShowcaseImage";
-import {TechnologiesByCategory} from "@/lib/models/types/TechnologyCategory";
 import Project from "@/lib/models/Project";
-import Technology from "@/lib/models/Technology";
 import {ExperienceByType} from "@/lib/models/types/ExperienceType";
 
 interface HomePageProps {
     aboutMe: AboutMe;
-    aboutMeTechnologies: TechnologiesByCategory[];
     showcases: ShowcaseImage[][];
     projects: Project[];
-    projectsTechnologies: Technology[][];
     experiences: ExperienceByType;
 }
 
 export default function HomePage(
-    { aboutMe, aboutMeTechnologies, showcases, projects, projectsTechnologies, experiences }: HomePageProps
+    { aboutMe, showcases, projects, experiences }: HomePageProps
 ) {
     return (
         <>
@@ -35,11 +31,9 @@ export default function HomePage(
             <main>
                 <AboutMeSection
                     aboutMe={aboutMe}
-                    technologies={aboutMeTechnologies}
                 />
                 <ProjectsSection
                     projects={projects}
-                    projectsTechnologies={projectsTechnologies}
                 />
                 <ExperienceSection
                     experience={experiences}

@@ -1,16 +1,16 @@
 import {Typography, TypographyIcon} from "@/components/ui/Typography";
 import Card from "@/components/ui/Card";
-import {TechnologiesByCategory} from "@/lib/models/types/TechnologyCategory";
+import {TechnologiesSlugsByCategory} from "@/lib/models/types/TechnologyCategory";
 import technologyCategoryMetadata from "@/lib/constants/technologyCategoryMetadata";
 import iconMap from "@/components/icons/utils/iconMap";
-import Label from "@/components/ui/Label";
-import Image from "next/image";
 import {Fragment} from "react";
 import clsx from "clsx";
 import ByTechnologiesScroll from "@/features/homepage/sections/AboutMeSection/components/ByTechnologiesScroll";
+import SlugTechnologyLabel from "@/components/common/SlugTechnologyLabel";
+import AboutMe from "@/lib/models/AboutMe";
 
 export interface ByTechnologiesCardProps {
-    technologies: TechnologiesByCategory[];
+    technologies: AboutMe['technologiesCategories'];
 }
 
 export default function ByTechnologiesCard(
@@ -46,7 +46,7 @@ export default function ByTechnologiesCard(
     );
 }
 
-const TechnologiesGroup = ({category} : { category: TechnologiesByCategory }) => {
+const TechnologiesGroup = ({category} : { category: TechnologiesSlugsByCategory }) => {
     const categoryMetadata = technologyCategoryMetadata[category.categoryName];
     const Icon = iconMap[categoryMetadata.icon];
 
@@ -60,19 +60,9 @@ const TechnologiesGroup = ({category} : { category: TechnologiesByCategory }) =>
                 </Typography>
             </div>
             <ul className={"flex flex-wrap gap-2.5"} role={"list"}>
-                {category.techs.map((tech) => (
-                    <li key={tech.slug}>
-                        <Label className={"technologies.label"} icon={
-                            tech.iconUrl ? <Image
-                                src={tech.iconUrl}
-                                alt={tech.name}
-                                width={20}
-                                height={20}
-                                className={"rounded-sm"}
-                            /> : undefined
-                        }>
-                            {tech.name}
-                        </Label>
+                {category.techs.map((slug) => (
+                    <li key={slug}>
+                        <SlugTechnologyLabel technologySlug={slug} />
                     </li>
                 ))}
             </ul>

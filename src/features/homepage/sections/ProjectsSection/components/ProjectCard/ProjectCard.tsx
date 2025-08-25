@@ -3,7 +3,7 @@ import ProjectCardContent from "./components/ProjectCardContent";
 import {ProjectCardProps} from "./types";
 import ProjectCardWrapper from "./components/ProjectCardWrapper";
 
-export default function ProjectCard({project, techs, index, references}: ProjectCardProps) {
+export default function ProjectCard({project, index, references}: ProjectCardProps) {
     return (
         <ProjectCardWrapper
             project={project}
@@ -13,7 +13,6 @@ export default function ProjectCard({project, techs, index, references}: Project
             <ProjectCardContent
                 project={project}
                 references={references?.content}
-                techs={techs}
                 index={index}
             />
             <ProjectCardImage heroImage={project.heroImage} />

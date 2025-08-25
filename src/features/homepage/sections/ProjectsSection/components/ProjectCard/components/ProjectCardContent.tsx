@@ -1,16 +1,16 @@
 import clsx from "clsx";
 import {Typography} from "@/components/ui/Typography";
-import TechnologyLabel from "@/components/common/TechnologyLabel";
 import {ProjectCardContentReference,ProjectCardProps} from "../types";
 import ProjectCardLinks from "./ProjectCardLinks";
 import ProjectCardHeader from "./ProjectCardHeader";
+import SlugTechnologyLabel from "@/components/common/SlugTechnologyLabel";
 
 interface ProjectCardContentProps extends Omit<ProjectCardProps, 'references'> {
     references?: ProjectCardContentReference;
 }
 
 export default function ProjectCardContent(
-    {project, techs, index, references}: ProjectCardContentProps
+    {project, index, references}: ProjectCardContentProps
 ) {
     return (
         <div className={clsx(
@@ -29,8 +29,12 @@ export default function ProjectCardContent(
                 className={"w-full relative flex gap-2.5 mask-type-luminance overflow-hidden"}
                 style={{maskImage: "linear-gradient(to right, black 0%, black 90%, transparent 100%)"}}
             >
-                {techs.map((tech, index) => (
-                    <TechnologyLabel className={references?.techLabelClassName} technology={tech} key={index}/>
+                {project.coreTechs.map((slug, index) => (
+                    <SlugTechnologyLabel
+                        className={references?.techLabelClassName}
+                        technologySlug={slug}
+                        key={index}
+                    />
                 ))}
             </div>
             <ProjectCardLinks project={project} />

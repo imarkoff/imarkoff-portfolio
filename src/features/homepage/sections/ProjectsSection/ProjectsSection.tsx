@@ -1,5 +1,4 @@
 import Project from "@/lib/models/Project";
-import Technology from "@/lib/models/Technology";
 import ProjectAnimationWrapper from "@/features/homepage/sections/ProjectsSection/components/ProjectAnimationWrapper";
 import {REFERENCES} from "@/features/homepage/sections/ProjectsSection/constants";
 import ProjectsHeader from "@/features/homepage/sections/ProjectsSection/components/ProjectsHeader";
@@ -7,11 +6,10 @@ import ProjectList from "@/features/homepage/sections/ProjectsSection/components
 
 interface ProjectsSectionProps {
     projects: Project[];
-    projectsTechnologies: Technology[][];
 }
 
 export default function ProjectsSection(
-    {projects, projectsTechnologies}: ProjectsSectionProps
+    {projects}: ProjectsSectionProps
 ) {
     return (
         <ProjectAnimationWrapper
@@ -22,7 +20,6 @@ export default function ProjectsSection(
             <ProjectList
                 references={REFERENCES}
                 projects={projects}
-                projectsTechnologies={projectsTechnologies}
             />
         </ProjectAnimationWrapper>
     );
