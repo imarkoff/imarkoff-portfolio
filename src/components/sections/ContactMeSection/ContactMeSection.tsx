@@ -1,9 +1,9 @@
-import Section from "@/components/ui/Section";
 import AboutMe from "@/lib/models/AboutMe";
 import ContactForm from "./components/ContactForm";
 import TrueFooter from "./components/TrueFooter";
 import ContactIntro from "./components/ContactIntro";
 import {SECTION_GRADIENT} from "./constants";
+import HomePageSection from "@/features/homepage/components/HomePageSection";
 
 interface ContactMeSectionProps {
     aboutMe: AboutMe;
@@ -13,7 +13,8 @@ export default function ContactMeSection(
     {aboutMe}: ContactMeSectionProps
 ) {
     return (
-        <Section
+        <HomePageSection
+            id={"contact"}
             slotProps={{
                 root: {
                     className: "overflow-hidden",
@@ -29,6 +30,6 @@ export default function ContactMeSection(
                 <ContactForm />
             </div>
             <TrueFooter aboutMe={aboutMe} />
-        </Section>
+        </HomePageSection>
     );
 }

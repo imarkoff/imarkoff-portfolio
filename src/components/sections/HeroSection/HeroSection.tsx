@@ -1,5 +1,4 @@
 import AboutMe from "@/lib/models/AboutMe";
-import Section from "@/components/ui/Section";
 import DownArrow from "@/components/sections/HeroSection/components/DownArrow";
 import ShowcaseCarousel from "@/components/sections/HeroSection/components/ShowcaseCarousel/ShowcaseCarousel";
 import GradientBlur from "@/components/ui/GradientBlur";
@@ -7,23 +6,27 @@ import SomeShowcasesArrow from "@/components/sections/HeroSection/components/Som
 import HeroBackground from "@/components/sections/HeroSection/components/HeroBackground";
 import HeroCenterContent from "./components/HeroCenterContent";
 import ShowcaseImage from "@/lib/models/ShowcaseImage";
+import HomePageSection from "@/features/homepage/components/HomePageSection";
 
 export default function HeroSection(
     {aboutMe, showcases}: { aboutMe: AboutMe, showcases: Array<ShowcaseImage[]> }
 ) {
     return (
-        <Section slotProps={{
-            root: {
-                className: "flex-grow h-screen border-none relative overflow-hidden",
-                style: {
-                    boxShadow: "0px 12px 100px 0px rgba(67, 7, 38, 0.25)"
+        <HomePageSection
+            id={"home"}
+            slotProps={{
+                root: {
+                    className: "flex-grow h-screen border-none relative overflow-hidden",
+                    style: {
+                        boxShadow: "0px 12px 100px 0px rgba(67, 7, 38, 0.25)"
+                    }
+                },
+                section: {
+                    className: "flex gap-6",
+                    "data-animate-appear": true,
                 }
-            },
-            section: {
-                className: "flex gap-6",
-                "data-animate-appear": true,
-            }
-        }}>
+            }}
+        >
             <HeroBackground />
             <div className={"flex-grow flex flex-col gap-6"}>
                 <div className={"flex-1"} />
@@ -44,6 +47,6 @@ export default function HeroSection(
                     {blurAmount: 1, maskStart: 70, maskEnd: 100}
                 ]} />
             </div>
-        </Section>
+        </HomePageSection>
     );
 }

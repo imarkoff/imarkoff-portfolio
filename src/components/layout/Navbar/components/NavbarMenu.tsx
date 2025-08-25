@@ -6,15 +6,13 @@ import {LinkButton} from "@/components/ui/Button";
 
 interface NavbarMenuProps {
     activeLink: string;
-    setActiveLink: (link: string) => void;
     isOpen: boolean;
     ref: Ref<HTMLUListElement>;
     toggleMenu: () => void;
 }
 
-export default function NavbarMenu({ activeLink, setActiveLink, isOpen, ref, toggleMenu }: NavbarMenuProps) {
-    const handleLinkClick = (href: string) => {
-        setActiveLink(href);
+export default function NavbarMenu({ activeLink, isOpen, ref, toggleMenu }: NavbarMenuProps) {
+    const handleLinkClick = () => {
         toggleMenu();
     }
 
@@ -33,7 +31,7 @@ export default function NavbarMenu({ activeLink, setActiveLink, isOpen, ref, tog
                 <li key={index}>
                     <LinkButton
                         href={link.href}
-                        onClick={() => handleLinkClick(link.href)}
+                        onClick={handleLinkClick}
                         size={"small"}
                         LeftIcon={link.icon}
                         variant={link.isPrimary ? "primary" : "tertiary"}
