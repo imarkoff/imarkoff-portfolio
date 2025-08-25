@@ -3,7 +3,7 @@
 import useSWRMutation from "swr/mutation";
 import ContactRequestDto from "@/lib/dto/ContactRequestDto";
 import apiConfig from "@/config/apiConfig";
-import { sendContactRequest } from "@/lib/api/contact";
+import sendContactRequestApi from "@/lib/api/contact/sendContactRequestApi";
 
 export default function useSendContactRequestApi() {
     const {
@@ -13,7 +13,7 @@ export default function useSendContactRequestApi() {
         data: contactRequestResponse,
     } = useSWRMutation(
         apiConfig.endpoints.contactMe.route,
-        sendContactRequest,
+        sendContactRequestApi,
     );
 
     const send = async (data: ContactRequestDto) => {

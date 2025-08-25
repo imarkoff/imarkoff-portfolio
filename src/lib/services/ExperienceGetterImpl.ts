@@ -2,8 +2,8 @@ import ExperienceGetter from "@/lib/services/interfaces/ExperienceGetter";
 import {inject, injectable} from "inversify";
 import TYPES from "@/lib/di/types";
 import type ExperienceRepository from "@/lib/repositories/interfaces/ExperienceRepository";
-import ExperienceItem from "../models/ExperienceItem";
-import ExperienceType from "@/lib/models/types/ExperienceType";
+import ExperienceItem from "@/lib/models/ExperienceItem";
+import {ExperienceByType} from "@/lib/models/types/ExperienceType";
 
 @injectable()
 export default class ExperienceGetterImpl implements ExperienceGetter {
@@ -15,7 +15,7 @@ export default class ExperienceGetterImpl implements ExperienceGetter {
     getExperience(): Promise<ExperienceItem[]> {
         return this.experienceRepository.getExperience();
     }
-    async getExperienceGroupedByType(): Promise<Record<ExperienceType, ExperienceItem[]>> {
+    async getExperienceGroupedByType(): Promise<ExperienceByType> {
         const experienceItems = await this.getExperience();
 
         return experienceItems.reduce((acc, item) => {
@@ -25,6 +25,6 @@ export default class ExperienceGetterImpl implements ExperienceGetter {
             }
             acc[type].push(item);
             return acc;
-        }, {} as Record<ExperienceType, ExperienceItem[]>);
+        }, {} as ExperienceByType);
     }
 }

@@ -3,7 +3,7 @@ import { vi, describe, expect, it, beforeEach } from "vitest";
 import useSWRMutation from "swr/mutation";
 import ContactRequestDto from "@/lib/dto/ContactRequestDto";
 import apiConfig from "@/config/apiConfig";
-import { sendContactRequest } from "@/lib/api/contact";
+import sendContactRequestApi from "@/lib/api/contact/sendContactRequestApi";
 import useSendContactRequestApi from "../../../hooks/lib/useSendContactRequestApi";
 
 vi.mock("swr/mutation");
@@ -19,7 +19,7 @@ vi.mock("@/config/apiConfig", () => ({
 }));
 
 const useSWRMutationMock = vi.mocked(useSWRMutation);
-const sendContactRequestMock = vi.mocked(sendContactRequest);
+const sendContactRequestMock = vi.mocked(sendContactRequestApi);
 
 describe('useSendContactRequestApi', () => {
     const mockTrigger = vi.fn();
