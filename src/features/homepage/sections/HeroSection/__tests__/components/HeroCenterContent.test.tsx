@@ -3,11 +3,11 @@ import {describe, it, expect, vi, afterEach, beforeEach, Mock} from 'vitest';
 import "@testing-library/jest-dom/vitest";
 import HeroCenterContent from '../../components/HeroCenterContent';
 import AboutMe from '@/lib/models/AboutMe';
-import AnimateHero from "@/features/homepage/sections/HeroSection/components/AnimateHero";
+import AnimateHero from "../../components/AnimateHero";
 import aboutMeFixture from "@/lib/test-utils/fixtures/aboutMe.fixtures";
 import SocialLinks, {SocialLinksProps} from "@/components/layout/SocialLinks";
 
-vi.mock('@/components/sections/HeroSection/components/AnimateHero', () => ({
+vi.mock('../../components/AnimateHero', () => ({
     default: vi.fn(),
 }));
 

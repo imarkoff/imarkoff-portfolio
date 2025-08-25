@@ -3,13 +3,13 @@ import {describe, it, expect, vi, beforeEach} from 'vitest';
 import ContactMeSection from '../ContactMeSection';
 import AboutMe from '@/lib/models/AboutMe';
 import aboutMeFixture from "@/lib/test-utils/fixtures/aboutMe.fixtures";
-import Section from "@/components/ui/Section";
+import HomePageSection from "@/features/homepage/components/HomePageSection";
 import {SECTION_GRADIENT} from "../constants";
 import ContactIntro from "../components/ContactIntro";
 import ContactForm from "../components/ContactForm";
 import TrueFooter from "../components/TrueFooter";
 
-vi.mock('@/components/ui/Section', () => ({
+vi.mock('@/features/homepage/components/HomePageSection', () => ({
     default: vi.fn(({children}) => <div>{children}</div>)
 }));
 vi.mock('../components/ContactIntro', () => ({
@@ -22,7 +22,6 @@ vi.mock('../components/TrueFooter', () => ({
     default: vi.fn()
 }));
 
-const MockSection = vi.mocked(Section);
 const MockContactIntro = vi.mocked(ContactIntro);
 const MockContactForm = vi.mocked(ContactForm);
 const MockTrueFooter = vi.mocked(TrueFooter);
@@ -45,7 +44,7 @@ describe('ContactMeSection', () => {
     it('renders the Section component with correct styling props', () => {
         render(<ContactMeSection aboutMe={mockAboutMe}/>);
 
-        expect(MockSection).toHaveBeenCalledWith(
+        expect(HomePageSection).toHaveBeenCalledWith(
             expect.objectContaining({
                 slotProps: {
                     root: {

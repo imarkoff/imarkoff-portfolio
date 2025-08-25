@@ -4,7 +4,6 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/vitest';
 
 import Project from '@/lib/models/Project';
-import Technology from '@/lib/models/Technology';
 import projectFixtures from "@/lib/test-utils/fixtures/project.fixtures";
 
 import ProjectsSection from '../ProjectsSection';
@@ -41,17 +40,11 @@ describe('ProjectsSection', () => {
         description: 'Test Description'
     } as Project;
 
-    const mockTechnology: Technology = {
-        id: '1',
-        name: 'React'
-    } as Technology;
-
     const mockProjects = [mockProject];
-    const mockProjectsTechnologies = [[mockTechnology]];
 
     it('calls ProjectAnimationWrapper with correct props', () => {
         render(
-            <ProjectsSection projects={mockProjects} projectsTechnologies={mockProjectsTechnologies} />
+            <ProjectsSection projects={mockProjects} />
         );
 
         expect(ProjectAnimationWrapper).toHaveBeenCalledWith(
@@ -65,14 +58,13 @@ describe('ProjectsSection', () => {
 
     it('calls ProjectList with correct props', () => {
         render(
-            <ProjectsSection projects={mockProjects} projectsTechnologies={mockProjectsTechnologies} />
+            <ProjectsSection projects={mockProjects} />
         );
 
         expect(ProjectList).toHaveBeenCalledWith(
             expect.objectContaining({
                 references: REFERENCES,
-                projects: mockProjects,
-                projectsTechnologies: mockProjectsTechnologies
+                projects: mockProjects
             }),
             undefined
         );
@@ -80,7 +72,7 @@ describe('ProjectsSection', () => {
 
     it('calls ProjectsHeader with correct id', () => {
         render(
-            <ProjectsSection projects={mockProjects} projectsTechnologies={mockProjectsTechnologies} />
+            <ProjectsSection projects={mockProjects} />
         );
 
         expect(ProjectsHeader).toHaveBeenCalledWith(

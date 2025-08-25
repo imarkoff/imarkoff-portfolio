@@ -1,12 +1,12 @@
 import { render, screen } from "@testing-library/react";
-import {describe, it, expect, vi, beforeEach, Mock} from "vitest";
+import {describe, it, expect, vi, beforeEach} from "vitest";
 import "@testing-library/jest-dom/vitest";
-import SomeShowcasesArrow from "@/features/homepage/sections/HeroSection/components/SomeShowcasesArrow/SomeShowcasesArrow";
-import useShowcaseAppear from "@/features/homepage/sections/HeroSection/components/SomeShowcasesArrow/hooks/useShowcaseAppear";
-import ArrowSVG from "@/features/homepage/sections/HeroSection/components/SomeShowcasesArrow/components/ArrowSVG";
+import SomeShowcasesArrow from "../../../components/SomeShowcasesArrow/SomeShowcasesArrow";
+import useShowcaseAppear from "../../../components/SomeShowcasesArrow/hooks/useShowcaseAppear";
+import ArrowSVG from "../../../components/SomeShowcasesArrow/components/ArrowSVG";
 import {Typography} from "@/components/ui/Typography";
 
-vi.mock("@/components/sections/HeroSection/components/SomeShowcasesArrow/hooks/useShowcaseAppear", () => ({
+vi.mock("../../../components/SomeShowcasesArrow/hooks/useShowcaseAppear", () => ({
     default: vi.fn(() => ({
         pathRef: { current: null },
         arrowRef: { current: null },
@@ -14,7 +14,7 @@ vi.mock("@/components/sections/HeroSection/components/SomeShowcasesArrow/hooks/u
     }))
 }));
 
-vi.mock("@/components/sections/HeroSection/components/SomeShowcasesArrow/components/ArrowSVG", () => ({
+vi.mock("../../../components/SomeShowcasesArrow/components/ArrowSVG", () => ({
     default: vi.fn(props => <div data-testid="arrow-svg" {...props} />)
 }));
 
@@ -22,14 +22,11 @@ vi.mock("@/components/ui/Typography", () => ({
     Typography: vi.fn(({ children, ...props }) => <div data-testid={"text"} {...props}>{children}</div>)
 }));
 
+const useShowcaseAppearMock = vi.mocked(useShowcaseAppear);
+
 describe("SomeShowcasesArrow Component", () => {
     beforeEach(() => {
         vi.clearAllMocks();
-        (useShowcaseAppear as Mock).mockReturnValue({
-            pathRef: { current: null },
-            arrowRef: { current: null },
-            textRef: { current: null },
-        });
     })
 
     it("renders showcases text content", () => {
@@ -58,8 +55,14 @@ describe("SomeShowcasesArrow Component", () => {
     });
 
     it("passes animation refs to Typography component", () => {
+        const textRef = { current: null };
+        useShowcaseAppearMock.mockReturnValue({
+            pathRef: { current: null },
+            arrowRef: { current: null },
+            textRef,
+        })
+
         render(<SomeShowcasesArrow />);
-        const { textRef } = useShowcaseAppear();
 
         expect(Typography).toHaveBeenCalledWith(
             expect.objectContaining({

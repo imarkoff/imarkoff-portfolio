@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { vi, describe, it, expect, beforeEach } from 'vitest';
 import "@testing-library/jest-dom/vitest";
 import projectFixtures from '@/lib/test-utils/fixtures/project.fixtures';
-import Section from "@/components/ui/Section";
+import HomePageSection from "@/features/homepage/components/HomePageSection";
 import { DEFAULT_HUE, SPACE_BETWEEN_HEADER_AND_PROJECTS } from '../../constants';
 import ProjectAnimationWrapper from '../../components/ProjectAnimationWrapper';
 import useAnimateProjectCards from '../../hooks/useAnimateProjectCards';
@@ -12,9 +12,7 @@ vi.mock('../../hooks/useAnimateProjectCards', () => ({
     default: vi.fn(),
 }));
 
-const mockUseAnimateProjectCards = vi.mocked(useAnimateProjectCards);
-
-vi.mock('@/components/ui/Section', () => ({
+vi.mock('@/features/homepage/components/HomePageSection', () => ({
     default: vi.fn(({ slotProps, children }) => (
         <section ref={slotProps.root.ref} style={slotProps.root.style} data-testid="section-root">
             <div className={slotProps.section.className} style={slotProps.section.style}>
@@ -23,6 +21,8 @@ vi.mock('@/components/ui/Section', () => ({
         </section>
     )),
 }));
+
+const mockUseAnimateProjectCards = vi.mocked(useAnimateProjectCards);
 
 describe('ProjectAnimationWrapper', () => {
     const mockProjects = projectFixtures;
@@ -60,7 +60,7 @@ describe('ProjectAnimationWrapper', () => {
             </ProjectAnimationWrapper>
         );
 
-        expect(Section).toHaveBeenCalledWith(
+        expect(HomePageSection).toHaveBeenCalledWith(
             expect.objectContaining({
                 slotProps: expect.objectContaining({
                     root: expect.objectContaining({
@@ -84,7 +84,7 @@ describe('ProjectAnimationWrapper', () => {
             background: "radial-gradient(45% 45% at 50% 7%, var(--gradient-color) 1%, #FF000000 99%),radial-gradient(45% 45% at -6% 74%, var(--gradient-color) 1%, #FF000000 99%)"
         };
 
-        expect(Section).toHaveBeenCalledWith(
+        expect(HomePageSection).toHaveBeenCalledWith(
             expect.objectContaining({
                 slotProps: expect.objectContaining({
                     root: expect.objectContaining({
@@ -103,7 +103,7 @@ describe('ProjectAnimationWrapper', () => {
             </ProjectAnimationWrapper>
         );
 
-        expect(Section).toHaveBeenCalledWith(
+        expect(HomePageSection).toHaveBeenCalledWith(
             expect.objectContaining({
                 slotProps: expect.objectContaining({
                     section: {

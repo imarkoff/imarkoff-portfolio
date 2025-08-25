@@ -2,7 +2,6 @@ import {render, screen} from '@testing-library/react';
 import {beforeEach, describe, expect, it, vi} from 'vitest';
 import "@testing-library/jest-dom/vitest";
 import projectFixtures from '@/lib/test-utils/fixtures/project.fixtures';
-import technologyFixtures from '@/lib/test-utils/fixtures/technology.fixtures';
 import ProjectList from '../../components/ProjectList';
 import ProjectCard from '../../components/ProjectCard/ProjectCard';
 import {mockReferences} from "../mocks";
@@ -15,9 +14,6 @@ const mockProjectCard = vi.mocked(ProjectCard);
 
 describe('ProjectList', () => {
     const mockProjects = projectFixtures.slice(0, 2);
-    const mockProjectsTechnologies = technologyFixtures
-        .slice(0, 2)
-        .map((techsByCategory) => techsByCategory.techs);
 
     beforeEach(() => {
         vi.clearAllMocks();
@@ -27,7 +23,6 @@ describe('ProjectList', () => {
         render(<ProjectList
             references={mockReferences}
             projects={mockProjects}
-            projectsTechnologies={mockProjectsTechnologies}
         />);
         expect(mockProjectCard).toHaveBeenCalledTimes(mockProjects.length);
     });
@@ -36,14 +31,12 @@ describe('ProjectList', () => {
         render(<ProjectList
             references={mockReferences}
             projects={mockProjects}
-            projectsTechnologies={mockProjectsTechnologies}
         />);
 
         expect(mockProjectCard).toHaveBeenCalledWith(
             expect.objectContaining({
                 project: mockProjects[0],
                 references: mockReferences.projectCard,
-                techs: mockProjectsTechnologies[0],
                 index: 0,
             }),
             undefined
@@ -53,7 +46,6 @@ describe('ProjectList', () => {
             expect.objectContaining({
                 project: mockProjects[1],
                 references: mockReferences.projectCard,
-                techs: mockProjectsTechnologies[1],
                 index: 1,
             }),
             undefined
@@ -64,7 +56,6 @@ describe('ProjectList', () => {
         const { container } = render(<ProjectList
             references={mockReferences}
             projects={[]}
-            projectsTechnologies={[]}
         />);
 
         const listContainer = container.querySelector(`#${mockReferences.projectsListId}`);
@@ -77,7 +68,6 @@ describe('ProjectList', () => {
         render(<ProjectList
             references={mockReferences}
             projects={mockProjects}
-            projectsTechnologies={mockProjectsTechnologies}
         />);
         const listContainer = screen.getByTestId('projects-list');
 
