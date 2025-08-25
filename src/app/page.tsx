@@ -1,16 +1,12 @@
-import Navbar from "@/components/layout/Navbar/Navbar";
 import container from "@/lib/di/container";
 import TYPES from "@/lib/di/types";
 import AboutMeGetter from "@/lib/services/interfaces/AboutMeGetter";
-import HeroSection from "@/components/sections/HeroSection/HeroSection";
 import ShowcaseGetter from "@/lib/services/interfaces/ShowcaseGetter";
-import AboutMeSection from "@/components/sections/AboutMeSection/AboutMeSection";
 import TechnologyGetter from "@/lib/services/interfaces/TechnologyGetter";
-import ProjectsSection from "@/components/sections/ProjectsSection/ProjectsSection";
 import ProjectGetter from "@/lib/services/interfaces/ProjectGetter";
-import ExperienceSection from "@/components/sections/ExperienceSection/ExperienceSection";
 import ExperienceGetter from "@/lib/services/interfaces/ExperienceGetter";
-import ContactMeSection from "@/components/sections/ContactMeSection/ContactMeSection";
+import Technology from "@/lib/models/Technology";
+import HomePage from "@/features/homepage/HomePage";
 
 export default async function Home() {
     const aboutMeGetter = container.get<AboutMeGetter>(TYPES.AboutMeGetter);
@@ -24,7 +20,7 @@ export default async function Home() {
     const showcases = await showcaseGetter.getShowcases();
     const aboutMeTechnologies = await technologyGetter
         .getTechnologiesBySlugGroupedByCategory(aboutMe.technologiesCategories);
-    const projectsTechnologies = [];
+    const projectsTechnologies: Technology[][] = [];
     const experiences = await experienceGetter.getExperienceGroupedByType();
 
     for (const {coreTechs} of projects) {
@@ -34,32 +30,13 @@ export default async function Home() {
     }
 
     return (
-        <>
-            <header>
-                <Navbar/>
-                <HeroSection
-                    aboutMe={aboutMe}
-                    showcases={showcases}
-                />
-            </header>
-            <main>
-                <AboutMeSection
-                    aboutMe={aboutMe}
-                    technologies={aboutMeTechnologies}
-                />
-                <ProjectsSection
-                    projects={projects}
-                    projectsTechnologies={projectsTechnologies}
-                />
-                <ExperienceSection
-                    experience={experiences}
-                />
-            </main>
-            <footer>
-                <ContactMeSection
-                    aboutMe={aboutMe}
-                />
-            </footer>
-        </>
+        <HomePage
+            aboutMe={aboutMe}
+            aboutMeTechnologies={aboutMeTechnologies}
+            showcases={showcases}
+            projects={projects}
+            projectsTechnologies={projectsTechnologies}
+            experiences={experiences}
+        />
     );
 }
