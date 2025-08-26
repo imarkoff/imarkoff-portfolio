@@ -12,7 +12,7 @@ import ShowcaseGetter from "@/lib/services/interfaces/ShowcaseGetter";
 export async function GET() {
     const showcaseGetter = container.get<ShowcaseGetter>(TYPES.ShowcaseGetter);
 
-    const projects = showcaseGetter.getShowcases();
+    const projects = await showcaseGetter.getShowcases();
 
     return NextResponse.json(projects);
 }

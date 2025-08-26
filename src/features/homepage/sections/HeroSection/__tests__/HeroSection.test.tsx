@@ -7,22 +7,22 @@ import HeroCenterContent from "../components/HeroCenterContent";
 import {showcaseImageMatrixFixture} from "@/lib/test-utils/fixtures/showcaseImage.fixtures";
 import ShowcaseCarousel from "@/features/homepage/sections/HeroSection/components/ShowcaseCarousel/ShowcaseCarousel";
 
-vi.mock('@/components/ui/Section', () => ({
+vi.mock('@/features/homepage/components/HomePageSection', () => ({
     default: vi.fn(({ children }) => <section>{children}</section>),
 }));
-vi.mock('@/components/sections/HeroSection/components/DownArrow', () => ({
+vi.mock('../components/DownArrow', () => ({
     default: vi.fn(() => <div data-testid="down-arrow" />),
 }));
-vi.mock('@/components/sections/HeroSection/components/ShowcaseCarousel/ShowcaseCarousel', () => ({
+vi.mock('../components/ShowcaseCarousel/ShowcaseCarousel', () => ({
     default: vi.fn(() => <div data-testid="showcase-carousel" />),
 }));
 vi.mock('@/components/ui/GradientBlur', () => ({
     default: vi.fn(() => <div data-testid="gradient-blur" />),
 }));
-vi.mock('@/components/sections/HeroSection/components/SomeShowcasesArrow/SomeShowcasesArrow', () => ({
+vi.mock('../components/SomeShowcasesArrow/SomeShowcasesArrow', () => ({
     default: vi.fn(() => <div data-testid="some-showcases-arrow" />),
 }));
-vi.mock('@/components/sections/HeroSection/components/HeroBackground', () => ({
+vi.mock('../components/HeroBackground', () => ({
     default: vi.fn(() => <div data-testid="hero-background" />),
 }));
 vi.mock('../components/HeroCenterContent');

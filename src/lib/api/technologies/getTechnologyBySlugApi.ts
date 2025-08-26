@@ -1,7 +1,7 @@
 import apiConfig from "@/config/apiConfig";
 import Technology from "@/lib/models/Technology";
 
-export default async function getTechnologyBySlug(
+export default async function getTechnologyBySlugApi(
     slug: string,
     url = apiConfig.endpoints.technologies.bySlug.route
 ): Promise<Technology | null> {

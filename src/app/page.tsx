@@ -1,21 +1,14 @@
-import container from "@/lib/di/container";
-import TYPES from "@/lib/di/types";
-import AboutMeGetter from "@/lib/services/interfaces/AboutMeGetter";
-import ShowcaseGetter from "@/lib/services/interfaces/ShowcaseGetter";
-import ProjectGetter from "@/lib/services/interfaces/ProjectGetter";
-import ExperienceGetter from "@/lib/services/interfaces/ExperienceGetter";
 import HomePage from "@/features/homepage/HomePage";
+import getAboutMeApi from "@/lib/api/about-me/getAboutMeApi";
+import getHomePageProjectsApi from "@/lib/api/projects/getHomePageProjectsApi";
+import getShowcasesApi from "@/lib/api/showcases/getShowcasesApi";
+import getExperienceGroupedByTypeApi from "@/lib/api/experiences/getExperienceGroupedByTypeApi";
 
 export default async function Home() {
-    const aboutMeGetter = container.get<AboutMeGetter>(TYPES.AboutMeGetter);
-    const projectGetter = container.get<ProjectGetter>(TYPES.ProjectGetter);
-    const showcaseGetter = container.get<ShowcaseGetter>(TYPES.ShowcaseGetter);
-    const experienceGetter = container.get<ExperienceGetter>(TYPES.ExperienceGetter);
-
-    const aboutMe = await aboutMeGetter.getAboutMe();
-    const projects = await projectGetter.getHomepageProjects();
-    const showcases = await showcaseGetter.getShowcases();
-    const experiences = await experienceGetter.getExperienceGroupedByType();
+    const aboutMe = await getAboutMeApi();
+    const projects = await getHomePageProjectsApi();
+    const showcases = await getShowcasesApi();
+    const experiences = await getExperienceGroupedByTypeApi();
 
     return (
         <HomePage

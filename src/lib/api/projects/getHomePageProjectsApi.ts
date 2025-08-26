@@ -1,7 +1,7 @@
 import apiConfig from "@/config/apiConfig";
 import Project from "@/lib/models/Project";
 
-export default async function getHomePageProjects(
+export default async function getHomePageProjectsApi(
     url = apiConfig.endpoints.projects.homepage.route
 ): Promise<Project[]> {
     const response = await fetch(url, { method: "GET" });

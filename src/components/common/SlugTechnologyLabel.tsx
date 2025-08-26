@@ -1,4 +1,4 @@
-import getTechnologyBySlug from "@/lib/api/technologies/getTechnologyBySlug";
+import getTechnologyBySlugApi from "@/lib/api/technologies/getTechnologyBySlugApi";
 import TechnologyLabel, {TechnologyLabelProps} from "./TechnologyLabel";
 
 export interface SlugTechnologyLabelProps extends Omit<TechnologyLabelProps, 'technology'> {
@@ -8,7 +8,7 @@ export interface SlugTechnologyLabelProps extends Omit<TechnologyLabelProps, 'te
 export default async function SlugTechnologyLabel(
     {technologySlug, ...props}: SlugTechnologyLabelProps
 ) {
-    const technology = await getTechnologyBySlug(technologySlug);
+    const technology = await getTechnologyBySlugApi(technologySlug);
 
     if (!technology) {
         return null;
