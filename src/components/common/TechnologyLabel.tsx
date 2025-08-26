@@ -24,7 +24,7 @@ export default function TechnologyLabel(
                     alt={technology.name}
                     width={20}
                     height={20}
-                    className={"rounded-sm"}
+                    className={"rounded-sm size-[20px]"}
                 /> : undefined
             }
             className={clsx("text-nowrap min-w-fit", className)}

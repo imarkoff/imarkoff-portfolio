@@ -56,7 +56,7 @@ const Pin = (
 const DashedLine = () => (
     <svg
         data-testid="experience-line-dashed"
-        width="2" height="100%" viewBox="0 0 2 100%"
+        width="2" height="100%"
         preserveAspectRatio="none" fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className="h-full"
@@ -65,7 +65,7 @@ const DashedLine = () => (
             x1="1" y1="0" x2="1" y2="100%"
             stroke="var(--color-tertiary)"
             strokeOpacity="0.35"
-            strokeWidth="2" strokeDasharray="6 6"
+            strokeWidth="2" strokeDasharray="8"
         />
     </svg>
 );
