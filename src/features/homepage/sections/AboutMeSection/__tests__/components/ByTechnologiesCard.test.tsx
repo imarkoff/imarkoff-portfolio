@@ -9,7 +9,7 @@ vi.mock('../../components/ByTechnologiesScroll', () => ({
 }));
 
 vi.mock('@/components/ui/TechnologyLabel', () => ({
-    SlugTechnologyLabel: vi.fn(({technologySlug}) => (<div>{technologySlug}</div>))
+    SSGSlugTechnologyLabel: vi.fn(({technologySlug}) => (<div>{technologySlug}</div>))
 }));
 
 vi.mock('@/lib/constants/technologyCategoryMetadata', () => ({

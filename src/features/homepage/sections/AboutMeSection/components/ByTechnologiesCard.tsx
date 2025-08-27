@@ -6,7 +6,7 @@ import iconMap from "@/components/icons/utils/iconMap";
 import {Fragment} from "react";
 import clsx from "clsx";
 import ByTechnologiesScroll from "@/features/homepage/sections/AboutMeSection/components/ByTechnologiesScroll";
-import {SlugTechnologyLabel} from "@/components/ui/TechnologyLabel";
+import {SSGSlugTechnologyLabel} from "@/components/ui/TechnologyLabel";
 import AboutMe from "@/lib/models/AboutMe";
 
 export interface ByTechnologiesCardProps {
@@ -62,7 +62,7 @@ const TechnologiesGroup = ({category} : { category: TechnologiesSlugsByCategory 
             <ul className={"flex flex-wrap gap-2.5"} role={"list"}>
                 {category.techs.map((slug) => (
                     <li key={slug}>
-                        <SlugTechnologyLabel technologySlug={slug} />
+                        <SSGSlugTechnologyLabel technologySlug={slug} />
                     </li>
                 ))}
             </ul>

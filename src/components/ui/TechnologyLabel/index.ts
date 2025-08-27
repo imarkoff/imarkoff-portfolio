@@ -1,5 +1,5 @@
-import SlugTechnologyLabel, { SlugTechnologyLabelProps } from "./SlugTechnologyLabel";
+import SSGSlugTechnologyLabel, { SlugTechnologyLabelProps } from "./SSGSlugTechnologyLabel";
 import TechnologyLabel, { TechnologyLabelProps } from "./TechnologyLabel";
 
 export type { SlugTechnologyLabelProps, TechnologyLabelProps };
-export { SlugTechnologyLabel, TechnologyLabel };
+export { SSGSlugTechnologyLabel, TechnologyLabel };

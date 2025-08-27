@@ -3,7 +3,7 @@ import {Typography} from "@/components/ui/Typography";
 import {ProjectCardContentReference,ProjectCardProps} from "../types";
 import ProjectCardLinks from "./ProjectCardLinks";
 import ProjectCardHeader from "./ProjectCardHeader";
-import {SlugTechnologyLabel} from "@/components/ui/TechnologyLabel";
+import {SSGSlugTechnologyLabel} from "@/components/ui/TechnologyLabel";
 
 interface ProjectCardContentProps extends Omit<ProjectCardProps, 'references'> {
     references?: ProjectCardContentReference;
@@ -30,7 +30,7 @@ export default function ProjectCardContent(
                 style={{maskImage: "linear-gradient(to right, black 0%, black 90%, transparent 100%)"}}
             >
                 {project.coreTechs.map((slug, index) => (
-                    <SlugTechnologyLabel
+                    <SSGSlugTechnologyLabel
                         className={references?.techLabelClassName}
                         technologySlug={slug}
                         key={index}

@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import {ReactNode} from "react";
 import clsx from "clsx";
 import { Inter, Just_Another_Hand } from "next/font/google";
-import "@/styles/index.css";
 import RemoveAnimateAppear from "@/components/layout/RemoveAnimateAppear";
+import "@/styles/index.css";
 
 const InterFont = Inter({
     subsets: ["latin"],
@@ -32,6 +32,7 @@ export default function RootLayout({children}: Readonly<{ children: ReactNode; }
                     InterFont.variable, JustAnotherHandFont.variable
                 )}
             >
+                {children}
                 <RemoveAnimateAppear />
                 <noscript>
                     <style>
@@ -42,7 +43,6 @@ export default function RootLayout({children}: Readonly<{ children: ReactNode; }
                         `}
                     </style>
                 </noscript>
-                {children}
             </body>
         </html>
     );

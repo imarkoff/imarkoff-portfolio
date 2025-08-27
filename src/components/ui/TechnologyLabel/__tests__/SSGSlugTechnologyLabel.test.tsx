@@ -1,9 +1,9 @@
-import { vi, describe, it, beforeEach, expect } from "vitest";
+import {vi, describe, it, beforeEach, expect, beforeAll} from "vitest";
 import { render } from "@testing-library/react";
-import SlugTechnologyLabel from "../SlugTechnologyLabel";
+import SSGSlugTechnologyLabel from "../SSGSlugTechnologyLabel";
 import TechnologyLabel from "../TechnologyLabel";
-import getTechnologyBySlugApi from "@/lib/api/technologies/getTechnologyBySlugApi";
 import {technologyFixture} from "@/lib/test-utils/fixtures/technologyByCategoryFixtures";
+import {bindMockTechnologyGetter, mockedTechnologyGetter} from "@/lib/test-utils/mocks/TechnologyGetter.mocks";
 
 vi.mock("@/lib/api/technologies/getTechnologyBySlugApi", () => ({
     default: vi.fn(),
@@ -13,16 +13,20 @@ vi.mock("../TechnologyLabel", () => ({
     default: vi.fn(),
 }));
 
-describe("SlugTechnologyLabel", () => {
+describe("SSGSlugTechnologyLabel", () => {
+    beforeAll(() => {
+        bindMockTechnologyGetter();
+    });
+
     beforeEach(() => {
         vi.clearAllMocks();
     });
 
     it("should render TechnologyLabel with fetched technology", async () => {
         const mockTechnology = { ...technologyFixture, slug: "react" };
-        vi.mocked(getTechnologyBySlugApi).mockResolvedValue(mockTechnology);
+        mockedTechnologyGetter.getTechnologyBySlug.mockResolvedValue(mockTechnology);
 
-        render(await SlugTechnologyLabel({ technologySlug: "react" }));
+        render(await SSGSlugTechnologyLabel({ technologySlug: "react" }));
 
         expect(TechnologyLabel).toHaveBeenCalledWith(
             expect.objectContaining({ technology: mockTechnology }),
@@ -31,18 +35,18 @@ describe("SlugTechnologyLabel", () => {
     });
 
     it("should return null when technology is not found", async () => {
-        vi.mocked(getTechnologyBySlugApi).mockResolvedValue(null);
+        mockedTechnologyGetter.getTechnologyBySlug.mockResolvedValue(null);
 
-        render(await SlugTechnologyLabel({ technologySlug: "nonexistent" }));
+        render(await SSGSlugTechnologyLabel({ technologySlug: "nonexistent" }));
 
         expect(TechnologyLabel).not.toHaveBeenCalled();
     });
 
     it("should throw error if API call fails", async () => {
-        vi.mocked(getTechnologyBySlugApi).mockRejectedValue(new Error("API error"));
+        mockedTechnologyGetter.getTechnologyBySlug.mockRejectedValue(new Error("API error"));
 
         await expect(async () => {
-            render(await SlugTechnologyLabel({ technologySlug: "error" }))
+            render(await SSGSlugTechnologyLabel({ technologySlug: "error" }))
         }).rejects.toThrow("API error");
     });
 });

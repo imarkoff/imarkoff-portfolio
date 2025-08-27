@@ -8,14 +8,14 @@ import ProjectCardLinks from '../../components/ProjectCardLinks';
 import ProjectCardHeader from '../../components/ProjectCardHeader';
 import { ProjectCardContentReference } from '../../types';
 import Project from "@/lib/models/Project";
-import {SlugTechnologyLabel, SlugTechnologyLabelProps} from "@/components/ui/TechnologyLabel";
+import {SSGSlugTechnologyLabel, SlugTechnologyLabelProps} from "@/components/ui/TechnologyLabel";
 
 vi.mock('@/components/ui/Typography', () => ({
     Typography: ({ children }: { children: ReactNode }) => <p>{children}</p>,
 }));
 
 vi.mock('@/components/ui/TechnologyLabel', () => ({
-    SlugTechnologyLabel: vi.fn(({ className, technologySlug }) => (
+    SSGSlugTechnologyLabel: vi.fn(({ className, technologySlug }) => (
         <div data-testid="tech-label" className={className}>
             {technologySlug}
         </div>
@@ -69,7 +69,7 @@ describe('ProjectCardContent', () => {
         );
 
         mockProject.coreTechs.forEach((slug, i) => {
-            expect(SlugTechnologyLabel).toHaveBeenNthCalledWith(
+            expect(SSGSlugTechnologyLabel).toHaveBeenNthCalledWith(
                 i + 1,
                 {
                     technologySlug: slug,
@@ -102,7 +102,7 @@ describe('ProjectCardContent', () => {
 
         expect(container.firstChild)
             .not.toHaveClass('custom-content-class');
-        expect(SlugTechnologyLabel)
+        expect(SSGSlugTechnologyLabel)
             .toHaveBeenCalledWith(
                 expect.objectContaining({ className: undefined }),
                 undefined
@@ -124,6 +124,6 @@ describe('ProjectCardContent', () => {
         );
 
         expect(screen.queryByTestId('tech-label')).not.toBeInTheDocument();
-        expect(SlugTechnologyLabel).not.toHaveBeenCalled();
+        expect(SSGSlugTechnologyLabel).not.toHaveBeenCalled();
     });
 });
