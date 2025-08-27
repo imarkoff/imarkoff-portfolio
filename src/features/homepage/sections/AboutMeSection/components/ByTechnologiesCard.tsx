@@ -6,7 +6,7 @@ import iconMap from "@/components/icons/utils/iconMap";
 import {Fragment} from "react";
 import clsx from "clsx";
 import ByTechnologiesScroll from "@/features/homepage/sections/AboutMeSection/components/ByTechnologiesScroll";
-import SlugTechnologyLabel from "@/components/common/SlugTechnologyLabel";
+import {SlugTechnologyLabel} from "@/components/ui/TechnologyLabel";
 import AboutMe from "@/lib/models/AboutMe";
 
 export interface ByTechnologiesCardProps {

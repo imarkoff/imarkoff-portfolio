@@ -3,7 +3,7 @@ import {Typography} from "@/components/ui/Typography";
 import {ProjectCardContentReference,ProjectCardProps} from "../types";
 import ProjectCardLinks from "./ProjectCardLinks";
 import ProjectCardHeader from "./ProjectCardHeader";
-import SlugTechnologyLabel from "@/components/common/SlugTechnologyLabel";
+import {SlugTechnologyLabel} from "@/components/ui/TechnologyLabel";
 
 interface ProjectCardContentProps extends Omit<ProjectCardProps, 'references'> {
     references?: ProjectCardContentReference;

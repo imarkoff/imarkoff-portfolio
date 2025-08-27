@@ -8,8 +8,8 @@ vi.mock('../../components/ByTechnologiesScroll', () => ({
     default: vi.fn(() => <div data-testid="by-technologies-scroll" />)
 }));
 
-vi.mock('@/components/common/SlugTechnologyLabel', () => ({
-    default: vi.fn(({technologySlug}) => (<div>{technologySlug}</div>))
+vi.mock('@/components/ui/TechnologyLabel', () => ({
+    SlugTechnologyLabel: vi.fn(({technologySlug}) => (<div>{technologySlug}</div>))
 }));
 
 vi.mock('@/lib/constants/technologyCategoryMetadata', () => ({

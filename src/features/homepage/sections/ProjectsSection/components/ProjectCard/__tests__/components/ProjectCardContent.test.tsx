@@ -8,14 +8,14 @@ import ProjectCardLinks from '../../components/ProjectCardLinks';
 import ProjectCardHeader from '../../components/ProjectCardHeader';
 import { ProjectCardContentReference } from '../../types';
 import Project from "@/lib/models/Project";
-import SlugTechnologyLabel, {SlugTechnologyLabelProps} from "@/components/common/SlugTechnologyLabel";
+import {SlugTechnologyLabel, SlugTechnologyLabelProps} from "@/components/ui/TechnologyLabel";
 
 vi.mock('@/components/ui/Typography', () => ({
     Typography: ({ children }: { children: ReactNode }) => <p>{children}</p>,
 }));
 
-vi.mock('@/components/common/SlugTechnologyLabel', () => ({
-    default: vi.fn(({ className, technologySlug }) => (
+vi.mock('@/components/ui/TechnologyLabel', () => ({
+    SlugTechnologyLabel: vi.fn(({ className, technologySlug }) => (
         <div data-testid="tech-label" className={className}>
             {technologySlug}
         </div>
