@@ -6,11 +6,11 @@ import {FirebaseCollections} from "@/lib/database/collections";
 
 const aboutMeData = { name: "John Doe", fullDescription: "Developer" };
 
-beforeEach(() => {
-    resetFirestoreMocks();
-});
-
 describe("FirestoreAboutMeRepository", () => {
+    beforeEach(() => {
+        resetFirestoreMocks();
+    });
+
     it("returns AboutMe data when document exists", async () => {
         mockDoc.get.mockResolvedValue({ exists: true, data: () => aboutMeData });
 

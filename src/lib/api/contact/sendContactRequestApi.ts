@@ -12,7 +12,10 @@ export default async function sendContactRequestApi(
     });
 
     if (!response.ok) {
-        throw new Error(`Error sending contact request: ${response.statusText}`);
+        throw new Error(!!response.statusText
+            ? `Error sending contact request: ${response.statusText}`
+            : "Failed to send contact request"
+        );
     }
 
     return await response.json();

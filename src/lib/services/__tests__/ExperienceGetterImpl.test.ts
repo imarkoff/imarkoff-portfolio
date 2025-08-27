@@ -38,8 +38,8 @@ describe('ExperienceGetterImpl', () => {
 
         const result = await experienceGetter.getExperienceGroupedByType();
 
-        expect(result[ExperienceType.Work].length).toBe(2);
-        expect(result[ExperienceType.Education].length).toBe(1);
+        expect(result[ExperienceType.Work]!.length).toBe(2);
+        expect(result[ExperienceType.Education]!.length).toBe(1);
         expect(result[ExperienceType.Work]).toContainEqual(mockExperienceItems[0]);
         expect(result[ExperienceType.Work]).toContainEqual(mockExperienceItems[1]);
         expect(result[ExperienceType.Education]).toContainEqual(mockExperienceItems[2]);

@@ -3,11 +3,11 @@ import FirestoreExperienceRepository from "@/lib/repositories/FirestoreExperienc
 import {mockCollection, mockFirestore, resetFirestoreMocks} from "@/lib/test-utils/mocks/firebase.mocks";
 import {FirebaseCollections} from "@/lib/database/collections";
 
-beforeEach(() => {
-    resetFirestoreMocks();
-});
-
 describe("FirestoreExperienceRepository", () => {
+    beforeEach(() => {
+        resetFirestoreMocks();
+    });
+
     it("calls getExperience with correct ordering", async () => {
         const repo = new FirestoreExperienceRepository(mockFirestore);
         await repo.getExperience();

@@ -1,17 +1,20 @@
 import TechnologyCategory, {TechnologiesByCategory} from "@/lib/models/types/TechnologyCategory";
+import Technology from "@/lib/models/Technology";
 
-const technologyFixtures: TechnologiesByCategory[] = [
+export const technologyFixture: Technology = {
+    id: "react",
+    name: "React",
+    slug: "react",
+    iconUrl: "https://example.com/react-icon.png",
+    category: TechnologyCategory.Frontend,
+    description: "React is a JavaScript library for building user interfaces.",
+};
+
+export const technologyByCategoryFixtures: TechnologiesByCategory[] = [
     {
         categoryName: TechnologyCategory.Frontend,
         techs: [
-            {
-                id: "react",
-                name: "React",
-                slug: "react",
-                iconUrl: "https://example.com/react-icon.png",
-                category: TechnologyCategory.Frontend,
-                description: "React is a JavaScript library for building user interfaces.",
-            },
+            technologyFixture,
             {
                 id: "vue",
                 name: "Vue.js",
@@ -31,5 +34,3 @@ const technologyFixtures: TechnologiesByCategory[] = [
         ]
     }
 ];
-
-export default technologyFixtures;
