@@ -1,4 +1,3 @@
-import Label from "@/components/ui/Label";
 import {Typography} from "@/components/ui/Typography";
 import ReactMarkdown from "react-markdown";
 import {ChatIcon, DocsIcon} from "@/components/icons";
@@ -16,28 +15,12 @@ export default function HeroCenterContent({aboutMe}: { aboutMe: AboutMe }) {
         },
         nameId: "hero.name",
         taglineId: "hero.tagline",
-        labelId: "hero.label",
         buttonWrapperClassName: "button-wrapper"
     };
 
     return (
         <div className={"md:w-fit flex flex-col items-center md:items-start gap-3 md:gap-6 z-10"}>
             <AnimateHero {...references} />
-            <Label
-                color={"green"}
-                className={"drop-shadow-card !px-3 !gap-3"}
-                id={references.labelId}
-                icon={
-                    <div className={"size-[10px] relative"}>
-                        <div className={"size-full rounded-full bg-green-filled"} />
-                        <div className={"absolute inset-0 rounded-full bg-green-filled animate-ping"} />
-                    </div>
-                }
-            >
-                <Typography variant={"h3"}>
-                    Seeking for a job
-                </Typography>
-            </Label>
             <div className={"flex flex-col items-center md:items-start"}>
                 <Typography variant={"tagline"} component={"h3"}>
                     <span className={"inline-block origin-[25%] md:origin-left"} id={references.greeting.hiId}>

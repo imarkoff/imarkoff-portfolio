@@ -1,5 +1,5 @@
-import { render, screen, cleanup } from '@testing-library/react';
-import {describe, it, expect, vi, afterEach, beforeEach, Mock} from 'vitest';
+import { render, screen } from '@testing-library/react';
+import {describe, it, expect, vi, beforeEach, Mock} from 'vitest';
 import "@testing-library/jest-dom/vitest";
 import HeroCenterContent from '../../components/HeroCenterContent';
 import AboutMe from '@/lib/models/AboutMe';
@@ -39,14 +39,9 @@ describe('HeroCenterContent', () => {
         MockedAnimateHero.mockClear();
     });
 
-    afterEach(() => {
-        cleanup();
-    });
-
     it('should render all elements correctly with full data', () => {
         render(<HeroCenterContent aboutMe={mockAboutMe} />);
 
-        expect(screen.getByText('Seeking for a job')).toBeInTheDocument();
         expect(screen.getByText(/Hi 👋/)).toBeInTheDocument();
         expect(screen.getByText(/, I’m/)).toBeInTheDocument();
         expect(screen.getByText(/John/)).toBeInTheDocument();
@@ -88,7 +83,6 @@ describe('HeroCenterContent', () => {
             greeting: { hiId: "hero.greeting.hi", otherId: "hero.greeting.other" },
             nameId: "hero.name",
             taglineId: "hero.tagline",
-            labelId: "hero.label",
             buttonWrapperClassName: "button-wrapper"
         };
 
@@ -99,7 +93,6 @@ describe('HeroCenterContent', () => {
     it('should apply correct IDs and classNames to elements for animation', () => {
         const { container } = render(<HeroCenterContent aboutMe={mockAboutMe} />);
 
-        expect(container.querySelector('#hero\\.label')).toBeInTheDocument();
         expect(container.querySelector('#hero\\.greeting\\.hi')).toBeInTheDocument();
         expect(container.querySelector('#hero\\.greeting\\.other')).toBeInTheDocument();
         expect(container.querySelector('#hero\\.name')).toBeInTheDocument();

@@ -6,15 +6,14 @@ import {SplitText} from "gsap/SplitText";
 import {HeroAnimatorProps} from "@/features/homepage/sections/HeroSection/types";
 
 export default function AnimateHero(
-    {greeting, nameId, taglineId, labelId, buttonWrapperClassName}: HeroAnimatorProps
+    {greeting, nameId, taglineId, buttonWrapperClassName}: HeroAnimatorProps
 ) {
     useGSAP(() => {
         const elements = {
             greetingHi: document.getElementById(greeting.hiId),
             greetingOther: document.getElementById(greeting.otherId),
             name: document.getElementById(nameId),
-            tagline: document.getElementById(taglineId),
-            label: document.getElementById(labelId)
+            tagline: document.getElementById(taglineId)
         }
         const allButtons = document.getElementsByClassName(buttonWrapperClassName);
 
@@ -29,7 +28,6 @@ export default function AnimateHero(
         animateName(tl, elements.name!);
         animateTagline(tl, elements.tagline!);
         animateButtons(tl, allButtons);
-        animateLabel(tl, elements.label!);
 
         return () => {
             tl.kill();
@@ -47,17 +45,17 @@ function animateGreeting(
     tl.fromTo(greetingHiElement, {
         opacity: 0,
         filter: "blur(4px)",
-        y: 20
+        x: -50
     }, {
         opacity: 1,
         filter: "blur(0px)",
-        y: 0,
+        x: 0,
         stagger: 0.1,
         duration: 0.5
     });
     tl.fromTo(greetingHiElement, {
         transform: "scale(3)",
-        yPercent: 100,
+        yPercent: 200,
     }, {
         transform: "scale(1)",
         yPercent: 0,
@@ -128,16 +126,4 @@ function animateButtons(
     tl.set(allButtons, {
         clearProps: "all"
     });
-}
-
-function animateLabel(
-    tl: gsap.core.Timeline,
-    labelElement: HTMLElement
-) {
-    tl.fromTo(labelElement, {
-        opacity: 0,
-    }, {
-        opacity: 1,
-        duration: 1,
-    }, "-=0.3");
 }

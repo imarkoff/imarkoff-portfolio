@@ -5,6 +5,5 @@ export interface HeroAnimatorProps {
     };
     nameId: string;
     taglineId: string;
-    labelId: string;
     buttonWrapperClassName: string;
 }
