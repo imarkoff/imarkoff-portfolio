@@ -1,16 +1,15 @@
 "use client";
 
-import {Button, LinkButton} from "@/components/ui/Button";
 import clsx from "clsx";
-import GradientBlur from "@/components/ui/GradientBlur";
-import dottedBackground from "@/utils/dottedBackground";
-import useNavbarAppear from "@/components/layout/Navbar/hooks/useNavbarAppear";
-import navbarLinks from "@/components/layout/Navbar/navbarLinks";
-import {useState} from "react";
 import {MenuIcon} from "@/components/icons";
-import NavbarMenu from "@/components/layout/Navbar/components/NavbarMenu";
-import useNavbarMenuAnimation from "@/components/layout/Navbar/hooks/useNavbarMenuAnimation";
 import Logo from "@/components/layout/Logo";
+import {Button} from "@/components/ui/Button";
+import useNavbarAppear from "./hooks/useNavbarAppear";
+import NavbarMenu from "./components/NavbarMenu";
+import useNavbarMenuAnimation from "./hooks/useNavbarMenuAnimation";
+import NavbarDesktopLinks from "./components/NavbarDesktopLinks";
+import NavbarBackgroundOverlay from "./components/NavbarBackgroundOverlay";
+import useActiveLinkStore from "@/stores/activeLinkStore";
 
 export default function Navbar() {
     const navbarRef = useNavbarAppear();
@@ -19,19 +18,11 @@ export default function Navbar() {
         isMenuOpen, toggleMenu
     } = useNavbarMenuAnimation();
 
-    const [activeLink, setActiveLink] = useState<string>("#home");
+    const { activeLink } = useActiveLinkStore();
 
     return (
         <div className={"fixed top-0 inset-x-0 z-50 p-4 md:p-5 lg:px-0"} data-animate-appear={"true"}>
-            <GradientBlur
-                direction={"top-to-bottom"}
-                background={"linear-gradient(180deg, rgba(21, 23, 25, 75%) 0%, rgba(21, 23, 25, 25%) 33%, rgba(21, 23, 25, 0%) 100%)"}
-            />
-
-            <div className={"absolute inset-0"} style={{
-                ...dottedBackground("rgba(255, 255, 255, 0.03)", "1px", "10px"),
-                maskImage: "linear-gradient(180deg, black 0%, rgba(0, 0, 0, .6) 50%, transparent 100%)",
-            }} />
+            <NavbarBackgroundOverlay />
             <nav ref={navbarRef} className={clsx(
                 "bg-on-background max-w-[860px] mx-auto text-white p-navbar rounded-navbar border border-border-menu z-50 relative",
                 "backdrop-blur-md"
@@ -41,24 +32,7 @@ export default function Navbar() {
                         <Logo />
                     </div>
                     <ul className="flex gap-x-navbar">
-                        {navbarLinks.map((link, index) => (
-                            <li key={index} className={"hidden sm:block"}>
-                                <LinkButton
-                                    href={link.href}
-                                    size={"small"}
-                                    LeftIcon={link.icon}
-                                    variant={link.isPrimary ? "primary" : "tertiary"}
-                                    active={link.href === activeLink}
-                                >
-                                    <span className={clsx(
-                                        "lg:inline-block",
-                                        {"hidden": !link.isPrimary && link.href !== activeLink}
-                                    )}>
-                                        {link.title}
-                                    </span>
-                                </LinkButton>
-                            </li>
-                        ))}
+                        <NavbarDesktopLinks activeLink={activeLink} />
                         <li className={"sm:hidden"}>
                             <Button
                                 LeftIcon={MenuIcon}
@@ -76,12 +50,10 @@ export default function Navbar() {
             </nav>
             <NavbarMenu
                 activeLink={activeLink}
-                setActiveLink={setActiveLink}
                 isOpen={isMenuOpen}
                 toggleMenu={toggleMenu}
                 ref={menuRef}
             />
         </div>
-
     );
 }

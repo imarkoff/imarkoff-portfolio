@@ -1,7 +1,7 @@
 import {ComponentProps, ReactNode} from "react";
 import clsx from "clsx";
 
-interface SectionProps {
+export interface SectionProps {
     children: ReactNode;
     slotProps?: {
         root?: ComponentProps<'div'> & { "data-animate-appear"?: boolean };

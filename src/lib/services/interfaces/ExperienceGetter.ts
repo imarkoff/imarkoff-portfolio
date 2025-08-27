@@ -1,5 +1,5 @@
 import ExperienceItem from "@/lib/models/ExperienceItem";
-import ExperienceType from "@/lib/models/types/ExperienceType";
+import {ExperienceByType} from "@/lib/models/types/ExperienceType";
 
 export default interface ExperienceGetter {
     /**
@@ -13,5 +13,5 @@ export default interface ExperienceGetter {
      * Fetches experience items grouped by their type (e.g., work, education).
      * @returns A promise that resolves to an object where keys are ExperienceType and values are arrays of ExperienceItem.
      */
-    getExperienceGroupedByType(): Promise<Record<ExperienceType, ExperienceItem[]>>;
+    getExperienceGroupedByType(): Promise<ExperienceByType>;
 }

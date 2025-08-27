@@ -2,11 +2,12 @@ import { describe, it, expect, beforeEach } from "vitest";
 import FirestoreProjectRepository from "@/lib/repositories/FirestoreProjectRepository";
 import {mockCollection, mockDoc, mockFirestore, resetFirestoreMocks} from "@/lib/test-utils/mocks/firebase.mocks";
 import { FirebaseCollections } from "@/lib/database/collections";
-beforeEach(() => {
-    resetFirestoreMocks();
-});
 
 describe("FirestoreProjectRepository", () => {
+    beforeEach(() => {
+        resetFirestoreMocks();
+    });
+
     it("returns all projects with ids when documents exist", async () => {
         const mockDocs = [
             { id: "1", data: () => ({ name: "Project1" }) },
