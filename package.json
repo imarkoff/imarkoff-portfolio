@@ -19,7 +19,7 @@
     "firebase-admin": "^13.4.0",
     "gsap": "^3.13.0",
     "inversify": "^7.0.0-alpha.5",
-    "next": "15.4.1",
+    "next": "15.4.10",
     "next-auth": "^4.24.11",
     "postcss": "^8.5.6",
     "react": "19.1.0",
